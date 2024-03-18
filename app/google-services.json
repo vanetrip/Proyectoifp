@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "98255279232",
+    "project_id": "clublectura-2fb74",
+    "storage_bucket": "clublectura-2fb74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98255279232:android:a25c20d7ce2782473a8265",
+        "android_client_info": {
+          "package_name": "com.app.storyshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcabaAgnADitodY0pHxWE5h59zqdUemWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98255279232:android:b8f7ab6bee5414d03a8265",
+        "android_client_info": {
+          "package_name": "com.example.storyshareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcabaAgnADitodY0pHxWE5h59zqdUemWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
