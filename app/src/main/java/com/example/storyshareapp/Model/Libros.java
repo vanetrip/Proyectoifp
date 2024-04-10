@@ -13,7 +13,7 @@ public class Libros {
     //crear el constructor vacio
     public Libros (){
     }
-    //Crear Metodo
+    //Crear Constructor
     public Libros (String autor,Date fechapublicacion, String genero, String titulo, Integer valoracion) {
         this.autor = autor;
         this.fechapublicacion = fechapublicacion;

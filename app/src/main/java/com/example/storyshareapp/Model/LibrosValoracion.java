@@ -10,7 +10,7 @@ public class LibrosValoracion {
     //crear el constructor vacio
     public LibrosValoracion (){
     }
-    //Crear Metodo
+    //Crear Constructor
     public LibrosValoracion (String comentario, String usuario_valoracion, Integer valoracion){
         this.comentario = comentario;
         this.usuario_valoracion=usuario_valoracion;
