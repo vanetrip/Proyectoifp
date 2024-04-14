@@ -12,6 +12,7 @@ public class Eventos {
     Integer moderador_id;
     Integer libro_id;
 
+
     // constructor vacio
     public Eventos (){
     }

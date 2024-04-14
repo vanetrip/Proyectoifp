@@ -3,7 +3,7 @@ package com.example.storyshareapp.Model;
 public class PlanPrecios {
     //declaracion de variables
     Integer id;
-    String plan;
+    String planprecio;
 
     // constructor vacio
     public PlanPrecios (){
@@ -13,7 +13,7 @@ public class PlanPrecios {
 
     public PlanPrecios(Integer id, String plan) {
         this.id = id;
-        this.plan = plan;
+        this.planprecio = plan;
     }
 
     //insertar getters & Setters
@@ -27,10 +27,10 @@ public class PlanPrecios {
     }
 
     public String getPlan() {
-        return plan;
+        return planprecio;
     }
 
     public void setPlan(String plan) {
-        this.plan = plan;
+        this.planprecio = plan;
     }
 }
