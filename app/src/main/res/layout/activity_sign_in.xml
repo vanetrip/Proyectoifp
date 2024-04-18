@@ -9,7 +9,7 @@
     tools:context=".Controller.SignInActivity">
 
     <FrameLayout
-        android:id="@+id/frameLayout2"
+        android:id="@+id/frameLayout7"
         android:layout_width="0dp"
         android:layout_height="145dp"
         android:background="#F4EEE1"
@@ -42,7 +42,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
     <TextView
         android:id="@+id/textView2_signIn"
@@ -192,7 +192,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button3_signIn" />
 
     <FrameLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/frameLayout5"
         android:layout_width="0dp"
         android:layout_height="29dp"
         android:layout_marginTop="32dp"
@@ -252,7 +252,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
 
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
