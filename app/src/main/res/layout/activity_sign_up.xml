@@ -29,7 +29,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout6" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView2_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -53,10 +53,10 @@
         android:text="Usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1_signUp" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/editText1_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -68,10 +68,10 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2_signUp" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView3_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -81,10 +81,10 @@
         android:text="Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editText1_SignUp" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/editText2_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -96,10 +96,10 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3_signUp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView4_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -108,10 +108,10 @@
         android:text="Repetir contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2_SignUp" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/editText3_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -123,10 +123,10 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4_signUp" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView5_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -136,10 +136,10 @@
         android:text="Edad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/editText3_SignUp" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/editText4_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -151,10 +151,10 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5_signUp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView6_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -164,10 +164,10 @@
         android:text="Ciudad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+        app:layout_constraintTop_toBottomOf="@+id/editText4_SignUp" />
 
     <EditText
-        android:id="@+id/editTextText7"
+        android:id="@+id/editText5_SignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -179,7 +179,7 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6_SignUp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -190,10 +190,10 @@
         android:layout_marginEnd="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7">
+        app:layout_constraintTop_toBottomOf="@+id/editText5_SignUp">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton1_signUp"
             android:layout_width="match_parent"
             android:layout_height="22dp"
             android:fontFamily="@font/quicksand_medium"
@@ -201,7 +201,7 @@
             android:textSize="12sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton2_signUp"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="Suscripción a StoryShare por 4'99€/mes*"
@@ -209,7 +209,7 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textView7_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -221,7 +221,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/button1_signUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
@@ -234,7 +234,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7_signUp" />
 
     <FrameLayout
         android:id="@+id/frameLayout7"
@@ -244,7 +244,7 @@
         android:background="#A5C3A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11">
+        app:layout_constraintTop_toBottomOf="@+id/button1_signUp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -252,7 +252,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/button2_signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -265,7 +265,7 @@
                 android:textSize="8sp" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView8_SignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -276,7 +276,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/button3_signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
