@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Controller.SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".Controller.HomeActivity"
             android:exported="false"
             android:label="@string/app_name"
@@ -29,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Controller.SignInActivity"
+            android:exported="false" />
         <activity
             android:name=".Controller.Profile"
             android:exported="false" />
@@ -41,12 +47,10 @@
         <activity
             android:name=".Controller.WelcomeActivity"
             android:exported="false" />
-        <activity
-            android:name=".Controller.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Controller.SignInActivity"
-            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
