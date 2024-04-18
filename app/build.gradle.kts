@@ -47,6 +47,7 @@ dependencies {
     //implementation("com.google.firebase:firebase-auth:22.3.0")
     //implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics:21.5.0")
+    implementation("androidx.activity:activity:1.8.0")
     dependencies {
         // Import the BoM for the Firebase platform
         implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
