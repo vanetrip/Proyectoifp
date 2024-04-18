@@ -41,8 +41,11 @@
         android:background="#6D8B89"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/quicksand_medium"
+        android:stateListAnimator="@android:anim/button_state_list_anim_material"
         android:text="Inicia Sesión"
         android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+        android:textColorLink="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
