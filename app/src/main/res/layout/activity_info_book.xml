@@ -6,98 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView17"
-        app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView13"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <FrameLayout
         android:id="@+id/frameLayout1"
         android:layout_width="409dp"
@@ -108,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView1_home"
+            android:id="@+id/imageView1_info_book"
             android:layout_width="156dp"
             android:layout_height="80dp"
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
         <TextView
-            android:id="@+id/textView1_home"
+            android:id="@+id/textView1_info_book"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -132,12 +40,11 @@
             android:textColor="#A5A4A4" />
 
         <ImageView
-            android:id="@+id/imageView2_home"
+            android:id="@+id/imageView2_info_book"
             android:layout_width="24dp"
             android:layout_height="21dp"
             android:layout_gravity="center|right"
             android:layout_marginRight="40dp"
-            android:tint="#46000000"
             app:srcCompat="@drawable/buscar" />
 
     </FrameLayout>
@@ -158,21 +65,21 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView3_home"
+                android:id="@+id/imageView3_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/estrella_blanca" />
 
             <ImageView
-                android:id="@+id/imageView4_home"
+                android:id="@+id/imageView4_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView5_home"
+                android:id="@+id/imageView5_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -195,7 +102,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView2_home"
+                android:id="@+id/textView2_info_book"
                 android:layout_width="37dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -205,7 +112,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView3_home"
+                android:id="@+id/textView3_info_book"
                 android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -215,7 +122,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView4_home"
+                android:id="@+id/textView4_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -238,57 +145,13 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView5_home"
+            android:id="@+id/textView5_info_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Foros más activos"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayout4"
-        android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="130dp"
-        android:background="#A5C3A7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Próximas reuniones"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayout5"
-        android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="130dp"
-        android:background="#A5C3A7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Foros abiertos recientemente"
+            android:text="Nombre del libro"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -297,12 +160,12 @@
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
         android:layout_height="32dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="14dp"
         android:background="#A5C3A7"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/button10_info_book">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -310,19 +173,19 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button1_home"
+                android:id="@+id/button1_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:text="Centro de ayuda"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView6_home"
+                android:id="@+id/textView6_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -332,7 +195,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button8_home"
+                android:id="@+id/button2_info_book"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -344,7 +207,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView6_home"
+                android:id="@+id/textView7_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -354,7 +217,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button8_home"
+                android:id="@+id/button3_info_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -371,7 +234,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -379,5 +242,167 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView6_infoBook"
+        android:layout_width="92dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button9_info_book"
+        android:layout_width="160dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="133dp"
+        android:backgroundTint="#6D8B89"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Acceder al foro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button10_info_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16_info_book" />
+
+    <Button
+        android:id="@+id/button10_info_book"
+        android:layout_width="160dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginEnd="132dp"
+        android:backgroundTint="#6D8B89"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Añadir a eventos"
+        android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9_info_book" />
+
+    <TextView
+        android:id="@+id/textView9_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Título: "
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView10_infoBook"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6_infoBook" />
+
+    <TextView
+        android:id="@+id/textView10_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="152dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:hint="Descripcion"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6_infoBook" />
+
+    <TextView
+        android:id="@+id/textView11_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="6dp"
+        android:text="Autor:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13_infoBook"
+        app:layout_constraintEnd_toStartOf="@+id/textView12_infoBook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9_infoBook" />
+
+    <TextView
+        android:id="@+id/textView12_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="206dp"
+        android:hint="Autor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11_infoBook"
+        app:layout_constraintTop_toBottomOf="@+id/textView10_infoBook" />
+
+    <TextView
+        android:id="@+id/textView13_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Próximo Evento"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView14_infoBook"
+        app:layout_constraintTop_toBottomOf="@+id/textView11_infoBook"
+        tools:layout_editor_absoluteX="104dp" />
+
+    <TextView
+        android:id="@+id/textView14_infoBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Día: "
+        android:textColor="#6B6B6B"
+        app:layout_constraintBottom_toTopOf="@+id/textView16_info_book"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13_infoBook" />
+
+    <TextView
+        android:id="@+id/textView15_info_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="250dp"
+        android:hint="día"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14_infoBook"
+        app:layout_constraintTop_toBottomOf="@+id/textView13_infoBook" />
+
+    <TextView
+        android:id="@+id/textView16_info_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginEnd="269dp"
+        android:layout_marginBottom="14dp"
+        android:text="Hora:"
+        android:textColor="#6B6B6B"
+        app:layout_constraintBottom_toTopOf="@+id/button9_info_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14_infoBook" />
+
+    <ImageButton
+        android:id="@+id/imageButton_info_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="86dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView6_infoBook"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        app:srcCompat="@drawable/estrella_blanca" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

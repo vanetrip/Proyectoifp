@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView1_forum"
             android:layout_width="156dp"
             android:layout_height="80dp"
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textView1_forum"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -40,12 +40,11 @@
             android:textColor="#A5A4A4" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView2_forum"
             android:layout_width="24dp"
             android:layout_height="21dp"
             android:layout_gravity="center|right"
             android:layout_marginRight="40dp"
-            android:tint="#46000000"
             app:srcCompat="@drawable/buscar" />
 
     </FrameLayout>
@@ -66,21 +65,21 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView3_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/estrella_blanca" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/imageView4_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imageView5_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,7 +102,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/textView2_forum"
                 android:layout_width="37dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -113,7 +112,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView3_forum"
                 android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -123,7 +122,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView4_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -146,27 +145,27 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/textView5_forum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Modificar los datos de tu perfil"
+            android:text="Foro: "
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout6"
-        android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="407dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
         android:background="#A5C3A7"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/button10_forum">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -174,19 +173,19 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button1_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:text="Centro de ayuda"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView6_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -196,7 +195,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button8_forum"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -205,10 +204,10 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView6_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,212 +217,59 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button8_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:text="Solicita tu libro"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:layout_width="412dp"
+        android:layout_height="30dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
 
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="78dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="283dp"
+    <Button
+        android:id="@+id/button10_forum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="100dp"
+        android:backgroundTint="#6D8B89"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Crear nuevo tema"
+        android:textColor="#F8F8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView_forum" />
+
+    <ListView
+        android:id="@+id/listView_forum"
+        android:layout_width="403dp"
+        android:layout_height="364dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/texto_Usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="160dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Usuario"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
-
-    <EditText
-        android:id="@+id/caja_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="73dp"
-        android:ems="10"
-        android:inputType="text"
-        android:outlineProvider="paddedBounds"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.629"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/texto_Usuario" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Edad"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="205dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textColorLink="#F3ECEC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Ciudad"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Cambiar Contraseña"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Repetir Contraseña"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
-
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#6D8B89"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Cancelar"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#6D8B89"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Guardar"
-        android:textColor="#F8F8F8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Eliminar Cuenta"
-        android:textColor="#47667B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
