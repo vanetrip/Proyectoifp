@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.R;
 
-public class Forum extends AppCompatActivity {
+public class Forum {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
