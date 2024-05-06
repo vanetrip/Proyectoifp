@@ -51,7 +51,6 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(pasarPantalla);
 
             }
-
         });
         button4.setOnClickListener(new View.OnClickListener() {
             //Boton Registarse
