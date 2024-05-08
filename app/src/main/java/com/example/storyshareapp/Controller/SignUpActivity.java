@@ -5,35 +5,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 //import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.storyshareapp.R;
 
+import com.example.storyshareapp.Persistencia.BasedeDatos;
+import com.example.storyshareapp.Persistencia.Usuario;
+
+
 public class SignUpActivity extends AppCompatActivity {
-    protected TextView textView1;
-    protected TextView textView2;
-    protected TextView textView3;
-    protected TextView textView4;
-    protected TextView textView5;
-    protected TextView textView6;
-    protected TextView textView7;
-    protected TextView textView8;
     private EditText editText1;
     private EditText editText2;
     private EditText editText3;
     private EditText editText4;
     private EditText editText5;
+    private EditText editText6;
     private Button button1;
-    private  Button button2;
-    private  Button button3;
     private Intent pasarPantalla;
 
+    private BasedeDatos basedeDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +39,58 @@ public class SignUpActivity extends AppCompatActivity {
         editText3 = (EditText) findViewById(R.id.editText3_SignUp);
         editText4 = (EditText) findViewById(R.id.editText4_SignUp);
         editText5 = (EditText) findViewById(R.id.editText5_SignUp);
+        editText6 = (EditText) findViewById(R.id.editText6_SignUp);
 
         button1 = (Button) findViewById(R.id.button1_signUp);
-        button2 = (Button) findViewById(R.id.button2_signUp);
-        button3 = (Button) findViewById(R.id.button3_signUp);
 
         button1.setOnClickListener(new View.OnClickListener() {
-            //Boton inicio sesion
             @Override
             public void onClick(View v) {
-                pasarPantalla = new Intent(SignUpActivity.this, SignUpActivity.class);
-                finish();
-                startActivity(pasarPantalla);
+                String username = editText1.getText().toString();
+                String password = editText2.getText().toString();
+                String repeatedPassword = editText3.getText().toString();
+                String age = editText4.getText().toString();
+                String nombreCompleto = editText5.getText().toString();
+                String email = editText6.getText().toString();
 
+                if (!password.equals(repeatedPassword)) {
+                    Toast.makeText(SignUpActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int ageInt = Integer.parseInt(age);
+                if (ageInt < 18) {
+                    Toast.makeText(SignUpActivity.this, "Debes ser mayor de 18 años para registrarte", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.setNombreUsuario(username);
+                nuevoUsuario.setContraseña(password);
+                nuevoUsuario.setEmail(email);
+                nuevoUsuario.setNombre(nombreCompleto);
+                nuevoUsuario.setFechaNacimiento(Integer.parseInt(age));
+
+                // Calcular la fecha de inicio del plan (hoy)
+                java.util.Date fechaHoy = new java.util.Date();
+                nuevoUsuario.setPlanInicio(new java.sql.Date(fechaHoy.getTime()));
+
+                // Calcular la fecha de fin del plan (30 días después de la fecha de inicio)
+                java.util.Calendar cal = java.util.Calendar.getInstance();
+                cal.setTime(fechaHoy);
+                cal.add(java.util.Calendar.DATE, 30); // Sumar 30 días
+                java.util.Date fechaFinPlan = cal.getTime();
+                nuevoUsuario.setPlanFin(new java.sql.Date(fechaFinPlan.getTime()));
+
+                boolean usuarioInsertado = basedeDatos.insertarUsuario(nuevoUsuario);
+
+                if (usuarioInsertado) {
+                    Toast.makeText(SignUpActivity.this, "Usuario creado", Toast.LENGTH_SHORT).show();
+                    pasarPantalla = new Intent(SignUpActivity.this, SignInActivity.class);
+                    startActivity(pasarPantalla);
+                } else {
+                    Toast.makeText(SignUpActivity.this, "Error al insertar el usuario", Toast.LENGTH_SHORT).show();
+                }
             }
-
-
         });
     }}

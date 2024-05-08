@@ -10,27 +10,25 @@ public class Usuarios {
     Integer plan_id;
     Date plan_inicio;
     Date plan_fin;
-    String nombre;
-    String apellido;
     String email;
     Date fecha_nacimiento;
+    String nombre;
 
     // constructor vacio
     public Usuarios (){
     }
     //Crear Constructor
 
-    public Usuarios(Integer id, String nombreUsuario, String contraseña, Integer plan_id, Date plan_inicio, Date plan_fin, String nombre, String apellido, String email, Date fecha_nacimiento) {
+    public Usuarios(Integer id, String nombreUsuario, String contraseña, Integer plan_id, Date plan_inicio, Date plan_fin, String email, Date fecha_nacimiento, String nombre) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
         this.plan_id = plan_id;
         this.plan_inicio = plan_inicio;
         this.plan_fin = plan_fin;
-        this.nombre = nombre;
-        this.apellido = apellido;
         this.email = email;
         this.fecha_nacimiento = fecha_nacimiento;
+        this.nombre = nombre;
     }
 
     //insertar getters & Setters
@@ -84,22 +82,6 @@ public class Usuarios {
         this.plan_fin = plan_fin;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -115,4 +97,8 @@ public class Usuarios {
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
+
+    public String getNombre() {return nombre;}
+
+    public void setNombre(String nombre) {this.nombre = nombre;}
 }
