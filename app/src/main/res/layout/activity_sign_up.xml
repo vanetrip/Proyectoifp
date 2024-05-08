@@ -9,8 +9,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout1"
-        android:layout_width="0dp"
-        android:layout_height="145dp"
+        android:layout_width="410dp"
+        android:layout_height="87dp"
         android:background="#F4EEE1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="135dp"
+            android:layout_height="53dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="25sp"
             android:layout_marginTop="20sp"
@@ -161,7 +161,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Ciudad"
+        android:text="Nombre completo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText4_SignUp" />
@@ -174,7 +174,7 @@
         android:layout_marginEnd="45dp"
         android:ems="10"
         android:fontFamily="@font/quicksand_medium"
-        android:hint="Ciudad"
+        android:hint="Nombre completo"
         android:inputType="text"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +190,7 @@
         android:layout_marginEnd="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5_SignUp">
+        app:layout_constraintTop_toBottomOf="@+id/editText6_SignUp">
 
         <RadioButton
             android:id="@+id/radioButton1_signUp"
@@ -240,7 +240,7 @@
         android:id="@+id/frameLayout2.1"
         android:layout_width="0dp"
         android:layout_height="29dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="24dp"
         android:background="#A5C3A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -298,5 +298,33 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.1">
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView11_SignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5_SignUp" />
+
+    <EditText
+        android:id="@+id/editText6_SignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_medium"
+        android:hint="Correo"
+        android:inputType="text"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11_SignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

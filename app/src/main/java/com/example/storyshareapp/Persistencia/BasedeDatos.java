@@ -54,6 +54,27 @@ public class BasedeDatos {
 
     // USUARIOS
 
+
+    // Método para verificar si existe un usuario con el nombre de usuario y contraseña proporcionados
+    public boolean verificarCredenciales(String nombreUsuario, String contraseña) {
+        boolean credencialesCorrectas = false;
+        Connection conexion = conectar();
+        try {
+            String consulta = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contraseña = ?";
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+            statement.setString(1, nombreUsuario);
+            statement.setString(2, contraseña);
+            ResultSet resultado = statement.executeQuery();
+            // Si hay al menos un resultado, las credenciales son correctas
+            credencialesCorrectas = resultado.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            desconectar(conexion);
+        }
+        return credencialesCorrectas;
+    }
+
     // Método para buscar un registro por su ID en la tabla Usuarios
     public Usuario buscarUsuarioPorId(int id) {
         Usuario usuario = null;
@@ -71,10 +92,9 @@ public class BasedeDatos {
                         resultado.getInt("plan_id"),
                         resultado.getDate("plan_inicio"),
                         resultado.getDate("plan_fin"),
-                        resultado.getString("nombre"),
-                        resultado.getString("apellido"),
                         resultado.getString("email"),
-                        resultado.getDate("fecha_nacimiento")
+                        resultado.getInt("edad"),
+                        resultado.getString("nombre")
                 );
             }
         } catch (SQLException e) {
@@ -101,10 +121,9 @@ public class BasedeDatos {
                         resultado.getInt("plan_id"),
                         resultado.getDate("plan_inicio"),
                         resultado.getDate("plan_fin"),
-                        resultado.getString("nombre"),
-                        resultado.getString("apellido"),
                         resultado.getString("email"),
-                        resultado.getDate("fecha_nacimiento")
+                        resultado.getInt("edad"),
+                        resultado.getString("nombre")
                 );
                 usuarios.add(usuario);
             }
@@ -120,17 +139,16 @@ public class BasedeDatos {
     public boolean insertarUsuario(Usuario usuario) {
         Connection conexion = conectar();
         try {
-            String consulta = "INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, nombre, apellido, email, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String consulta = "INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, email, fecha_nacimiento, nombre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conexion.prepareStatement(consulta);
             statement.setString(1, usuario.getNombreUsuario());
             statement.setString(2, usuario.getContraseña());
             statement.setInt(3, usuario.getPlanId());
             statement.setDate(4, usuario.getPlanInicio());
             statement.setDate(5, usuario.getPlanFin());
-            statement.setString(6, usuario.getNombre());
-            statement.setString(7, usuario.getApellido());
             statement.setString(8, usuario.getEmail());
-            statement.setDate(9, usuario.getFechaNacimiento());
+            statement.setInt(9, usuario.getFechaNacimiento());
+            statement.setString(10, usuario.getNombre());
             int filasInsertadas = statement.executeUpdate();
             return filasInsertadas > 0;
         } catch (SQLException e) {
