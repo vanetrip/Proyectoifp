@@ -50,13 +50,13 @@ public class Profile extends AppCompatActivity {
     image1 = (ImageView) findViewById(R.id.imageView3_profile);
     image2 = (ImageView) findViewById(R.id.imageView4_profile);
 
-    textView1 = (TextView) findViewById(R.id.textView7);
+    textView1 = (TextView) findViewById(R.id.textView13_profile);
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(Profile.this, FavoritoActivity.class);
+                Intent intent = new Intent(Profile.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
