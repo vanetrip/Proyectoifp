@@ -165,12 +165,11 @@
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
         android:layout_height="32dp"
-        android:layout_marginTop="10dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13_profile">
+        tools:layout_editor_absoluteY="667dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -237,7 +236,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_profile"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:background="#6D8A88"
@@ -420,7 +419,7 @@
         app:layout_constraintTop_toBottomOf="@+id/caja_text6_profile" />
 
     <TextView
-        android:id="@+id/textView13_profile"
+        android:id="@+id/textView5_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

@@ -50,7 +50,7 @@ public class Profile extends AppCompatActivity {
     image1 = (ImageView) findViewById(R.id.imageView3_profile);
     image2 = (ImageView) findViewById(R.id.imageView4_profile);
 
-    textView1 = (TextView) findViewById(R.id.textView13_profile);
+    textView1 = (TextView) findViewById(R.id.textView5_eventos);
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override

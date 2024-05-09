@@ -7,7 +7,7 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView1_eventos"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
@@ -43,7 +43,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2_eventos"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -77,7 +77,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView2_eventos"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
@@ -85,7 +85,7 @@
         android:layout_marginEnd="36dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1_eventos"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -94,7 +94,7 @@
         android:layout_height="117dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView1_eventos"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -115,7 +115,7 @@
             app:srcCompat="@drawable/logo_transparente" />
 
         <TextView
-            android:id="@+id/textView16_favoritos"
+            android:id="@+id/textView16_evento"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -195,7 +195,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView18_favoritos"
+                android:id="@+id/textView9_eventos"
                 android:layout_width="37dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -205,7 +205,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView19_favoritos"
+                android:id="@+id/textView10_eventos"
                 android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -215,7 +215,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView20_favoritos"
+                android:id="@+id/textView20_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -238,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView21_favoritos"
+            android:id="@+id/textView0_eventos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -255,7 +255,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="500dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
@@ -325,7 +325,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:background="#6D8A88"
