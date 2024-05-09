@@ -44,8 +44,8 @@ public class Profile extends AppCompatActivity {
     editText4= (EditText) findViewById(R.id.caja_text5_profile);
     editText5= (EditText) findViewById(R.id.caja_text6_profile);
 
-    button1= (Button) findViewById(R.id.button1_profile);
-    button2= (Button) findViewById(R.id.button2_profile);
+    button1= (Button) findViewById(R.id.button10_profile);
+    button2= (Button) findViewById(R.id.button11_profile);
 
     image1 = (ImageView) findViewById(R.id.imageView3_profile);
     image2 = (ImageView) findViewById(R.id.imageView4_profile);

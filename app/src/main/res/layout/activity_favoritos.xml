@@ -278,7 +278,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -288,7 +288,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button30"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

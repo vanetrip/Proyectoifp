@@ -207,7 +207,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView6_forum"
+                android:id="@+id/textView6a_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -217,7 +217,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button8_forum"
+                android:id="@+id/button8a_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
