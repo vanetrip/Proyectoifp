@@ -17,19 +17,19 @@ import com.example.storyshareapp.Persistencia.Usuario;
 
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText editText1;
-    private EditText editText2;
-    private EditText editText3;
-    private EditText editText4;
-    private EditText editText5;
-    private EditText editText6;
-    private Button button1;
+    public EditText editText1;
+    public EditText editText2;
+    public EditText editText3;
+    public EditText editText4;
+    public EditText editText5;
+    public EditText editText6;
+    public Button button1;
     private Intent pasarPantalla;
 
     private BasedeDatos basedeDatos;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sign_up);

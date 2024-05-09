@@ -26,9 +26,6 @@ public class SignInActivity extends AppCompatActivity {
 
     private BasedeDatos basedeDatos;
 
-    private String username = "";
-    private String password = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
