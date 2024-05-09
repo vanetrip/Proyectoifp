@@ -56,7 +56,7 @@ public class BasedeDatos {
 
 
     // Método para verificar si existe un usuario con el nombre de usuario y contraseña proporcionados
-    public boolean verificarCredenciales(String nombreUsuario, String contraseña) {
+    public static boolean verificarCredenciales(String nombreUsuario, String contraseña) {
         boolean credencialesCorrectas = false;
         Connection conexion = conectar();
         try {
