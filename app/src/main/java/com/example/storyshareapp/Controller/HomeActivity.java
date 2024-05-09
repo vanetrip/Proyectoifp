@@ -1,5 +1,6 @@
 package com.example.storyshareapp.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,7 +11,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.storyshareapp.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class HomeActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +27,8 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
-}
+    }}
+
+
+
+

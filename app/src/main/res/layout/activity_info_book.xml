@@ -405,4 +405,12 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         app:srcCompat="@drawable/estrella_blanca" />
 
+    <TextView
+        android:id="@+id/textView17_infobook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hora"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="525dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
