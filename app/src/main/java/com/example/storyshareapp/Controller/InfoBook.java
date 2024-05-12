@@ -50,7 +50,7 @@ public class InfoBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(InfoBook.this, FavoritoActivity.class);
+                Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
                 startActivity(intent);
             }
         });

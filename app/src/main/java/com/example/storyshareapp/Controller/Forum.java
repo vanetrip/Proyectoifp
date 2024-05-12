@@ -24,7 +24,8 @@ public class Forum {
     private Button boton1;
 
     private ArrayAdapter<String> adapter;
-    private DBHelper dbHelper;
+}
+    /*    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +82,4 @@ public class Forum {
 
             cursor.close();
         }
-    }
-
-    }
+    }*/
