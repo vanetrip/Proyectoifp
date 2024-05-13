@@ -36,9 +36,9 @@ public class InfoBook extends AppCompatActivity {
 
         boton1 = (Button) findViewById(R.id.button9_info_book);
         boton2 = (Button) findViewById(R.id.button10_info_book);
-        image1 = (ImageView) findViewById(R.id.imageView3_info_book);
-        image2 = (ImageView) findViewById(R.id.imageView4_info_book);
-        image3 = (ImageView) findViewById(R.id.imageView5_info_book);
+        image1 = (ImageView) findViewById(R.id.imageView3_buscador);
+        image2 = (ImageView) findViewById(R.id.imageView4_buscador);
+        image3 = (ImageView) findViewById(R.id.imageView5_buscador);
         textView1 = (TextView) findViewById(R.id.textView10_infoBook);
         textView1 = (TextView) findViewById(R.id.textView12_infoBook);
         textView1 = (TextView) findViewById(R.id.textView15_info_book);
@@ -49,8 +49,8 @@ public class InfoBook extends AppCompatActivity {
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(InfoBook.this, FavoritoActivity.class);
+                // Lógica para abrir la actividad Favoritos
+                Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
                 startActivity(intent);
             }
         });

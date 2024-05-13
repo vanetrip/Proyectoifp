@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.storyshareapp.R;
 
 public class Forum {
@@ -32,7 +30,7 @@ public class Forum {
 
         image1 = (ImageView) findViewById(R.id.imageView3_forum);
         image2 = (ImageView) findViewById(R.id.imageView4_forum);
-        image3 = (ImageView) findViewById(R.id.imageView5_info_book);
+        image3 = (ImageView) findViewById(R.id.imageView5_buscador);
         list1= (ListView) findViewById(R.id.listView_forum);
         boton1 = (Button) findViewById(R.id.button10_forum); //falta este evento. Que llevaria a un cuestionario.
 
