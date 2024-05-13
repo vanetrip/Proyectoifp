@@ -1,5 +1,7 @@
 package com.example.storyshareapp.Persistencia;
 
+import android.os.AsyncTask;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -39,6 +41,29 @@ public class BasedeDatos {
             e.printStackTrace();
         }
         return conexion;
+    }
+
+    public interface OnConnectionResultListener {
+        void onConnectionResult(Connection connection);
+    }
+    public class ConexionTask extends AsyncTask<Void, Void, Connection> {
+        private OnConnectionResultListener listener;
+
+        public ConexionTask(OnConnectionResultListener listener) {
+            this.listener = listener;
+        }
+
+        @Override
+        protected Connection doInBackground(Void... voids) {
+            return conectar();
+        }
+
+        @Override
+        protected void onPostExecute(Connection connection) {
+            if (listener != null) {
+                listener.onConnectionResult(connection);
+            }
+        }
     }
 
     // Método para cerrar la conexión a la base de datos
@@ -137,27 +162,43 @@ public class BasedeDatos {
     }
 
     // Método para insertar un nuevo usuario en la tabla Usuarios
-    public boolean insertarUsuario(Usuario usuario) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, email, fecha_nacimiento, nombre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, usuario.getNombreUsuario());
-            statement.setString(2, usuario.getContraseña());
-            statement.setInt(3, usuario.getPlanId());
-            statement.setDate(4, usuario.getPlanInicio());
-            statement.setDate(5, usuario.getPlanFin());
-            statement.setString(8, usuario.getEmail());
-            statement.setInt(9, usuario.getFechaNacimiento());
-            statement.setString(10, usuario.getNombre());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
+    public boolean insertarUsuario(final Usuario usuario) {
+        final boolean[] insercionExitosa = {false}; // Variable para registrar si la inserción fue exitosa
+
+        new ConexionTask(new OnConnectionResultListener() {
+            @Override
+            public void onConnectionResult(Connection conexion) {
+                if (conexion != null) {
+                    try {
+                        String consulta = "INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, email, fecha_nacimiento, nombre) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        PreparedStatement statement = conexion.prepareStatement(consulta);
+                        statement.setString(1, usuario.getNombreUsuario());
+                        statement.setString(2, usuario.getContraseña());
+                        statement.setInt(3, usuario.getPlanId());
+                        statement.setDate(4, usuario.getPlanInicio());
+                        statement.setDate(5, usuario.getPlanFin());
+                        statement.setString(6, usuario.getEmail());
+                        statement.setInt(7, usuario.getFechaNacimiento());
+                        statement.setString(8, usuario.getNombre());
+                        int filasInsertadas = statement.executeUpdate();
+                        if (filasInsertadas > 0) {
+                            // La inserción fue exitosa
+                            insercionExitosa[0] = true; // Establecer la variable como verdadera
+                        } else {
+                            // No se pudo insertar el usuario
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } finally {
+                        desconectar(conexion);
+                    }
+                } else {
+                    System.out.println("Error al conectar a la base de datos");
+                }
+            }
+        }).execute();
+
+        return insercionExitosa[0]; // Devolver el valor de la inserción
     }
 
     // Método para eliminar un usuario por su ID de la tabla Usuarios
