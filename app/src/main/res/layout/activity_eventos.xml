@@ -7,7 +7,7 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView1_eventos"
         android:layout_width="99dp"
         android:layout_height="139dp"
         android:layout_marginStart="50dp"
@@ -17,13 +17,13 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView2_eventos"
         android:layout_width="99dp"
         android:layout_height="139dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1_eventos"
         tools:srcCompat="@tools:sample/avatars" />
 
     <FrameLayout
@@ -43,7 +43,7 @@
             app:srcCompat="@drawable/logo_transparente" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textView16_evento"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -123,7 +123,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/textView9_eventos"
                 android:layout_width="37dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,7 +133,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView10_eventos"
                 android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -143,7 +143,7 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView20_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -166,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/textView0_eventos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -183,7 +183,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="500dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
@@ -206,7 +206,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -216,7 +216,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button30"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -253,7 +253,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:background="#6D8A88"
@@ -265,128 +265,35 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_top"
+        android:id="@+id/linearLayout_top20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_top">
+        app:layout_constraintStart_toEndOf="@+id/imageView1_eventos"
+        tools:layout_editor_absoluteY="389dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="4dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Título"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="3dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Autor"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
+            android:orientation="horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="3dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Día"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
+            android:orientation="horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="6dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Hora"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#6D8A88"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Ir al evento online"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
+            android:orientation="horizontal" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_top"
+        android:id="@+id/linearLayout_top2"
         android:layout_width="0dp"
         android:layout_height="140dp"
         android:layout_marginStart="16dp"
@@ -394,7 +301,7 @@
         android:layout_marginEnd="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView1_eventos"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
 
         <LinearLayout
@@ -403,7 +310,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/textView1_eventos"
                 android:layout_width="4dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -413,7 +320,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textView2_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -427,7 +334,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView3_eventos"
                 android:layout_width="3dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -437,7 +344,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView4_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -451,9 +358,9 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textView5_eventos"
                 android:layout_width="3dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
                 android:text="Día"
@@ -461,7 +368,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textView6_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -475,7 +382,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textView7_eventos"
                 android:layout_width="6dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -485,7 +392,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textView8_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -495,7 +402,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_1"
+            android:id="@+id/button_1_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#6D8A88"

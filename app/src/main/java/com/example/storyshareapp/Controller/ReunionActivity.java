@@ -46,7 +46,7 @@ public class ReunionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(ReunionActivity.this, FavoritoActivity.class);
+                Intent intent = new Intent(ReunionActivity.this, FavoritosActivity.class);
                 startActivity(intent);
             }
         });

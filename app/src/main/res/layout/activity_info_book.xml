@@ -162,7 +162,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="14dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button10_info_book">
@@ -232,7 +232,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:background="#6D8A88"
@@ -404,5 +404,13 @@
         app:layout_constraintStart_toEndOf="@+id/imageView6_infoBook"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         app:srcCompat="@drawable/estrella_blanca" />
+
+    <TextView
+        android:id="@+id/textView17_infobook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hora"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="525dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

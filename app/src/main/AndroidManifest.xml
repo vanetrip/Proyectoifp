@@ -19,6 +19,17 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Controller.InicioActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".Controller.SignUpActivity"
             android:exported="false" />
         <activity
@@ -26,11 +37,7 @@
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.StoryShareAPP">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Controller.SignInActivity"
@@ -39,13 +46,17 @@
             android:name=".Controller.Profile"
             android:exported="false" />
         <activity
+            android:name=".Controller.EventosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controller.FavoritosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controller.Forum"
+            android:exported="false" />
+
+        <activity
             android:name=".Controller.StartActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Controller.ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Controller.WelcomeActivity"
             android:exported="false" />
 
         <meta-data

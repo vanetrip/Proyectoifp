@@ -322,7 +322,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView6_home"
+                android:id="@+id/textView30_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -332,7 +332,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button8_home"
+                android:id="@+id/button30_home"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

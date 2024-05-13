@@ -44,19 +44,19 @@ public class Profile extends AppCompatActivity {
     editText4= (EditText) findViewById(R.id.caja_text5_profile);
     editText5= (EditText) findViewById(R.id.caja_text6_profile);
 
-    button1= (Button) findViewById(R.id.button1_profile);
-    button2= (Button) findViewById(R.id.button2_profile);
+    button1= (Button) findViewById(R.id.button10_profile);
+    button2= (Button) findViewById(R.id.button11_profile);
 
     image1 = (ImageView) findViewById(R.id.imageView3_profile);
     image2 = (ImageView) findViewById(R.id.imageView4_profile);
 
-    textView1 = (TextView) findViewById(R.id.textView7);
+    textView1 = (TextView) findViewById(R.id.textView5_eventos);
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(Profile.this, FavoritoActivity.class);
+                Intent intent = new Intent(Profile.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

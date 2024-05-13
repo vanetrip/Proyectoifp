@@ -58,7 +58,8 @@ public class BasedeDatos {
     // Método para verificar si existe un usuario con el nombre de usuario y contraseña proporcionados
     public static boolean verificarCredenciales(String nombreUsuario, String contraseña) {
         boolean credencialesCorrectas = false;
-        Connection conexion = conectar();
+        BasedeDatos bd= new BasedeDatos();
+        Connection conexion = bd.conectar();
         try {
             String consulta = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contraseña = ?";
             PreparedStatement statement = conexion.prepareStatement(consulta);
@@ -70,7 +71,7 @@ public class BasedeDatos {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            desconectar(conexion);
+            bd.desconectar(conexion);
         }
         return credencialesCorrectas;
     }
