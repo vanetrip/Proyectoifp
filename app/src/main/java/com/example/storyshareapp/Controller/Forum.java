@@ -30,7 +30,7 @@ public class Forum {
 
         image1 = (ImageView) findViewById(R.id.imageView3_forum);
         image2 = (ImageView) findViewById(R.id.imageView4_forum);
-        image3 = (ImageView) findViewById(R.id.imageView5_buscador);
+        image3 = (ImageView) findViewById(R.id.imageView5_forum);
         list1= (ListView) findViewById(R.id.listView_forum);
         boton1 = (Button) findViewById(R.id.button10_forum); //falta este evento. Que llevaria a un cuestionario.
 
@@ -45,8 +45,8 @@ public class Forum {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
-                Intent intent = new Intent(Forum.this, FavoritoActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(Forum.this, FavoritosActivity.class);
+                StartActivity(intent);
             }
         });
 
@@ -54,8 +54,8 @@ public class Forum {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Calendario
-                Intent intent = new Intent(Forum.this, CalendarioActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(Forum.this, EventosActivity.class);
+                StartActivity(intent);
             }
         });
         image3.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class Forum {
             public void onClick(View v) {
                 // Lógica para abrir la actividad Calendario
                 Intent intent = new Intent(Forum.this, Profile.class);
-                startActivity(intent);
+                StartActivity(intent);
             }
         });
 

@@ -1,6 +1,8 @@
 package com.example.storyshareapp.Controller;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,10 @@ import com.example.storyshareapp.R;
 
 public class BuscadorActivity extends AppCompatActivity {
 
+    private ImageView image1;
+    private ImageView image2;
+    private ImageView image3;
+    private ListView list1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
