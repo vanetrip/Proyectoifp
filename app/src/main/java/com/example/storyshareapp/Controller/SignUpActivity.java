@@ -43,6 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         button1 = (Button) findViewById(R.id.button1_signUp);
 
+        basedeDatos = new BasedeDatos();
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
