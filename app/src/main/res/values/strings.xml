@@ -44,16 +44,7 @@
     <string name="radioButton2_signUp">"Suscripción a StoryShare por 4'99€/ mes"</string>
     <string name="button1_signUp">Regístrate</string>
 
-    <string name="textView5_profile">Modificar los datos de tu perfil</string>
-    <string name="textView1_profile">Buscar</string>
-    <string name="textView8_profile">Usuario</string>
-    <string name="textView9_profile">edad</string>
-    <string name="textView10_profile">Ciudad</string>
-    <string name="textView11_profile">Cambiar Contraseña</string>
-    <string name="textView12_profile">Repetir Contraseña</string>
-    <string name="textView13_profile">Eliminar Cuenta</string>
-    <string name="textView2_profile">Favoritos</string>
-    <string name="textView3_profile">Calendario</string>
+
 
     <string name="textView1_home">Buscar</string>
     <string name="textView2_home">Favoritos</string>

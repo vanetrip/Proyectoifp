@@ -1,8 +1,6 @@
 package com.example.storyshareapp.Model;
 
-import java.sql.Date;
-
-public class Foro {
+public class Forum {
 
     //declaracion de variables
     Integer id;
@@ -15,11 +13,11 @@ public class Foro {
     public void setId(Integer id) {
         this.id = id;
     }
-
+/*
     public nombreForo(Integer id, String plan) {
         this.id = id;
         this.nombreForo = plan;
     }
-
+*/
 
 }

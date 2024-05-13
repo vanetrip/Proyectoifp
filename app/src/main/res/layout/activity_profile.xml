@@ -150,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView5_profile"
+            android:id="@+id/textView5b_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -165,12 +165,11 @@
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
         android:layout_height="32dp"
-        android:layout_marginTop="10dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13_profile">
+        tools:layout_editor_absoluteY="667dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -178,7 +177,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button1_profile"
+                android:id="@+id/button10_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -200,7 +199,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button2_profile"
+                android:id="@+id/button11_profile"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -237,7 +236,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_profile"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:background="#6D8A88"
@@ -393,7 +392,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12_profile" />
 
     <Button
-        android:id="@+id/button1_profile"
+        android:id="@+id/button10a_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -406,7 +405,7 @@
         app:layout_constraintTop_toBottomOf="@+id/caja_text6_profile" />
 
     <Button
-        android:id="@+id/button2_profile"
+        android:id="@+id/button11a_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -416,11 +415,11 @@
         android:textColor="#F8F8F8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/button1_profile"
+        app:layout_constraintStart_toEndOf="@+id/button10a_profile"
         app:layout_constraintTop_toBottomOf="@+id/caja_text6_profile" />
 
     <TextView
-        android:id="@+id/textView13_profile"
+        android:id="@+id/textView5c_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -430,6 +429,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/button10a_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

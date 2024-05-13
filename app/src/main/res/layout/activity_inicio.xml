@@ -9,7 +9,7 @@
     tools:context=".Controller.HomeActivity">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
         android:layout_height="145dp"
         android:background="#F4EEE1"
@@ -24,30 +24,21 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="70dp"
+        android:contentDescription="Logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout4_inicio"
         app:srcCompat="@drawable/logo_transparente" />
 
     <FrameLayout
-        android:id="@+id/frameLayout5"
-        android:layout_width="0dp"
-        android:layout_height="117dp"
-        android:background="#F4EEE1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="554dp">
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayout5"
+        android:id="@+id/frameLayout5_inicio"
         android:layout_width="414dp"
         android:layout_height="32dp"
+        android:layout_marginTop="366dp"
         android:background="#A5C3A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +46,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button1_home"
+                android:id="@+id/button1_inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,7 +56,7 @@
                 android:textSize="8sp" />
 
             <TextView
-                android:id="@+id/textView6_home"
+                android:id="@+id/textView6_Inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -75,7 +66,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button8_home"
+                android:id="@+id/button8_inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -92,8 +83,20 @@
         android:background="#6D8B89"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout2_inicio"
+        android:layout_width="406dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="216dp"
+        android:background="#F4EEE1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
     </FrameLayout>
 

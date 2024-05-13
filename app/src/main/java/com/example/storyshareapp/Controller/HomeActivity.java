@@ -15,7 +15,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class HomeActivity extends AppCompatActivity {
-
+/*
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
     }}
+
+ */
+}
 
 
 
