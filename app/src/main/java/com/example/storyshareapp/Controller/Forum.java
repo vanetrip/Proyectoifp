@@ -1,5 +1,7 @@
 package com.example.storyshareapp.Controller;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -46,7 +48,7 @@ public class Forum {
             public void onClick(View v) {
                 // Lógica para abrir la actividad Favorito
                 Intent intent = new Intent(Forum.this, FavoritosActivity.class);
-                StartActivity(intent);
+                startActivity(intent);
             }
         });
 
@@ -55,7 +57,7 @@ public class Forum {
             public void onClick(View v) {
                 // Lógica para abrir la actividad Calendario
                 Intent intent = new Intent(Forum.this, EventosActivity.class);
-                StartActivity(intent);
+                startActivity(intent);
             }
         });
         image3.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +65,7 @@ public class Forum {
             public void onClick(View v) {
                 // Lógica para abrir la actividad Calendario
                 Intent intent = new Intent(Forum.this, Profile.class);
-                StartActivity(intent);
+                startActivity(intent);
             }
         });
 

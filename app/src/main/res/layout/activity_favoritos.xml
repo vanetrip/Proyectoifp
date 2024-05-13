@@ -158,25 +158,26 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView18"
+                android:id="@+id/imageView18_favoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/estrella_amarilla" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/imageView7_favoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imageView8_favoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/avatar_blanco" />
+
 
         </LinearLayout>
     </FrameLayout>
@@ -266,7 +267,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button9_favoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -288,7 +289,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button10_favoritos"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -298,6 +299,7 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
+
 
             <TextView
                 android:id="@+id/textView"
@@ -310,7 +312,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button11_favoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
