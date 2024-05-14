@@ -37,11 +37,6 @@ public class Forum {
         boton1 = (Button) findViewById(R.id.button10_forum); //falta este evento. Que llevaria a un cuestionario.
 
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(adapter);
-
-        dbHelper = new DBHelper(this);
-        mostrarEventos();
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
