@@ -7,7 +7,7 @@ public class Libro {
     private String titulo;
     private String autor;
     private String genero;
-    private Date fechaPublicacion;
+    private String fechaPublicacion;
     private int valoracion;
     private String portada; // Nuevo atributo para la portada del libro
 
@@ -16,7 +16,7 @@ public class Libro {
     }
 
     // Constructor con elementos
-    public Libro(int id, String titulo, String autor, String genero, Date fechaPublicacion, int valoracion, String portada) {
+    public Libro(int id, String titulo, String autor, String genero, String fechaPublicacion, int valoracion, String portada) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -59,11 +59,11 @@ public class Libro {
         this.genero = genero;
     }
 
-    public Date getFechaPublicacion() {
+    public String getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
+    public void setFechaPublicacion(String fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 

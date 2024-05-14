@@ -1,770 +1,270 @@
 package com.example.storyshareapp.Persistencia;
 
-import android.os.AsyncTask;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
-public class BasedeDatos {
+public class BasedeDatos extends SQLiteOpenHelper {
 
-    // Datos de conexión a la base de datos MySQL
-    private static final String URL = "jdbc:mysql://localhost:3306/Storyshare";
-    private static final String USUARIO = "root";
-    private static final String CONTRASEÑA = "admin";
-
-    // Instancias de las clases
-    ComentarioForo comentarioForo = new ComentarioForo();
-    Evento evento = new Evento();
-    Foro foro = new Foro();
-    Libro libro = new Libro();
-    LibroUsuario libroUsuario = new LibroUsuario();
-    PlanPrecio planPrecio = new PlanPrecio();
-    Usuario usuario = new Usuario();
+    // Nombre de la base de datos
+    private static final String DATABASE_NAME = "Storyshare.db";
 
     // Constructor
-    public BasedeDatos() {}
-
-    // Método para establecer la conexión a la base de datos
-    private Connection conectar() {
-        Connection conexion = null;
-        try {
-            // Registrar el driver de MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // Establecer la conexión
-            conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return conexion;
+    public BasedeDatos(Context context) {
+        super(context, DATABASE_NAME, null, 1);
     }
 
-    public interface OnConnectionResultListener {
-        void onConnectionResult(Connection connection);
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // Crear las tablas
+        db.execSQL("CREATE TABLE Usuarios (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre_usuario TEXT," +
+                "contraseña TEXT," +
+                "plan_id INTEGER," +
+                "plan_inicio DATE," +
+                "plan_fin DATE," +
+                "nombreCompleto TEXT," +
+                "email TEXT," +
+                "edad INTEGER)"
+        );
+
+        // Crear la tabla PlanPrecios
+        db.execSQL("CREATE TABLE PlanPrecios (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "plan TEXT," +
+                "precio FLOAT)"
+        );
+
+        // Crear la tabla Libros_Usuario
+        db.execSQL("CREATE TABLE LibrosUsuario (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "libro_id INTEGER," +
+                "usuario_id INTEGER," +
+                "valoracion INTEGER," +
+                "favorito BOOLEAN," +
+                "comentarios TEXT)"
+        );
+
+        // Crear la tabla Libros
+        db.execSQL("CREATE TABLE Libros (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "genero TEXT," +
+                "titulo TEXT," +
+                "autor TEXT," +
+                "fecha_publicacion DATE," +
+                "valoracion_media INTEGER," +
+                "portada TEXT)"
+        );
+
+        // Crear la tabla Eventos
+        db.execSQL("CREATE TABLE Eventos (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre TEXT," +
+                "fecha DATE," +
+                "hora TIME," +
+                "moderador_id INTEGER," +
+                "libro_id INTEGER)"
+        );
+
+        // Crear la tabla Foros
+        db.execSQL("CREATE TABLE Foros (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre TEXT," +
+                "creador_id INTEGER," +
+                "id_libro INTEGER," +
+                "fecha_creacion DATE)"
+        );
+
+        // Crear la tabla ComentariosForo
+        db.execSQL("CREATE TABLE ComentariosForo (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "id_foro INTEGER," +
+                "id_usuario INTEGER," +
+                "comentario TEXT," +
+                "fecha DATE," +
+                "hora TIME)"
+        );
+
+        // Inserción de libros
+        db.execSQL("INSERT INTO Libros (genero, titulo, autor, fecha_publicacion, valoracion_media, portada) VALUES " +
+                "('Fantasía', 'El Señor de los Anillos', 'J.R.R. Tolkien', '1954-07-29', 4, 'https://m.media-amazon.com/images/I/81DjOU3MIvL._SL1500_.jpg'), " +
+                "('Ciencia Ficción', '1984', 'George Orwell', '1949-06-08', 4, 'https://m.media-amazon.com/images/I/71sOSrd+JxL._SL1500_.jpg'), " +
+                "('Misterio', 'El Código Da Vinci', 'Dan Brown', '2003-03-18', 4, 'https://m.media-amazon.com/images/I/81flVY5AzaL._SL1500_.jpg'), " +
+                "('Romance', 'Orgullo y Prejuicio', 'Jane Austen', '1813-01-28', 5, 'https://m.media-amazon.com/images/I/91F-tGwtyFL._SL1500_.jpg'), " +
+                "('Aventura', 'La Isla del Tesoro', 'Robert Louis Stevenson', '1883-11-14', 4, 'https://m.media-amazon.com/images/I/71Xe94-ddFL._SL1125_.jpg'), " +
+                "('Terror', 'It', 'Stephen King', '1986-09-15', 4, 'https://m.media-amazon.com/images/I/61pveRMfvcL._SL1500_.jpg'), " +
+                "('Ciencia Ficción', 'Dune', 'Frank Herbert', '1965-06-01', 4, 'https://m.media-amazon.com/images/I/81A1Mn-x49L._SL1500_.jpg'), " +
+                "('Fantasía', 'Harry Potter y la Piedra Filosofal', 'J.K. Rowling', '1997-06-26', 5, 'https://m.media-amazon.com/images/I/81DIK77B0PL._SL1500_.jpg'), " +
+                "('Drama', 'Cien Años de Soledad', 'Gabriel García Márquez', '1967-05-30', 5, 'https://m.media-amazon.com/images/I/A1lNJP8sC6L._SL1500_.jpg'), " +
+                "('Romance', 'Romeo y Julieta', 'William Shakespeare', '1597-01-20', 5, 'https://m.media-amazon.com/images/I/81qJ-ARZhsL._SL1500_.jpg'), " +
+                "('Thriller', 'El Silencio de los Corderos', 'Thomas Harris', '1988-05-05', 4, 'https://m.media-amazon.com/images/I/81maxs5mO7L._SL1500_.jpg'), " +
+                "('Fantasía', 'Las Crónicas de Narnia: El León, la Bruja y el Armario', 'C.S. Lewis', '1988-05-05', 4, 'https://m.media-amazon.com/images/I/81mSMwtCE7L._SL1500_.jpg'), " +
+                "('Romance', 'Crepúsculo', 'Stephenie Meyer', '2005-10-05', 4, 'https://m.media-amazon.com/images/I/618bMH3QLOL._SL1500_.jpg'), " +
+                "('Terror', 'Drácula', 'Bram Stoker', '1897-05-26', 4, 'https://m.media-amazon.com/images/I/71hhPWoeNBS._SL1000_.jpg'), " +
+                "('Misterio', 'Sherlock Holmes: Estudio en Escarlata', 'Arthur Conan Doyle', '1887-11-01', 4, 'https://m.media-amazon.com/images/I/7167Blq5N-L._SL1500_.jpg'), " +
+                "('Ciencia Ficción', 'Guía del Autoestopista Galáctico', 'Douglas Adams', '1979-10-12', 4, 'https://m.media-amazon.com/images/I/81DGy-chD1L._SL1500_.jpg'), " +
+                "('Fantasía', 'El Hobbit', 'J.R.R. Tolkien', '1937-09-21', 4, 'https://m.media-amazon.com/images/I/914VEoNzIPL._SL1500_.jpg'), " +
+                "('Romance', 'Anna Karenina', 'Lev Tolstói', '1877-03-01', 4, 'https://m.media-amazon.com/images/I/71wLs1YK8yL._SL1000_.jpg'), " +
+                "('Ciencia Ficción', 'Fundación', 'Isaac Asimov', '1951-06-01', 4, 'https://m.media-amazon.com/images/I/811QjmMJxuL._SL1500_.jpg'), " +
+                "('Aventura', 'La vuelta al mundo en 80 días', 'Julio Verne', '1873-01-30', 4, 'https://m.media-amazon.com/images/I/A16vPjDrebS._SL1500_.jpg')"
+        );
     }
-    public class ConexionTask extends AsyncTask<Void, Void, Connection> {
-        private OnConnectionResultListener listener;
 
-        public ConexionTask(OnConnectionResultListener listener) {
-            this.listener = listener;
-        }
-
-        @Override
-        protected Connection doInBackground(Void... voids) {
-            return conectar();
-        }
-
-        @Override
-        protected void onPostExecute(Connection connection) {
-            if (listener != null) {
-                listener.onConnectionResult(connection);
-            }
-        }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Aquí puedes manejar la actualización de la base de datos si cambias la versión
     }
 
-    // Método para cerrar la conexión a la base de datos
-    private void desconectar(Connection conexion) {
-        try {
-            if (conexion != null) {
-                conexion.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // USUARIOS
-
-
-    // Método para verificar si existe un usuario con el nombre de usuario y contraseña proporcionados
-    public static boolean verificarCredenciales(String nombreUsuario, String contraseña) {
-        boolean credencialesCorrectas = false;
-        BasedeDatos bd= new BasedeDatos();
-        Connection conexion = bd.conectar();
-        try {
-            String consulta = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contraseña = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, nombreUsuario);
-            statement.setString(2, contraseña);
-            ResultSet resultado = statement.executeQuery();
-            // Si hay al menos un resultado, las credenciales son correctas
-            credencialesCorrectas = resultado.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            bd.desconectar(conexion);
-        }
+    // Método para verificar credenciales
+    public static boolean verificarCredenciales(SQLiteDatabase db, String nombreUsuario, String contraseña) {
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contraseña = ?", new String[]{nombreUsuario, contraseña});
+        boolean credencialesCorrectas = cursor.getCount() > 0;
+        cursor.close();
         return credencialesCorrectas;
     }
 
-    // Método para buscar un registro por su ID en la tabla Usuarios
-    public Usuario buscarUsuarioPorId(int id) {
-        Usuario usuario = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Usuarios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                usuario = new Usuario(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre_usuario"),
-                        resultado.getString("contraseña"),
-                        resultado.getInt("plan_id"),
-                        resultado.getDate("plan_inicio"),
-                        resultado.getDate("plan_fin"),
-                        resultado.getString("email"),
-                        resultado.getInt("edad"),
-                        resultado.getString("nombre")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+    public static int obtenerId(SQLiteDatabase db, String nombreUsuario) {
+        int userId = -1; // Valor por defecto si no se encuentra el usuario
+        Cursor cursor = db.rawQuery("SELECT id FROM Usuarios WHERE nombre_usuario = ?", new String[]{nombreUsuario});
+        if (cursor.moveToFirst()) {
+            userId = cursor.getInt(0); // Obtiene el valor de la primera columna (en este caso, la columna "id")
         }
-        return usuario;
+        cursor.close();
+        return userId;
     }
 
-    // Método para buscar todos los registros de la tabla Usuarios
-    public ArrayList<Usuario> buscarTodosLosUsuarios() {
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Usuarios";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                Usuario usuario = new Usuario(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre_usuario"),
-                        resultado.getString("contraseña"),
-                        resultado.getInt("plan_id"),
-                        resultado.getDate("plan_inicio"),
-                        resultado.getDate("plan_fin"),
-                        resultado.getString("email"),
-                        resultado.getInt("edad"),
-                        resultado.getString("nombre")
-                );
-                usuarios.add(usuario);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+    // Método para insertar un usuario
+    public int insertarUsuario(final Usuario usuario) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre_usuario", usuario.getNombreUsuario());
+        values.put("contraseña", usuario.getContraseña());
+        values.put("plan_id", usuario.getPlanId());
+        values.put("plan_inicio", usuario.getPlanInicio().getTime()); // Convertir Date a milisegundos
+        values.put("plan_fin", usuario.getPlanFin().getTime()); // Convertir Date a milisegundos
+        values.put("nombreCompleto", usuario.getNombre());
+        values.put("email", usuario.getEmail());
+        values.put("edad", usuario.getEdad());
+        int id = (int) db.insert("Usuarios", null, values);
+        db.close(); // Cerrar la conexión
+        return id;
+    }
+
+    public void updateUsuario(int idUsuario, String nuevoUsername, String nuevaContraseña, String nuevoNombreCompleto, int nuevaEdad) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if (nuevoUsername != null && !nuevoUsername.isEmpty()) {
+            values.put("nombre_usuario", nuevoUsername);
         }
-        return usuarios;
-    }
-
-    // Método para insertar un nuevo usuario en la tabla Usuarios
-    public boolean insertarUsuario(final Usuario usuario) {
-        final boolean[] insercionExitosa = {false}; // Variable para registrar si la inserción fue exitosa
-
-        new ConexionTask(new OnConnectionResultListener() {
-            @Override
-            public void onConnectionResult(Connection conexion) {
-                if (conexion != null) {
-                    try {
-                        String consulta = "INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, email, fecha_nacimiento, nombre) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                        PreparedStatement statement = conexion.prepareStatement(consulta);
-                        statement.setString(1, usuario.getNombreUsuario());
-                        statement.setString(2, usuario.getContraseña());
-                        statement.setInt(3, usuario.getPlanId());
-                        statement.setDate(4, usuario.getPlanInicio());
-                        statement.setDate(5, usuario.getPlanFin());
-                        statement.setString(6, usuario.getEmail());
-                        statement.setInt(7, usuario.getFechaNacimiento());
-                        statement.setString(8, usuario.getNombre());
-                        int filasInsertadas = statement.executeUpdate();
-                        if (filasInsertadas > 0) {
-                            // La inserción fue exitosa
-                            insercionExitosa[0] = true; // Establecer la variable como verdadera
-                        } else {
-                            // No se pudo insertar el usuario
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } finally {
-                        desconectar(conexion);
-                    }
-                } else {
-                    System.out.println("Error al conectar a la base de datos");
-                }
-            }
-        }).execute();
-
-        return insercionExitosa[0]; // Devolver el valor de la inserción
-    }
-
-    // Método para eliminar un usuario por su ID de la tabla Usuarios
-    public boolean eliminarUsuarioPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM Usuarios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
+        if (nuevaContraseña != null && !nuevaContraseña.isEmpty()) {
+            values.put("contraseña", nuevaContraseña);
         }
-    }
-
-    // COMENTARIOS DEL FORO
-
-    // Método para buscar un comentario por su ID en la tabla ComentariosForo
-    public ComentarioForo buscarComentarioPorId(int id) {
-        ComentarioForo comentario = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM ComentariosForo WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                comentario = new ComentarioForo(
-                        resultado.getInt("id"),
-                        resultado.getInt("id_foro"),
-                        resultado.getInt("id_usuario"),
-                        resultado.getString("comentario"),
-                        resultado.getDate("fecha"),
-                        resultado.getTime("hora")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+        if (nuevoNombreCompleto != null && !nuevoNombreCompleto.isEmpty()) {
+            values.put("nombreCompleto", nuevoNombreCompleto);
         }
-        return comentario;
-    }
-
-    // Método para buscar todos los comentarios de un foro en particular en la tabla ComentariosForo
-    public ArrayList<ComentarioForo> buscarComentariosPorForo(int idForo) {
-        ArrayList<ComentarioForo> comentarios = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM ComentariosForo WHERE id_foro = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, idForo);
-            ResultSet resultado = statement.executeQuery();
-            while (resultado.next()) {
-                ComentarioForo comentario = new ComentarioForo(
-                        resultado.getInt("id"),
-                        resultado.getInt("id_foro"),
-                        resultado.getInt("id_usuario"),
-                        resultado.getString("comentario"),
-                        resultado.getDate("fecha"),
-                        resultado.getTime("hora")
-                );
-                comentarios.add(comentario);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+        if (nuevaEdad > 0) {
+            values.put("edad", nuevaEdad);
         }
-        return comentarios;
+
+        db.update("Usuarios", values, "id=?", new String[]{String.valueOf(idUsuario)});
+        db.close();
     }
 
-    // Método para insertar un nuevo comentario en la tabla ComentariosForo
-    public boolean insertarComentario(ComentarioForo comentario) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO ComentariosForo (id_foro, id_usuario, comentario, fecha, hora) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, comentario.getIdForo());
-            statement.setInt(2, comentario.getIdUsuario());
-            statement.setString(3, comentario.getComentario());
-            statement.setDate(4, comentario.getFecha());
-            statement.setTime(5, comentario.getHora());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
+    public void borrarUsuario(int idUsuario) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("Usuarios", "id=?", new String[]{String.valueOf(idUsuario)});
+        db.close();
+    }
+
+    public void eliminarBaseDeDatos() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS Usuarios");
+        db.execSQL("DROP TABLE IF EXISTS PlanPrecios");
+        db.execSQL("DROP TABLE IF EXISTS LibrosUsuario");
+        db.execSQL("DROP TABLE IF EXISTS Libros");
+        db.execSQL("DROP TABLE IF EXISTS Eventos");
+        db.execSQL("DROP TABLE IF EXISTS Foros");
+        db.execSQL("DROP TABLE IF EXISTS ComentariosForo");
+        onCreate(db); // Volver a crear la base de datos después de eliminarla
+    }
+
+    public List<Integer> obtenerIdForosPopulares() {
+        List<Integer> idForosPopulares = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_foro, COUNT(id_foro) AS count FROM ComentariosForo GROUP BY id_foro ORDER BY count DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int idForo = cursor.getInt(1);
+                idForosPopulares.add(idForo);
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+        return idForosPopulares;
     }
 
-    // Método para eliminar un comentario por su ID de la tabla ComentariosForo
-    public boolean eliminarComentarioPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM ComentariosForo WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
+    public int obtenerIdLibroPorIdForo(int idForo) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_libro FROM Foros WHERE id = ?", new String[]{String.valueOf(idForo)});
+        int idLibro = -1; // Valor por defecto si no se encuentra
+        if (cursor.moveToFirst()) {
+            idLibro = cursor.getInt(3);
         }
+        cursor.close();
+        return idLibro;
     }
 
-    // EVENTOS
-
-    // Método para buscar un evento por su ID en la tabla Eventos
-    public Evento buscarEventoPorId(int id) {
-        Evento evento = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Eventos WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                evento = new Evento(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre"),
-                        resultado.getDate("fecha"),
-                        resultado.getTime("hora"),
-                        resultado.getInt("moderador_id"),
-                        resultado.getInt("libro_id")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return evento;
-    }
-
-    // Método para buscar todos los eventos en la tabla Eventos
-    public ArrayList<Evento> buscarTodosLosEventos() {
-        ArrayList<Evento> eventos = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Eventos";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                Evento evento = new Evento(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre"),
-                        resultado.getDate("fecha"),
-                        resultado.getTime("hora"),
-                        resultado.getInt("moderador_id"),
-                        resultado.getInt("libro_id")
-                );
-                eventos.add(evento);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return eventos;
-    }
-
-    // Método para insertar un nuevo evento en la tabla Eventos
-    public boolean insertarEvento(Evento evento) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO Eventos (nombre, fecha, hora, moderador_id, libro_id) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, evento.getNombreEvento());
-            statement.setDate(2, evento.getFecha());
-            statement.setTime(3, evento.getHora());
-            statement.setInt(4, evento.getModeradorId());
-            statement.setInt(5, evento.getLibroId());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // Método para eliminar un evento por su ID de la tabla Eventos
-    public boolean eliminarEventoPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM Eventos WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // FOROS
-
-    // Método para buscar un foro por su ID en la tabla Foros
-    public Foro buscarForoPorId(int id) {
-        Foro foro = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Foros WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                foro = new Foro(
-                        resultado.getInt("id"),
-                        resultado.getString("titulo"),
-                        resultado.getString("descripcion")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return foro;
-    }
-
-    // Método para buscar todos los foros en la tabla Foros
-    public ArrayList<Foro> buscarTodosLosForos() {
-        ArrayList<Foro> foros = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Foros";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                Foro foro = new Foro(
-                        resultado.getInt("id"),
-                        resultado.getString("titulo"),
-                        resultado.getString("descripcion")
-                );
-                foros.add(foro);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return foros;
-    }
-
-    // Método para insertar un nuevo foro en la tabla Foros
-    public boolean insertarForo(Foro foro) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO Foros (titulo, descripcion) VALUES (?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, foro.getTitulo());
-            statement.setString(2, foro.getDescripcion());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // Método para eliminar un foro por su ID de la tabla Foros
-    public boolean eliminarForoPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM Foros WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // LIBROS
-
-    // Método para buscar un libro por su ID en la tabla Libros
-    public Libro buscarLibroPorId(int id) {
+    public Libro obtenerLibro(int idLibro) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Libros WHERE id = ?", new String[]{String.valueOf(idLibro)});
         Libro libro = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Libros WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                libro = new Libro(
-                        resultado.getInt("id"),
-                        resultado.getString("genero"),
-                        resultado.getString("titulo"),
-                        resultado.getString("autor"),
-                        resultado.getDate("fecha_publicacion"),
-                        resultado.getInt("valoracion_media"),
-                        resultado.getString("portada")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(0);
+            String genero = cursor.getString(1);
+            String titulo = cursor.getString(2);
+            String autor = cursor.getString(3);
+            String fechaPublicacionString = cursor.getString(4);
+            int valoracion = cursor.getInt(5);
+            String portada = cursor.getString(6);
+
+            libro = new Libro(id, titulo, autor, genero, fechaPublicacionString, valoracion, portada);
         }
+        cursor.close();
         return libro;
     }
 
-    // Método para buscar todos los libros en la tabla Libros
-    public ArrayList<Libro> buscarTodosLosLibros() {
-        ArrayList<Libro> libros = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM Libros";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                Libro libro = new Libro(
-                        resultado.getInt("id"),
-                        resultado.getString("genero"),
-                        resultado.getString("titulo"),
-                        resultado.getString("autor"),
-                        resultado.getDate("fecha_publicacion"),
-                        resultado.getInt("valoracion_media"),
-                        resultado.getString("portada")
-                );
-                libros.add(libro);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
+    public List<Integer> obtenerLibrosMasRecientes() {
+        List<Integer> librosMasRecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT libro_id FROM Eventos ORDER BY fecha DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int libroId = cursor.getInt(5);
+                librosMasRecientes.add(libroId);
+            } while (cursor.moveToNext());
         }
-        return libros;
+        cursor.close();
+        return librosMasRecientes;
     }
 
-    // Método para insertar un nuevo libro en la tabla Libros
-    public boolean insertarLibro(Libro libro) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO Libros (genero, titulo, autor, fecha_publicacion, valoracion_media, portada) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, libro.getGenero());
-            statement.setString(2, libro.getTitulo());
-            statement.setString(3, libro.getAutor());
-            statement.setDate(4, libro.getFechaPublicacion());
-            statement.setInt(5, libro.getValoracion());
-            statement.setString(6, libro.getPortada());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
+    public List<Integer> obtenerForosMasRecientes() {
+        List<Integer> librosMasRecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_libro FROM Foros ORDER BY fecha_creacion DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int libroId = cursor.getInt(3);
+                librosMasRecientes.add(libroId);
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+        return librosMasRecientes;
     }
 
-    // Método para eliminar un libro por su ID de la tabla Libros
-    public boolean eliminarLibroPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM Libros WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // LIBROSUSUARIOS
-
-    // Método para buscar un registro por su ID en la tabla LibrosUsuarios
-    public LibroUsuario buscarLibroUsuarioPorId(int id) {
-        LibroUsuario libroUsuario = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM LibrosUsuarios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                libroUsuario = new LibroUsuario(
-                        resultado.getInt("id"),
-                        resultado.getInt("usuario_id"),
-                        resultado.getInt("libro_id"),
-                        resultado.getDate("fecha_lectura"),
-                        resultado.getInt("valoracion"),
-                        resultado.getString("comentario")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return libroUsuario;
-    }
-
-    // Método para buscar todos los registros de la tabla LibrosUsuarios
-    public ArrayList<LibroUsuario> buscarTodosLosLibrosUsuarios() {
-        ArrayList<LibroUsuario> librosUsuarios = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM LibrosUsuarios";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                LibroUsuario libroUsuario = new LibroUsuario(
-                        resultado.getInt("id"),
-                        resultado.getInt("usuario_id"),
-                        resultado.getInt("libro_id"),
-                        resultado.getDate("fecha_lectura"),
-                        resultado.getInt("valoracion"),
-                        resultado.getString("comentario")
-                );
-                librosUsuarios.add(libroUsuario);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return librosUsuarios;
-    }
-
-    // Método para insertar un nuevo registro en la tabla LibrosUsuarios
-    public boolean insertarLibroUsuario(LibroUsuario libroUsuario) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO LibrosUsuarios (usuario_id, libro_id, fecha_lectura, valoracion, comentario) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, libroUsuario.getUsuarioId());
-            statement.setInt(2, libroUsuario.getLibroId());
-            statement.setDate(3, libroUsuario.getFechaLectura());
-            statement.setInt(4, libroUsuario.getValoracion());
-            statement.setString(5, libroUsuario.getComentario());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // Método para eliminar un registro por su ID de la tabla LibrosUsuarios
-    public boolean eliminarLibroUsuarioPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM LibrosUsuarios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // PLANPRECIOS
-
-    // Método para buscar un plan de precio por su ID en la tabla PlanPrecios
-    public PlanPrecio buscarPlanPrecioPorId(int id) {
-        PlanPrecio planPrecio = null;
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM PlanPrecios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            ResultSet resultado = statement.executeQuery();
-            if (resultado.next()) {
-                planPrecio = new PlanPrecio(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre"),
-                        resultado.getDouble("precio")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return planPrecio;
-    }
-
-    // Método para buscar todos los planes de precio en la tabla PlanPrecios
-    public ArrayList<PlanPrecio> buscarTodosLosPlanPrecios() {
-        ArrayList<PlanPrecio> planPrecios = new ArrayList<>();
-        Connection conexion = conectar();
-        try {
-            String consulta = "SELECT * FROM PlanPrecios";
-            Statement statement = conexion.createStatement();
-            ResultSet resultado = statement.executeQuery(consulta);
-            while (resultado.next()) {
-                PlanPrecio planPrecio = new PlanPrecio(
-                        resultado.getInt("id"),
-                        resultado.getString("nombre"),
-                        resultado.getDouble("precio")
-                );
-                planPrecios.add(planPrecio);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            desconectar(conexion);
-        }
-        return planPrecios;
-    }
-
-    // Método para insertar un nuevo plan de precio en la tabla PlanPrecios
-    public boolean insertarPlanPrecio(PlanPrecio planPrecio) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "INSERT INTO PlanPrecios (nombre, precio) VALUES (?, ?)";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setString(1, planPrecio.getNombre());
-            statement.setDouble(2, planPrecio.getPrecio());
-            int filasInsertadas = statement.executeUpdate();
-            return filasInsertadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-
-    // Método para eliminar un plan de precio por su ID de la tabla PlanPrecios
-    public boolean eliminarPlanPrecioPorId(int id) {
-        Connection conexion = conectar();
-        try {
-            String consulta = "DELETE FROM PlanPrecios WHERE id = ?";
-            PreparedStatement statement = conexion.prepareStatement(consulta);
-            statement.setInt(1, id);
-            int filasEliminadas = statement.executeUpdate();
-            return filasEliminadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            desconectar(conexion);
-        }
-    }
-   }
+    // Resto de los métodos CRUD y otras consultas...
+}

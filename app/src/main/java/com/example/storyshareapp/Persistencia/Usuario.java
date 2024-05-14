@@ -88,11 +88,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public int getFechaNacimiento() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setFechaNacimiento(int edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
