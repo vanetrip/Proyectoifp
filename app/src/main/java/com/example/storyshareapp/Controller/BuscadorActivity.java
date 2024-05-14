@@ -37,6 +37,25 @@ public class BuscadorActivity extends AppCompatActivity {
         boton3 = (Button) findViewById(R.id.button8_buscador);
         list1 = (ListView) findViewById(R.id.listView_buscador);
 
+       /* db= new GestorDB(this);
+        listadoAudios= db.getAudios();
+        adaptador= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listadoAudios);
+        lista1.setAdapter(adaptador);
+
+
+        lista1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                contenidoItem= parent.getItemAtPosition(position).toString();
+                String selectedItem = listadoAudios.get(position);
+
+                pasarPantalla = new Intent(MainActivity.this, ReproducirActivity.class);
+                pasarPantalla.putExtra("VALOR", contenidoItem);
+                startActivity(pasarPantalla);
+            }
+
+        });*/
+
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
