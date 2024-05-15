@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3__signIn" />
 
     <Button
-        android:id="@+id/button1_event"
+        android:id="@+id/button1_signIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
@@ -128,7 +128,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1_event" />
+        app:layout_constraintTop_toBottomOf="@+id/button1_signIn" />
 
     <TextView
         android:id="@+id/textView5_signIn"

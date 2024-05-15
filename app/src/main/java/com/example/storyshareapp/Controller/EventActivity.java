@@ -1,4 +1,4 @@
-package com.example.storyshareapp.Controller;
+/*package com.example.storyshareapp.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -91,4 +91,4 @@ public class EventActivity extends AppCompatActivity {
             // Deberás implementar la conexión a tu base de datos aquí
         }
     }
-}
+}*/
