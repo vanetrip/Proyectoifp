@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.storyshareapp.R;
 
 public class StartActivity extends AppCompatActivity {
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,4 +23,5 @@ public class StartActivity extends AppCompatActivity {
             }
         }, 5000); // 5000 milisegundos = 5 segundos
     }
+}*/
 }

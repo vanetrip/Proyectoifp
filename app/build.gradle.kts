@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.storyshareapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.storyshareapp"
@@ -48,6 +48,7 @@ dependencies {
     //implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics:21.5.0")
     implementation("androidx.activity:activity:1.8.0")
+    implementation(files("libs/mysql-connector-java-8.4.0.jar"))
     dependencies {
         // Import the BoM for the Firebase platform
         implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
