@@ -22,11 +22,13 @@ public class InfoBook extends AppCompatActivity {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
+    private ImageView image4;
 
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
+    private TextView textView5;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,17 +41,19 @@ public class InfoBook extends AppCompatActivity {
         image1 = (ImageView) findViewById(R.id.imageView3_info_book);
         image2 = (ImageView) findViewById(R.id.imageView4_info_book);
         image3 = (ImageView) findViewById(R.id.imageView5_info_book);
-        textView1 = (TextView) findViewById(R.id.textView10_infoBook);
-        textView1 = (TextView) findViewById(R.id.textView12_infoBook);
-        textView1 = (TextView) findViewById(R.id.textView15_info_book);
-        textView1 = (TextView) findViewById(R.id.textView16_info_book);
+        //image4 = (ImageView) findViewById(R.id.imageView6_info_book);
+        //textView1 = (TextView) findViewById(R.id.textView5_infoBook);
+        textView2 = (TextView) findViewById(R.id.textView10_infoBook);
+        textView3 = (TextView) findViewById(R.id.textView12_infoBook);
+        textView4 = (TextView) findViewById(R.id.textView15_info_book);
+        textView5 = (TextView) findViewById(R.id.textView17_infobook);
 
 
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Favorito
+                // Lógica para abrir la actividad Favoritos
                 Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
                 startActivity(intent);
             }
@@ -82,32 +86,13 @@ public class InfoBook extends AppCompatActivity {
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
+                // Lógica para abrir la actividad Eventos
                 Intent intent = new Intent(InfoBook.this, Eventos.class);
                 startActivity(intent);
             }
         });
 
 
-        /*
-
-Aqui habria que poner la consulta de la base de datos para que salga la información del libro, el autor, la hora y el dia de la reunion
-
-        DBHelper dbHelper = new DBHelper(this);
-
-// Suponiendo que tienes métodos en tu DBHelper para obtener los datos de la base de datos
-        String tituloLibro = dbHelper.getTituloLibro(); // Método para obtener el título del libro desde la base de datos
-        String autorLibro = dbHelper.getAutorLibro(); // Método para obtener el autor del libro desde la base de datos
-        String diaEvento = dbHelper.getDiaEvento(); // Método para obtener el día del evento desde la base de datos
-        String horaEvento = dbHelper.getHoraEvento(); // Método para obtener la hora del evento desde la base de datos
-
-// Asignar los valores a los TextView
-        textView1.setText(tituloLibro);
-        textView2.setText(autorLibro);
-        textView3.setText(diaEvento);
-        textView4.setText(horaEvento);
-
-        */
     }
 
 }

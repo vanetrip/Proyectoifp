@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Controller.BuscadorActivity"
+            android:exported="false" />
+        <activity
             android:name=".Controller.InicioActivity"
             android:exported="true"
             android:label="@string/app_name"
