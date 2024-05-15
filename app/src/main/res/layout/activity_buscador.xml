@@ -233,7 +233,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView6_buscador"
+                android:id="@+id/textView7_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
