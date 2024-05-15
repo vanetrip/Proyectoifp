@@ -37,7 +37,7 @@ public class SignInActivity extends AppCompatActivity {
 
         editText1 = (EditText) findViewById(R.id.editText1_signIn);
         editText2 = (EditText) findViewById(R.id.editText2_signIn);
-        button1 = (Button) findViewById(R.id.button1_signIn);
+        button1 = (Button) findViewById(R.id.button1_event);
         button2 = (Button) findViewById(R.id.button2_signIn);
         button3 = (Button) findViewById(R.id.button3_signIn);
         button4 = (Button) findViewById(R.id.button4_signIn);

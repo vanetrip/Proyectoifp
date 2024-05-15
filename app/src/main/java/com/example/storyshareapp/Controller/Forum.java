@@ -24,7 +24,7 @@ public class Forum extends AppCompatActivity {
     private Button boton1;
 
     private ArrayAdapter<String> adapter;
-    private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +32,12 @@ public class Forum extends AppCompatActivity {
 
         image1 = (ImageView) findViewById(R.id.imageView3_forum);
         image2 = (ImageView) findViewById(R.id.imageView4_forum);
-        image3 = (ImageView) findViewById(R.id.imageView5_info_book);
+
         list1= (ListView) findViewById(R.id.listView_forum);
         boton1 = (Button) findViewById(R.id.button10_forum); //falta este evento. Que llevaria a un cuestionario.
 
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(adapter);
 
-        dbHelper = new DBHelper(this);
-        mostrarEventos();
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,24 +59,13 @@ public class Forum extends AppCompatActivity {
         image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
+                // Lógica para abrir la actividad Perfil
                 Intent intent = new Intent(Forum.this, Profile.class);
                 startActivity(intent);
             }
         });
 
-        private void mostrarEventos() {
-            SQLiteDatabase db = dbHelper.getReadableDatabase();
-            Cursor cursor = db.query("tabla_eventos", null, null, null, null, null, null);
 
-            while (cursor.moveToNext()) {
-                // Suponiendo que tienes una columna llamada "nombre_evento" en tu tabla
-                String nombreEvento = cursor.getString(cursor.getColumnIndex("nombre_evento"));
-                adapter.add(nombreEvento);
-            }
-
-            cursor.close();
-        }
     }
 
     }
