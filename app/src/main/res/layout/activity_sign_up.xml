@@ -9,8 +9,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout1"
-        android:layout_width="0dp"
-        android:layout_height="145dp"
+        android:layout_width="394dp"
+        android:layout_height="97dp"
         android:background="#F4EEE1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="156dp"
+            android:layout_height="63dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="25sp"
             android:layout_marginTop="20sp"
@@ -48,6 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="45dp"
         android:fontFamily="@font/quicksand_medium"
         android:text="Usuario"
@@ -161,7 +162,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Ciudad"
+        android:text="Nombre completo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText4_SignUp" />
@@ -174,7 +175,7 @@
         android:layout_marginEnd="45dp"
         android:ems="10"
         android:fontFamily="@font/quicksand_medium"
-        android:hint="Ciudad"
+        android:hint="Nombre completo"
         android:inputType="text"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -186,11 +187,11 @@
         android:layout_width="315dp"
         android:layout_height="44dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5_SignUp">
+        app:layout_constraintTop_toBottomOf="@+id/editText6_SignUp">
 
         <RadioButton
             android:id="@+id/radioButton1_signUp"
@@ -215,7 +216,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginEnd="45dp"
         android:text="*La suscripción a StoryShare te permitirá crear nuevos temas, tus propias reuniones y mucho más..."
-        android:textSize="9sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -225,26 +226,25 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="18dp"
         android:layout_marginEnd="130dp"
+        android:layout_marginBottom="20dp"
         android:background="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
         android:text="Regístrate"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2.1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7_signUp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/frameLayout2.1"
         android:layout_width="0dp"
         android:layout_height="29dp"
-        android:layout_marginTop="25dp"
         android:background="#A5C3A7"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1_signUp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -290,13 +290,42 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="0dp"
         android:layout_height="29dp"
         android:background="#6D8B89"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2.1">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView11_SignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5_SignUp" />
+
+    <EditText
+        android:id="@+id/editText6_SignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_medium"
+        android:hint="Correo"
+        android:inputType="text"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11_SignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
