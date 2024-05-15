@@ -37,8 +37,6 @@ public class Forum {
         list1= (ListView) findViewById(R.id.listView_forum);
         boton1 = (Button) findViewById(R.id.button10_forum); //falta este evento. Que llevaria a un cuestionario.
 
-
-
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,21 +57,11 @@ public class Forum {
         image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
+                // Lógica para abrir la actividad Perfil
                 Intent intent = new Intent(Forum.this, Profile.class);
                 startActivity(intent);
             }
         });
-
-        private void mostrarEventos() {
-            SQLiteDatabase db = dbHelper.getReadableDatabase();
-            Cursor cursor = db.query("tabla_eventos", null, null, null, null, null, null);
-
-            while (cursor.moveToNext()) {
-                // Suponiendo que tienes una columna llamada "nombre_evento" en tu tabla
-                String nombreEvento = cursor.getString(cursor.getColumnIndex("nombre_evento"));
-                adapter.add(nombreEvento);
-            }
 
             cursor.close();
         }
