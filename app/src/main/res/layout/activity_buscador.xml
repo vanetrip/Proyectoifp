@@ -2,103 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
-
-    <ImageView
-        android:id="@+id/imageView9_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView17_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView16_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14_favoritos"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView16_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView15_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13_favoritos"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView15_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12_favoritos"
-    <ImageView
-        android:id="@+id/imageView14_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView13_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11_favoritos"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView13_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView12_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10_favoritos"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView11_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView10_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView12_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9_favoritos"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView10_favoritos"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
+    tools:context=".Controller.BuscadorActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout1"
@@ -106,18 +13,19 @@
         android:layout_height="100dp"
         android:background="#F4EEE1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView1_buscador"
             android:layout_width="156dp"
             android:layout_height="80dp"
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
         <TextView
-            android:id="@+id/textView16_evento"
+            android:id="@+id/textView1_buscador"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -125,7 +33,6 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/quicksand_medium"
-            android:hint="Buscar"
             android:outlineProvider="none"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -134,13 +41,31 @@
             android:textColor="#A5A4A4" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView2_buscador"
             android:layout_width="24dp"
             android:layout_height="21dp"
             android:layout_gravity="center|right"
             android:layout_marginRight="40dp"
-            android:tint="#46000000"
             app:srcCompat="@drawable/buscar" />
+
+        <EditText
+            android:id="@+id/editText4_busacdor"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="30dp"
+            android:background="@null"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:fontFamily="@font/quicksand_medium"
+            android:hint="Buscar"
+            android:inputType="text"
+            android:outlineProvider="none"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:textSize="14sp" />
 
     </FrameLayout>
 
@@ -149,9 +74,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#6D8B89"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout1"
+        tools:layout_editor_absoluteX="-27dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,26 +84,25 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView18_favoritos"
+                android:id="@+id/imageView3_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/estrella_amarilla" />
+                app:srcCompat="@drawable/estrella_blanca" />
 
             <ImageView
-                android:id="@+id/imageView7_favoritos"
+                android:id="@+id/imageView4_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView8_favoritos"
+                android:id="@+id/imageView5_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/avatar_blanco" />
-
 
         </LinearLayout>
     </FrameLayout>
@@ -198,7 +121,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView9_eventos"
+                android:id="@+id/textView2_buscador"
                 android:layout_width="37dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -208,17 +131,17 @@
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView10_eventos"
+                android:id="@+id/textView3_buscador"
                 android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Calendario"
+                android:text="Eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
             <TextView
-                android:id="@+id/textView20_eventos"
+                android:id="@+id/textView4_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -241,27 +164,34 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
         <TextView
-            android:id="@+id/textView0_eventos"
+            android:id="@+id/textView5_buscador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Tus libros favoritos"
+            android:text="Listado de libros"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/frameLayout6"
-        android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="500dp"
-        android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
+    <ListView
+        android:id="@+id/listView_buscador"
+        android:layout_width="407dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="#A5C3A7"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -269,19 +199,19 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button9_favoritos"
+                android:id="@+id/button1_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:text="Centro de ayuda"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/textView6_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -291,7 +221,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10_favoritos"
+                android:id="@+id/button7_buscador"
                 android:layout_width="11dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -300,11 +230,10 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
-
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView6_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -314,30 +243,28 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button11_favoritos"
+                android:id="@+id/button8_buscador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:text="Solicita tu libro"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout4_inicio"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:id="@+id/frameLayout"
+        android:layout_width="412dp"
+        android:layout_height="30dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
