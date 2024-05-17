@@ -39,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
         BasedeDatos basedeDatos = new BasedeDatos(this);
         // Obtener instancia de SQLiteDatabase
         db = basedeDatos.getWritableDatabase();
-        //basedeDatos.eliminarBaseDeDatos();
+        basedeDatos.eliminarBaseDeDatos();
 
         editText1 = findViewById(R.id.editText1_signIn);
         editText2 = findViewById(R.id.editText2_signIn);
@@ -48,6 +48,7 @@ public class SignInActivity extends AppCompatActivity {
 
         editText2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
+        // Inicio sesión
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

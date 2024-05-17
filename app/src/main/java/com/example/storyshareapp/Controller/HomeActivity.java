@@ -15,7 +15,6 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.example.storyshareapp.Model.Libros;
 import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
@@ -47,9 +46,11 @@ public class HomeActivity extends AppCompatActivity {
         image12 = findViewById(R.id.imageView12_home);
 
         basedeDatos = new BasedeDatos(this);
-// Obtener el idUsuario del Intent que inició esta actividad
+
+        // Obtener el idUsuario del Intent que inició esta actividad
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
+        System.out.println("idUsuario "+idUsuario);
         image5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,14 +72,18 @@ public class HomeActivity extends AppCompatActivity {
 
         // Obtener los IDs de los foros más populares
         List<Integer> idForosPopulares = basedeDatos.obtenerIdForosPopulares();
+        System.out.println("Idsforospopulares " + idForosPopulares);
 
         // Obtener los tres foros más populares y mostrar la portada de sus libros asociados
         for (int i = 0; i < idForosPopulares.size() && i < 3; i++) {
             int idForo = idForosPopulares.get(i);
+            System.out.println("idForo " + idForo);
             int idLibro = basedeDatos.obtenerIdLibroPorIdForo(idForo);
+            System.out.println("idLibro " + idLibro);
             if (idLibro != -1) {
                 Libro libro = basedeDatos.obtenerLibro(idLibro);
                 if (libro != null) {
+                    System.out.println("Portada del libro " + libro.getTitulo() + ": " + libro.getPortada());
                     // Cargar la portada del libro en la imagen correspondiente
                     switch (i) {
                         case 0:
