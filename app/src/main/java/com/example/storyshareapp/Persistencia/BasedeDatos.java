@@ -9,6 +9,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Date;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class BasedeDatos extends SQLiteOpenHelper {
 
     // Nombre de la base de datos
@@ -114,6 +120,20 @@ public class BasedeDatos extends SQLiteOpenHelper {
                 "('Ciencia Ficción', 'Fundación', 'Isaac Asimov', '1951-06-01', 4, 'https://m.media-amazon.com/images/I/811QjmMJxuL._SL1500_.jpg'), " +
                 "('Aventura', 'La vuelta al mundo en 80 días', 'Julio Verne', '1873-01-30', 4, 'https://m.media-amazon.com/images/I/A16vPjDrebS._SL1500_.jpg')"
         );
+
+        // Inserción del usuario Maria
+        db.execSQL("INSERT INTO Usuarios (nombre_usuario, contraseña, plan_id, plan_inicio, plan_fin, nombreCompleto, email, edad) VALUES " +
+                "('maria', 'maria123', 1, '2024-05-01', '2025-05-01', 'Maria Molina', 'maria@example.com', 29)"
+        );
+
+        // Inserción de eventos
+        db.execSQL("INSERT INTO Eventos (nombre, fecha, hora, moderador_id, libro_id) VALUES " +
+                "('Evento de Fantasía', '2024-06-15', '18:00', 1, 1), " +
+                "('Ciencia Ficción: Dune', '2024-07-20', '20:00', 1, 7), " +
+                "('Encuentro de Misterio', '2024-08-10', '17:00', 1, 3), " +
+                "('Terror Nocturno', '2024-10-31', '22:00', 1, 13), " +
+                "('Clásicos de la Literatura', '2024-12-05', '19:00', 1, 9)"
+        );
     }
 
     @Override
@@ -180,6 +200,38 @@ public class BasedeDatos extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("Usuarios", "id=?", new String[]{String.valueOf(idUsuario)});
         db.close();
+    }
+
+    public Usuario obtenerUsuario(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuarios WHERE id = ?", new String[]{String.valueOf(id)});
+        if (cursor != null) {
+            cursor.moveToFirst();
+            // Parseo de las fechas
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date planInicio = null;
+            Date planFin = null;
+            try {
+                planInicio = dateFormat.parse(cursor.getString(cursor.getColumnIndexOrThrow("plan_inicio")));
+                planFin = dateFormat.parse(cursor.getString(cursor.getColumnIndexOrThrow("plan_fin")));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Usuario usuario = new Usuario(
+                    cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("nombre_usuario")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("contraseña")),
+                    cursor.getInt(cursor.getColumnIndexOrThrow("plan_id")),
+                    planInicio,
+                    planFin,
+                    cursor.getString(cursor.getColumnIndexOrThrow("email")),
+                    cursor.getInt(cursor.getColumnIndexOrThrow("edad")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("nombreCompleto"))
+            );
+            cursor.close();
+            return usuario;
+        }
+        return null;
     }
 
     public void eliminarBaseDeDatos() {
