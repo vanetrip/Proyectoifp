@@ -6,26 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/imageView1_eventos"
-        android:layout_width="99dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView2_eventos"
-        android:layout_width="99dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1_eventos"
-        tools:srcCompat="@tools:sample/avatars" />
-
+    <!-- FrameLayout 1 -->
     <FrameLayout
         android:id="@+id/frameLayout1"
         android:layout_width="409dp"
@@ -35,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- ImageView -->
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="156dp"
@@ -42,6 +24,7 @@
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
+        <!-- TextView -->
         <TextView
             android:id="@+id/textView16_evento"
             android:layout_width="220dp"
@@ -59,6 +42,7 @@
             android:paddingBottom="10dp"
             android:textColor="#A5A4A4" />
 
+        <!-- ImageView -->
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="24dp"
@@ -66,10 +50,12 @@
             android:layout_gravity="center|right"
             android:layout_marginRight="40dp"
             android:tint="#46000000"
-            app:srcCompat="@drawable/buscar" />
+            app:srcCompat="@drawable/buscar"
+            tools:ignore="UseAppTint" />
 
     </FrameLayout>
 
+    <!-- FrameLayout 2.1 -->
     <FrameLayout
         android:id="@+id/frameLayout2.1"
         android:layout_width="match_parent"
@@ -79,12 +65,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout1">
 
+        <!-- LinearLayout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
+            <!-- ImageView -->
             <ImageView
                 android:id="@+id/imageView19"
                 android:layout_width="wrap_content"
@@ -92,6 +80,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/estrella_blanca" />
 
+            <!-- ImageView -->
             <ImageView
                 android:id="@+id/imageView20"
                 android:layout_width="wrap_content"
@@ -99,6 +88,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/calendario_amarillo" />
 
+            <!-- ImageView -->
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
@@ -109,6 +99,7 @@
         </LinearLayout>
     </FrameLayout>
 
+    <!-- FrameLayout 2.2 -->
     <FrameLayout
         android:id="@+id/frameLayout2.2"
         android:layout_width="match_parent"
@@ -117,11 +108,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.1">
 
+        <!-- LinearLayout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <!-- TextView -->
             <TextView
                 android:id="@+id/textView9_eventos"
                 android:layout_width="37dp"
@@ -132,6 +125,7 @@
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
+            <!-- TextView -->
             <TextView
                 android:id="@+id/textView10_eventos"
                 android:layout_width="36dp"
@@ -142,6 +136,7 @@
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
+            <!-- TextView -->
             <TextView
                 android:id="@+id/textView20_eventos"
                 android:layout_width="wrap_content"
@@ -154,6 +149,7 @@
         </LinearLayout>
     </FrameLayout>
 
+    <!-- FrameLayout 3 -->
     <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="414dp"
@@ -165,6 +161,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
+        <!-- TextView -->
         <TextView
             android:id="@+id/textView0_eventos"
             android:layout_width="wrap_content"
@@ -177,6 +174,7 @@
             android:textSize="16sp" />
     </FrameLayout>
 
+    <!-- FrameLayout 6 -->
     <FrameLayout
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
@@ -188,11 +186,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2.2">
 
+        <!-- LinearLayout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <!-- Button -->
             <Button
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
@@ -205,6 +205,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
 
+            <!-- TextView -->
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="wrap_content"
@@ -215,6 +216,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="8sp" />
 
+            <!-- Button -->
             <Button
                 android:id="@+id/button30"
                 android:layout_width="11dp"
@@ -227,6 +229,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
 
+            <!-- TextView -->
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -237,6 +240,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="8sp" />
 
+            <!-- Button -->
             <Button
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
@@ -252,6 +256,7 @@
         </LinearLayout>
     </FrameLayout>
 
+    <!-- FrameLayout 4 (Inicio) -->
     <FrameLayout
         android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
@@ -265,151 +270,107 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_top20"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="50dp"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView1_eventos"
-        tools:layout_editor_absoluteY="389dp">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView50_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:text="TextView" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView51_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:text="TextView" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView52_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView53_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_top2"
-        android:layout_width="0dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView1_eventos"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView60_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/textView1_eventos"
-                android:layout_width="4dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Título"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView2_eventos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView3_eventos"
-                android:layout_width="3dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Autor"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView4_eventos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView61_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/textView5_eventos"
-                android:layout_width="3dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Día"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView6_eventos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView62_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/textView7_eventos"
-                android:layout_width="6dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Hora"
-                android:textColor="#6D8A88"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView8_eventos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="TextView" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button_1_eventos"
+        <TextView
+            android:id="@+id/textView63_eventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#6D8A88"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Ir al evento online"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
-
+            android:text="TextView" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView70_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView71_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView72_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView73_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
+
+    <!-- LinearLayout (Top 20) -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
