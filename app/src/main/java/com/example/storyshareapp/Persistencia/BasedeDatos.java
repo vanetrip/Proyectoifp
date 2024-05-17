@@ -134,6 +134,60 @@ public class BasedeDatos extends SQLiteOpenHelper {
                 "('Terror Nocturno', '2024-10-31', '22:00', 1, 13), " +
                 "('Clásicos de la Literatura', '2024-12-05', '19:00', 1, 9)"
         );
+
+        // Insertar foros
+        db.execSQL("INSERT INTO Foros (nombre, creador_id, id_libro, fecha_creacion) VALUES " +
+                "('Foro de Dune 1', 2, 7, '2024-06-25'), " +
+                "('Foro de Romeo y Julieta 1', 3, 10, '2024-07-01'), " +
+                "('Foro de Crepúsculo 1', 4, 12, '2024-07-05'), " +
+                "('Foro de Drácula 1', 5, 14, '2024-07-10'), " +
+                "('Foro de Sherlock Holmes 1', 1, 15, '2024-07-15'), " +
+                "('Foro de Dune 2', 2, 7, '2024-06-25'), " +
+                "('Foro de Romeo y Julieta 2', 3, 10, '2024-07-01'), " +
+                "('Foro de Crepúsculo 2', 4, 12, '2024-07-05'), " +
+                "('Foro de Drácula 2', 5, 14, '2024-07-10'), " +
+                "('Foro de Sherlock Holmes 2', 1, 15, '2024-07-15'), " +
+                "('Foro de El Señor de los Anillos', 2, 1, '2024-06-25'), " +
+                "('Foro de 1984', 3, 2, '2024-07-01'), " +
+                "('Foro de Orgullo y Prejuicio', 4, 4, '2024-07-05'), " +
+                "('Foro de La Isla del Tesoro', 5, 5, '2024-07-10'), " +
+                "('Foro de Harry Potter y la Piedra Filosofal', 1, 8, '2024-07-15'), " +
+                "('Foro de El Hobbit', 2, 18, '2024-06-25'), " +
+                "('Foro de Anna Karenina', 3, 19, '2024-07-01'), " +
+                "('Foro de Fundación', 4, 20, '2024-07-05'), " +
+                "('Foro de La vuelta al mundo en 80 días', 5, 21, '2024-07-10'), " +
+                "('Foro de El Señor de los Anillos 2', 2, 1, '2024-06-25'), " +
+                "('Foro de Dune 3', 2, 7, '2024-06-25'), " +
+                "('Foro de Romeo y Julieta 3', 3, 10, '2024-07-01'), " +
+                "('Foro de Crepúsculo 3', 4, 12, '2024-07-05'), " +
+                "('Foro de Drácula 3', 5, 14, '2024-07-10'), " +
+                "('Foro de Sherlock Holmes 3', 1, 15, '2024-07-15')");
+
+        db.execSQL("INSERT INTO ComentariosForo (id_foro, id_usuario, comentario, fecha, hora) VALUES " +
+                "(1, 1, '¡Qué interesante discusión!', '2024-05-01', '09:30'), " +
+                "(1, 2, 'Estoy de acuerdo contigo.', '2024-05-02', '10:15'), " +
+                "(1, 3, '¿Alguien ha leído el libro?', '2024-05-03', '11:45'), " +
+                "(1, 4, 'No he tenido la oportunidad de leerlo aún.', '2024-05-04', '13:20'), " +
+                "(1, 5, 'Me encantaría unirme a esta discusión.', '2024-05-05', '15:00'), " +
+                "(2, 1, '¿Qué opinan sobre el personaje principal?', '2024-05-06', '09:30'), " +
+                "(2, 2, 'Creo que es un personaje bien desarrollado.', '2024-05-07', '10:15'), " +
+                "(2, 3, 'Su evolución a lo largo de la historia es impresionante.', '2024-05-08', '11:45'), " +
+                "(2, 4, 'Estoy de acuerdo contigo, es uno de mis personajes favoritos.', '2024-05-09', '13:20'), " +
+                "(2, 5, 'Me encanta cómo el autor lo retrató.', '2024-05-10', '15:00'), " +
+                "(3, 1, '¿Alguien tiene teorías sobre el final?', '2024-05-11', '09:30'), " +
+                "(3, 2, 'Creo que el final fue sorprendente pero satisfactorio.', '2024-05-12', '10:15'), " +
+                "(3, 3, 'Yo también quedé impresionado.', '2024-05-13', '11:45'), " +
+                "(3, 4, 'Pero creo que podría haber sido un poco más abierto.', '2024-05-14', '13:20'), " +
+                "(3, 5, 'Estoy de acuerdo, dejó algunas incógnitas sin resolver.', '2024-05-15', '15:00'), " +
+                "(4, 1, '¿Cuál fue su parte favorita?', '2024-05-16', '09:30'), " +
+                "(4, 2, 'Definitivamente la escena de acción en el capítulo cinco.', '2024-05-17', '10:15'), " +
+                "(4, 3, 'Esa parte fue emocionante, pero prefiero los momentos más emotivos.', '2024-05-18', '11:45'), " +
+                "(4, 5, '¡Me encantaría debatir sobre eso!', '2024-05-20', '15:00'), " +
+                "(5, 1, '¿Alguien ha notado los simbolismos en la obra?', '2024-05-21', '09:30'), " +
+                "(5, 2, 'Sí, hay muchos detalles sutiles que merecen atención.', '2024-05-22', '10:15'), " +
+                "(5, 3, 'Estoy de acuerdo, el autor tiene un estilo único.', '2024-05-23', '11:45'), " +
+                "(5, 5, 'Definitivamente, es uno de los aspectos más interesantes de la obra.', '2024-05-25', '15:00')"
+        );
     }
 
     @Override
@@ -252,7 +306,7 @@ public class BasedeDatos extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT id_foro, COUNT(id_foro) AS count FROM ComentariosForo GROUP BY id_foro ORDER BY count DESC LIMIT 3", null);
         if (cursor.moveToFirst()) {
             do {
-                int idForo = cursor.getInt(1);
+                int idForo = cursor.getInt(0);
                 idForosPopulares.add(idForo);
             } while (cursor.moveToNext());
         }
@@ -265,7 +319,8 @@ public class BasedeDatos extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT id_libro FROM Foros WHERE id = ?", new String[]{String.valueOf(idForo)});
         int idLibro = -1; // Valor por defecto si no se encuentra
         if (cursor.moveToFirst()) {
-            idLibro = cursor.getInt(3);
+            idLibro = cursor.getInt(0);
+            System.out.println("idLibroSQL: " + idLibro);
         }
         cursor.close();
         return idLibro;
