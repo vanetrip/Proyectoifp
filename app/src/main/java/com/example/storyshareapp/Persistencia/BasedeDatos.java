@@ -266,5 +266,62 @@ public class BasedeDatos extends SQLiteOpenHelper {
         return librosMasRecientes;
     }
 
+    public List<Libro> obtenerLibrosEnOrdenAlfabetico() {
+        List<Libro> libros = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Libros ORDER BY titulo ASC", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String genero = cursor.getString(1);
+                String titulo = cursor.getString(2);
+                String autor = cursor.getString(3);
+                String fechaPublicacionString = cursor.getString(4);
+                int valoracion = cursor.getInt(5);
+                String portada = cursor.getString(6);
+                Libro libro = new Libro(id, titulo, autor, genero, fechaPublicacionString, valoracion, portada);
+                libros.add(libro);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return libros;
+    }
+
+    public List<Integer> obtenerLibrosFavoritosPorUsuario(int usuarioId) {
+        List<Integer> librosFavoritos = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT libro_id FROM LibrosUsuario WHERE usuario_id = ? AND favorito = 1", new String[]{String.valueOf(usuarioId)});
+        if (cursor.moveToFirst()) {
+            do {
+                int libroId = cursor.getInt(1);
+                librosFavoritos.add(libroId);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return librosFavoritos;
+    }
+
+    public List<Libro> obtenerLibrosPorIds(List<Integer> ids) {
+        List<Libro> libros = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String idsStr = ids.toString().replace("[", "").replace("]", ""); // Convierte la lista de IDs a una cadena separada por comas
+        Cursor cursor = db.rawQuery("SELECT * FROM Libros WHERE id IN (" + idsStr + ")", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String genero = cursor.getString(1);
+                String titulo = cursor.getString(2);
+                String autor = cursor.getString(3);
+                String fechaPublicacionString = cursor.getString(4);
+                int valoracion = cursor.getInt(5);
+                String portada = cursor.getString(6);
+                Libro libro = new Libro(id, titulo, autor, genero, fechaPublicacionString, valoracion, portada);
+                libros.add(libro);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return libros;
+    }
+
     // Resto de los métodos CRUD y otras consultas...
 }
