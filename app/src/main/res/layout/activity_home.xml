@@ -7,7 +7,7 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView10_Home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
@@ -17,7 +17,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imageView18_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginEnd="50dp"
@@ -27,17 +27,17 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/imageView17_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView17"
-        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintEnd_toStartOf="@+id/imageView18_home"
+        app:layout_constraintStart_toEndOf="@+id/imageView16_home"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/imageView16_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
@@ -47,7 +47,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageView15_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginEnd="50dp"
@@ -57,17 +57,17 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/imageView14_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginEnd="36dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15_home"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageView12_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginEnd="50dp"
@@ -77,24 +77,24 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView13_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="36dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView13"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout4"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageView11_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintEnd_toStartOf="@+id/imageView12_home"
+        app:layout_constraintStart_toEndOf="@+id/imageView10_Home"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -297,10 +297,12 @@
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
         android:layout_height="32dp"
+        android:layout_marginTop="130dp"
         android:background="#A5C3A7"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -369,11 +371,12 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
-        android:layout_height="29dp"
+        android:layout_height="0dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
 
     </FrameLayout>
 
