@@ -1,35 +1,144 @@
 package com.example.storyshareapp.Controller;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.example.storyshareapp.Model.Libros;
+import com.example.storyshareapp.Persistencia.BasedeDatos;
+import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-/*
+    private ImageView image4;
+    private ImageView image5;
+    private ImageView image10;
+    private ImageView image11;
+    private ImageView image12;
+
+    private BasedeDatos basedeDatos;
+    private int idUsuario; // Variable para almacenar el idUsuario
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_inicio);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }}
+        setContentView(R.layout.activity_home);
+        image4 = findViewById(R.id.imageView4_home);
+        image5 = findViewById(R.id.imageView5_home);
+        image10 = findViewById(R.id.imageView10_Home);
+        image11 = findViewById(R.id.imageView11_home);
+        image12 = findViewById(R.id.imageView12_home);
 
- */
+        basedeDatos = new BasedeDatos(this);
+// Obtener el idUsuario del Intent que inició esta actividad
+        Intent intent = getIntent();
+        idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ir a la pantalla de perfil
+                Intent intent = new Intent(HomeActivity.this, Profile.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        });
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ir a la pantalla de perfil
+                Intent intent = new Intent(HomeActivity.this, EventosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        });
+
+        // Obtener los IDs de los foros más populares
+        List<Integer> idForosPopulares = basedeDatos.obtenerIdForosPopulares();
+
+        // Obtener los tres foros más populares y mostrar la portada de sus libros asociados
+        for (int i = 0; i < idForosPopulares.size() && i < 3; i++) {
+            int idForo = idForosPopulares.get(i);
+            int idLibro = basedeDatos.obtenerIdLibroPorIdForo(idForo);
+            if (idLibro != -1) {
+                Libro libro = basedeDatos.obtenerLibro(idLibro);
+                if (libro != null) {
+                    // Cargar la portada del libro en la imagen correspondiente
+                    switch (i) {
+                        case 0:
+                            cargarImagenPortada(libro.getPortada(), image10);
+                            break;
+                        case 1:
+                            cargarImagenPortada(libro.getPortada(), image11);
+                            break;
+                        case 2:
+                            cargarImagenPortada(libro.getPortada(), image12);
+                            break;
+                    }
+                }
+            }
+        }
+    }
+
+    private void cargarImagenPortada(String urlPortada, ImageView imageView) {
+        if (urlPortada != null && !urlPortada.isEmpty()) {
+            RequestOptions requestOptions = new RequestOptions()
+                    .placeholder(R.drawable.logo_blanco)
+                    .error(R.drawable.avatar_blanco)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+
+            Glide.with(this)
+                    .load(urlPortada)
+                    .apply(requestOptions)
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            // Manejo de errores al cargar la imagen
+                            Log.e("TAG", "Error al cargar la imagen: " + e.getMessage(), e);
+                            // Puedes mostrar un mensaje de error al usuario si lo deseas
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(HomeActivity.this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            return false; // Retornar 'true' si deseas que Glide maneje el error y cargue la imagen de error definida
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            // La imagen se cargó exitosamente
+                            Log.d("TAG", "Imagen cargada con éxito");
+                            return false;
+                        }
+                    })
+                    .into(imageView);
+        } else {
+            // La URL de la imagen es inválida
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(HomeActivity.this, "URL de portada no válida", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 }
 
 
