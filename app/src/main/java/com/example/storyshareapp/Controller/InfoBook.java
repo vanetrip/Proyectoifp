@@ -49,6 +49,7 @@ public class InfoBook extends AppCompatActivity {
         image2 = (ImageView) findViewById(R.id.imageView4_info_book);
         image3 = (ImageView) findViewById(R.id.imageView5_info_book);
         image4 = (ImageView) findViewById(R.id.imageView1_info_book);
+        textView1 = (TextView) findViewById(R.id.textView5_info_book);
         textView2 = (TextView) findViewById(R.id.textView10_infoBook);
         textView3 = (TextView) findViewById(R.id.textView12_infoBook);
         textView4 = (TextView) findViewById(R.id.textView15_info_book);
