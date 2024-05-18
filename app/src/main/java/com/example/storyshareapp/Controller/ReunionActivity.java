@@ -137,6 +137,7 @@ public class ReunionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ReunionActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
+                intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
             }
         });
