@@ -277,7 +277,7 @@
         android:layout_marginEnd="132dp"
         android:backgroundTint="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Añadir a eventos"
+        android:text="Crear evento"
         android:textColor="#F8F8F8"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -412,5 +412,18 @@
         android:text="hora"
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="525dp" />
+
+    <Button
+        android:id="@+id/button11_info_book"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="130dp"
+        android:background="#A5C3A7"
+        android:text="IR"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13_infoBook"
+        app:layout_constraintTop_toBottomOf="@+id/textView12_infoBook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
