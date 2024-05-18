@@ -35,8 +35,13 @@
             android:exported="false" />
 
         <activity
-            android:name=".Controller.BuscadorActivity"
+            android:name=".Controller.InfoBookActivity"
             android:exported="false" />
+
+        <activity android:name=".Controller.BuscadorActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/app_name">
+        </activity>
 
         <activity
             android:name=".Controller.HomeActivity"
