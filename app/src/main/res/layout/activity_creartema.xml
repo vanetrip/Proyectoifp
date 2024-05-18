@@ -215,13 +215,11 @@
     <FrameLayout
         android:id="@+id/frameLayout6_theme"
         android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="450dp"
+        android:layout_height="29dp"
         android:background="#A5C3A7"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout_theme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3_theme">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -290,12 +288,11 @@
     <FrameLayout
         android:id="@+id/frameLayout_theme"
         android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:layout_height="29dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6_theme">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
 

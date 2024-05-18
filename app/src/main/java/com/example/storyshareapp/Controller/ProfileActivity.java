@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import com.example.storyshareapp.R;
 public class ProfileActivity extends AppCompatActivity {
 
     //Declaramos variables
+    private EditText editText0;
     private EditText editText2;
     private EditText editText3;
     private EditText editText4;
@@ -56,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         idUsuario = intent.getIntExtra("idUsuario", -1);
 
         // Buscar vistas
+        editText0 = findViewById(R.id.editText0_profile);
         editText2 = findViewById(R.id.caja_text2_profile);
         editText3 = findViewById(R.id.caja_text3_profile);
         editText4 = findViewById(R.id.caja_text4_profile);
@@ -63,7 +66,6 @@ public class ProfileActivity extends AppCompatActivity {
         editText6 = findViewById(R.id.caja_text6_profile);
         button1 = findViewById(R.id.button11a_profile);
         button2 = findViewById(R.id.button10a_profile);
-        image1 = findViewById(R.id.imageView6_profile);
 
         // Imagenfavs
         image3 = (ImageView) findViewById(R.id.imageView3_profile);
@@ -74,8 +76,6 @@ public class ProfileActivity extends AppCompatActivity {
         //Imagenperfil
         image5 = (ImageView) findViewById(R.id.imageView5_profile);
         textView4 = (TextView) findViewById(R.id.textView4_profile);
-        // Imagen Storyshare
-        image1 = (ImageView) findViewById(R.id.imageView1_profile);
 
         // Cargar información del usuario
         cargarInformacionUsuario();
@@ -142,6 +142,24 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        // BUSCADOR
+        editText0.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = editText0.getText().toString().trim();
+
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(ProfileActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         // Configurar Listener del botón Guardar
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,29 +191,30 @@ public class ProfileActivity extends AppCompatActivity {
             editText2.setText(usuario.getNombreUsuario());
             editText3.setText(String.valueOf(usuario.getEdad()));
             editText4.setText(usuario.getNombre());
-            editText5.setText(usuario.getEmail());
-            // No se muestra la contraseña en un EditText por motivos de seguridad
-            // editText6.setText(usuario.getContraseña());
         }
     }
 
     private void actualizarUsuario() {
-        // Obtener los nuevos datos del usuario desde las vistas
-        String nuevoUsername = editText2.getText().toString();
-        String nuevaContraseña = editText6.getText().toString(); // No se recomienda mostrar la contraseña en un EditText
-        String nuevoNombreCompleto = editText4.getText().toString();
-        int nuevaEdad = Integer.parseInt(editText3.getText().toString());
+        String contraseña1 = editText5.getText().toString();
+        String contraseña2 = editText6.getText().toString();
 
-        // Actualizar los datos del usuario en la base de datos
-        basedeDatos.updateUsuario(idUsuario, nuevoUsername, nuevaContraseña, nuevoNombreCompleto, nuevaEdad);
+        // Verificar si las contraseñas coinciden
+        if (contraseña1.equals(contraseña2)) {
+            String nuevoUsername = editText2.getText().toString();
+            String nuevaContraseña = contraseña1; // Utilizamos la contraseña 1
+            String nuevoNombreCompleto = editText4.getText().toString();
+            int nuevaEdad = Integer.parseInt(editText3.getText().toString());
 
-        // Mostrar mensaje de éxito
-        Toast.makeText(ProfileActivity.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
+            basedeDatos.updateUsuario(idUsuario, nuevoUsername, nuevaContraseña, nuevoNombreCompleto, nuevaEdad);
+            Toast.makeText(ProfileActivity.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
 
-        // Cambiar a la pantalla HomeActivity
-        Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
-        intent.putExtra("idUsuario", idUsuario); // Mantener el ID de usuario
-        startActivity(intent);
-        finish(); // Finalizar la actividad
+            Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+            intent.putExtra("idUsuario", idUsuario);
+            startActivity(intent);
+            finish();
+        } else {
+            // Las contraseñas no coinciden, mostrar mensaje de error
+            Toast.makeText(ProfileActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+        }
     }
 }
