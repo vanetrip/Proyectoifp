@@ -1,7 +1,5 @@
 package com.example.storyshareapp.Controller;
 
-import static com.example.storyshareapp.Persistencia.BasedeDatos.*;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,16 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.storyshareapp.Model.Eventos;
 import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
-public class Profile extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     //Declaramos variables
     private EditText editText2;
@@ -142,7 +138,7 @@ public class Profile extends AppCompatActivity {
                         editText5.getText().toString().isEmpty() ||
                         editText6.getText().toString().isEmpty()) {
                     // Mostrar un mensaje al usuario indicando que debe completar todos los campos
-                    Toast.makeText(Profile.this, "Por favor, complete todos los campos antes de guardar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "Por favor, complete todos los campos antes de guardar", Toast.LENGTH_SHORT).show();
                 } else {
                     // Guardar todo lo escrito en SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -155,7 +151,7 @@ public class Profile extends AppCompatActivity {
 
                     // Actualizar los datos en la base de datos
                     // Inicializar BasedeDatos
-                    BasedeDatos basedeDatos = new BasedeDatos(Profile.this);
+                    BasedeDatos basedeDatos = new BasedeDatos(ProfileActivity.this);
                     // Obtener instancia de SQLiteDatabase
                     SQLiteDatabase db = basedeDatos.getWritableDatabase();
 
@@ -167,9 +163,9 @@ public class Profile extends AppCompatActivity {
                             editText4.getText().toString(),
                             Integer.parseInt(editText3.getText().toString())
                     );
-                    Toast.makeText(Profile.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
                     // Cambiar a la pantalla HomeActivity
-                    Intent intent = new Intent(Profile.this, HomeActivity.class);
+                    Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish(); // Finalizar la actividad actual si no deseas volver a ella con el botón de retroceso
                 }
@@ -186,7 +182,7 @@ public class Profile extends AppCompatActivity {
                 //vanessaeditText6.setText("");
                 // Cambiar a la pantalla HomeActivity
                 intent.putExtra("idUsuario", idUsuario); // Mantener el ID de usuario
-                Intent intent = new Intent(Profile.this, HomeActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
 
                 startActivity(intent);
                 finish(); // Finalizar la actividad

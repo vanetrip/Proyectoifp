@@ -71,7 +71,7 @@ public class InfoBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Calendario
-                Intent intent = new Intent(InfoBook.this, Profile.class);
+                Intent intent = new Intent(InfoBook.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
