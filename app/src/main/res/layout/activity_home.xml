@@ -17,31 +17,13 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView18_home"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView17_home"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView18_home"
-        app:layout_constraintStart_toEndOf="@+id/imageView16_home"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
         android:id="@+id/imageView16_home"
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
+        android:layout_marginEnd="36dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
         tools:srcCompat="@tools:sample/avatars" />
@@ -376,5 +358,23 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView17_home"
+        android:layout_width="80dp"
+        android:layout_height="117dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView18_home"
+        tools:layout_editor_absoluteY="595dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView18_home"
+        android:layout_width="80dp"
+        android:layout_height="117dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="595dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

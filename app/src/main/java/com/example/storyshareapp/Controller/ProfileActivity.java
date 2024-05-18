@@ -1,25 +1,32 @@
 package com.example.storyshareapp.Controller;
 
+import static com.example.storyshareapp.Persistencia.BasedeDatos.*;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.storyshareapp.Model.Eventos;
 import com.example.storyshareapp.Persistencia.BasedeDatos;
+import com.example.storyshareapp.Persistencia.Usuario;
 import com.example.storyshareapp.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
     //Declaramos variables
+    private EditText editText0;
     private EditText editText2;
     private EditText editText3;
     private EditText editText4;
@@ -30,161 +37,190 @@ public class ProfileActivity extends AppCompatActivity {
     private Button button2;
 
     private ImageView image1;
-    private SQLiteDatabase db;
+    private ImageView image3;
+    private ImageView image4;
+    private ImageView image5;
+    private ImageView image6;
+    private TextView textView2;
+    private TextView textView3;
+    private TextView textView4;
+    private int idUsuario;
+    private BasedeDatos basedeDatos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor editor;
+        // Inicializar la base de datos
+        basedeDatos = new BasedeDatos(ProfileActivity.this);
+        // Obtener el ID de usuario de los extras del intent
         Intent intent = getIntent();
-        int idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
+        idUsuario = intent.getIntExtra("idUsuario", -1);
 
-        // se instancian
-        editText2 = (EditText) findViewById(R.id.caja_text2_profile);
-        editText3 = (EditText) findViewById(R.id.caja_text3_profile);
-        editText4 = (EditText) findViewById(R.id.caja_text4_profile);
-        editText5= (EditText) findViewById(R.id.caja_text5_profile);
-        editText6= (EditText) findViewById(R.id.caja_text6_profile);
-        button2= (Button) findViewById(R.id.button10a_profile);
-        button1= (Button) findViewById(R.id.button11a_profile);
-        image1  = (ImageView) findViewById(R.id.imageView6_profile);
+        // Buscar vistas
+        editText0 = findViewById(R.id.editText0_profile);
+        editText2 = findViewById(R.id.caja_text2_profile);
+        editText3 = findViewById(R.id.caja_text3_profile);
+        editText4 = findViewById(R.id.caja_text4_profile);
+        editText5 = findViewById(R.id.caja_text5_profile);
+        editText6 = findViewById(R.id.caja_text6_profile);
+        button1 = findViewById(R.id.button11a_profile);
+        button2 = findViewById(R.id.button10a_profile);
+        image6 = findViewById(R.id.imageView6_profile);
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editText2.setText(sharedPreferences.getString("editText2", ""));
-        editText3.setText(sharedPreferences.getString("editText3", ""));
-        editText4.setText(sharedPreferences.getString("editText4", ""));
-        editText5.setText(sharedPreferences.getString("editText5", ""));
-        editText6.setText(sharedPreferences.getString("editText6", ""));
+        //cargar imagen
+        // Establecer la imagen en imageView6_profile
+        image6.setImageResource(R.drawable.avatar_blanco);
 
-        // Guarda automáticamente el texto ingresado en editText1 en el SharedPreferences
-        // cada vez que el texto cambia
-        editText2.addTextChangedListener(new TextWatcher() {
+        // Imagenfavs
+        image3 = (ImageView) findViewById(R.id.imageView3_profile);
+        textView2 = (TextView) findViewById(R.id.textView2_profile);
+        //Imageneventos
+        image4 = (ImageView) findViewById(R.id.imageView4_profile);
+        textView3 = (TextView) findViewById(R.id.textView3_profile);
+        //Imagenperfil
+        image5 = (ImageView) findViewById(R.id.imageView5_profile);
+        textView4 = (TextView) findViewById(R.id.textView4_profile);
+
+        // Cargar información del usuario
+        cargarInformacionUsuario();
+
+        // Imagenfavs
+        image3 = (ImageView) findViewById(R.id.imageView3_profile);
+        textView2 = (TextView) findViewById(R.id.textView2_profile);
+        //Imageneventos
+        image4 = (ImageView) findViewById(R.id.imageView4_profile);
+        textView3 = (TextView) findViewById(R.id.textView3_profile);
+        //Imagenperfil
+        image5 = (ImageView) findViewById(R.id.imageView5_profile);
+        textView4 = (TextView) findViewById(R.id.textView4_profile);
+        // Imagen Storyshare
+        image1 = (ImageView) findViewById(R.id.imageView1_profile);
+
+        // MÉTODO ABRIR FAVS
+        View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        image3.setOnClickListener(openFavoritos);
+        textView2.setOnClickListener(openFavoritos);
 
+
+        // MÉTODO ABRIR EVENTOS
+        View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
-            public void afterTextChanged(Editable s) {
-                editor.putString("editText2", editText2.getText().toString());
-                editor.apply();
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, EventosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image4.setOnClickListener(openEventos);
+        textView3.setOnClickListener(openEventos);
+
+        // MÉTODO ABRIR PERFIL
+        View.OnClickListener openPerfil = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image5.setOnClickListener(openPerfil);
+        textView4.setOnClickListener(openPerfil);
+
+        // IR A HOME
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
             }
         });
-        editText3.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
+        // BUSCADOR
+        editText0.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = editText0.getText().toString().trim();
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                editor.putString("editText3", editText3.getText().toString());
-                editor.apply();
-            }
-        });
-        editText4.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                editor.putString("editText4", editText4.getText().toString());
-                editor.apply();
-            }
-        });
-        editText5.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                editor.putString("editText5", editText5.getText().toString());
-                editor.apply();
-            }
-        });
-        editText6.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                editor.putString("editText6", editText6.getText().toString());
-                editor.apply();
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(ProfileActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
 
-        // Configurar el Listener del botón Guardar
+        // Configurar Listener del botón Guardar
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Verificar si los campos están vacíos
-                if (editText2.getText().toString().isEmpty() ||
-                        editText3.getText().toString().isEmpty() ||
-                        editText4.getText().toString().isEmpty() ||
-                        editText5.getText().toString().isEmpty() ||
-                        editText6.getText().toString().isEmpty()) {
-                    // Mostrar un mensaje al usuario indicando que debe completar todos los campos
-                    Toast.makeText(ProfileActivity.this, "Por favor, complete todos los campos antes de guardar", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Guardar todo lo escrito en SharedPreferences
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("editText2", editText2.getText().toString());
-                    editor.putString("editText3", editText3.getText().toString());
-                    editor.putString("editText4", editText4.getText().toString());
-                    editor.putString("editText5", editText5.getText().toString());
-                    editor.putString("editText6", editText6.getText().toString());
-                    editor.apply();
-
-                    // Actualizar los datos en la base de datos
-                    // Inicializar BasedeDatos
-                    BasedeDatos basedeDatos = new BasedeDatos(ProfileActivity.this);
-                    // Obtener instancia de SQLiteDatabase
-                    SQLiteDatabase db = basedeDatos.getWritableDatabase();
-
-                    // Actualizar los datos en la base de datos
-                    basedeDatos.updateUsuario(
-                            idUsuario,
-                            editText2.getText().toString(),
-                            editText5.getText().toString(),
-                            editText4.getText().toString(),
-                            Integer.parseInt(editText3.getText().toString())
-                    );
-                    Toast.makeText(ProfileActivity.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
-                    // Cambiar a la pantalla HomeActivity
-                    Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish(); // Finalizar la actividad actual si no deseas volver a ella con el botón de retroceso
-                }
+                // Actualizar datos del usuario en la base de datos y en las vistas
+                actualizarUsuario();
             }
         });
+
+        // Configurar Listener del botón Cancelar
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cancelar lo escrito en los TextViews
-                //editText2.setText("");
-                // editText3.setText("");
-                //editText4.setText("");
-                //editText5.setText("");
-                //vanessaeditText6.setText("");
-                // Cambiar a la pantalla HomeActivity
-                intent.putExtra("idUsuario", idUsuario); // Mantener el ID de usuario
+                // Regresar a la pantalla HomeActivity
                 Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
-
+                intent.putExtra("idUsuario", idUsuario); // Mantener el ID de usuario
                 startActivity(intent);
                 finish(); // Finalizar la actividad
             }
-        });}}
+        });
+    }
+
+    private void cargarInformacionUsuario() {
+        // Obtener información del usuario desde la base de datos
+        Usuario usuario = basedeDatos.obtenerUsuario(idUsuario);
+
+        // Mostrar la información del usuario en las vistas
+        if (usuario != null) {
+            editText2.setText(usuario.getNombreUsuario());
+            editText3.setText(String.valueOf(usuario.getEdad()));
+            editText4.setText(usuario.getNombre());
+        }
+    }
+
+    private void actualizarUsuario() {
+        String contraseña1 = editText5.getText().toString();
+        String contraseña2 = editText6.getText().toString();
+
+        // Verificar si las contraseñas coinciden
+        if (contraseña1.equals(contraseña2)) {
+            String nuevoUsername = editText2.getText().toString();
+            String nuevaContraseña = contraseña1; // Utilizamos la contraseña 1
+            String nuevoNombreCompleto = editText4.getText().toString();
+            int nuevaEdad = Integer.parseInt(editText3.getText().toString());
+
+            basedeDatos.updateUsuario(idUsuario, nuevoUsername, nuevaContraseña, nuevoNombreCompleto, nuevaEdad);
+            Toast.makeText(ProfileActivity.this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+            intent.putExtra("idUsuario", idUsuario);
+            startActivity(intent);
+            finish();
+        } else {
+            // Las contraseñas no coinciden, mostrar mensaje de error
+            Toast.makeText(ProfileActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+        }
+    }
+}

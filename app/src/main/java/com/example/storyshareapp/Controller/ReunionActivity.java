@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,9 +18,6 @@ import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.Persistencia.Evento;
 import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 public class ReunionActivity extends AppCompatActivity {
 
@@ -42,6 +38,7 @@ public class ReunionActivity extends AppCompatActivity {
     private EditText editText1;
     private int idUsuario;
     private int idLibro;
+    private int idEvento;
 
     @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +48,10 @@ public class ReunionActivity extends AppCompatActivity {
         // OBTENER IDUSUARIO
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1);
-        System.out.println("idUsuario " + idUsuario);
-
         //OBTENER IDLIBRO
         idLibro = intent.getIntExtra("idLibro", -1);
-        System.out.println("idLibro " + idLibro);
+        //OBTENER IDEVENTO
+        idEvento = intent.getIntExtra("idEvento", -1);
 
         // Botón discord
         boton1 = (Button) findViewById(R.id.button4_reunion);
@@ -83,7 +79,7 @@ public class ReunionActivity extends AppCompatActivity {
         // Autor libro
         textView8 = (TextView) findViewById(R.id.textView6_reunion);
         // Buscador
-        editText1 = findViewById(R.id.editText1_reunion);
+        editText1 = findViewById(R.id.editText1_favoritos);
 
         // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
@@ -139,7 +135,7 @@ public class ReunionActivity extends AppCompatActivity {
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReunionActivity.this, DiscordActivity.class);
+                Intent intent = new Intent(ReunionActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -157,18 +153,15 @@ public class ReunionActivity extends AppCompatActivity {
 
         // OBTENER DATOS LIBRO
         BasedeDatos db = new BasedeDatos(this);
-        idLibro = 1;
         Libro libro = db.obtenerLibro(idLibro);
 
         if (libro != null) {
             textView7.setText(libro.getTitulo()); // Título del libro
             textView8.setText(libro.getAutor()); // Autor del libro
-        } else {
-            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
         }
 
         // OBTENER DATOS EVENTO LIBRO
-        int idEvento = db.obtenerIdEventoMasProximo(idLibro);
+        idEvento = db.obtenerIdEventoMasProximo(idLibro);
 
         // Verificar si se encontró un evento
         if (idEvento != -1) {
