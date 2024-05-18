@@ -536,5 +536,7 @@ public class BasedeDatos extends SQLiteOpenHelper {
         return evento;
     }
 
+
+
     // Resto de los métodos CRUD y otras consultas...
 }

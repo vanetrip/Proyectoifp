@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -25,6 +26,8 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+    private ImageView image1;
+    private ImageView image3;
     private ImageView image4;
     private ImageView image5;
     private ImageView image10;
@@ -36,7 +39,9 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView image16;
     private ImageView image17;
     private ImageView image18;
-
+    private TextView textView2;
+    private TextView textView3;
+    private TextView textView4;
     private BasedeDatos basedeDatos;
     private int idUsuario; // Variable para almacenar el idUsuario
 
@@ -45,42 +50,83 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        image4 = findViewById(R.id.imageView4_home);
-        image5 = findViewById(R.id.imageView5_home);
+
+        // Imagen Storyshare
+        image1 = (ImageView) findViewById(R.id.imageView1_home);
+        // Imagenfavs
+        image3 = findViewById(R.id.imageView3_home);
+        textView2 = findViewById(R.id.textView2_home);
+        //Imageneventos
+        image4 = (ImageView) findViewById(R.id.imageView4_home);
+        textView3 = (TextView) findViewById(R.id.textView3_home);
+        //Imagenperfil
+        image5 = (ImageView) findViewById(R.id.imageView5_home);
+        textView4 = (TextView) findViewById(R.id.textView4_home);
+
         image10 = findViewById(R.id.imageView10_Home);
         image11 = findViewById(R.id.imageView11_home);
         image12 = findViewById(R.id.imageView12_home);
         image13 = findViewById(R.id.imageView13_home);
         image14 = findViewById(R.id.imageView14_home);
         image15 = findViewById(R.id.imageView15_home);
-        image16= findViewById(R.id.imageView16_home);
+        image16 = findViewById(R.id.imageView16_home);
         image17 = findViewById(R.id.imageView17_home);
         image18 = findViewById(R.id.imageView18_home);
 
         basedeDatos = new BasedeDatos(this);
 
+
         // Obtener el idUsuario del Intent que inició esta actividad
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
         System.out.println("idUsuario " + idUsuario);
-        image5.setOnClickListener(new View.OnClickListener() {
+
+        // MÉTODO ABRIR FAVS
+        View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ir a la pantalla de perfil
-                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(HomeActivity.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image3.setOnClickListener(openFavoritos);
+        textView2.setOnClickListener(openFavoritos);
+        // IR A HOME
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         });
-        image4.setOnClickListener(new View.OnClickListener() {
+        // MÉTODO ABRIR EVENTOS
+        View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ir a la pantalla de perfil
                 Intent intent = new Intent(HomeActivity.this, EventosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        });
+        };
+
+        image4.setOnClickListener(openEventos);
+        textView3.setOnClickListener(openEventos);
+        // MÉTODO ABRIR PERFIL
+        View.OnClickListener openPerfil = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image5.setOnClickListener(openPerfil);
+        textView4.setOnClickListener(openPerfil);
+
 
         // Obtener los IDs de los foros más populares
         List<Integer> idForosPopulares = basedeDatos.obtenerIdForosPopulares();
@@ -99,13 +145,31 @@ public class HomeActivity extends AppCompatActivity {
                     // Cargar la portada del libro en la imagen correspondiente
                     switch (i) {
                         case 0:
-                            cargarImagenPortada(libro.getPortada(), image10);
+                            cargarImagenPortada(libro.getPortada(), image10, idLibro);
+                            image10.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 1:
-                            cargarImagenPortada(libro.getPortada(), image11);
+                            cargarImagenPortada(libro.getPortada(), image11, idLibro);
+                            image11.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 2:
-                            cargarImagenPortada(libro.getPortada(), image12);
+                            cargarImagenPortada(libro.getPortada(), image12, idLibro);
+                            image12.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                     }
                 }
@@ -127,13 +191,31 @@ public class HomeActivity extends AppCompatActivity {
                     // Cargar la portada del libro en la imagen correspondiente
                     switch (i) {
                         case 0:
-                            cargarImagenPortada(libro.getPortada(), image13);
+                            cargarImagenPortada(libro.getPortada(), image13,idLibro);
+                            image13.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 1:
-                            cargarImagenPortada(libro.getPortada(), image14);
+                            cargarImagenPortada(libro.getPortada(), image14, idLibro);
+                            image14.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 2:
-                            cargarImagenPortada(libro.getPortada(), image15);
+                            cargarImagenPortada(libro.getPortada(), image15, idLibro);
+                            image15.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                     }
                 }
@@ -156,13 +238,31 @@ public class HomeActivity extends AppCompatActivity {
                     // Cargar la portada del libro en la imagen correspondiente
                     switch (i) {
                         case 0:
-                            cargarImagenPortada(libro.getPortada(), image16);
+                            cargarImagenPortada(libro.getPortada(), image16, idLibro);
+                            image16.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 1:
-                            cargarImagenPortada(libro.getPortada(), image17);
+                            cargarImagenPortada(libro.getPortada(), image17, idLibro);
+                            image17.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                         case 2:
-                            cargarImagenPortada(libro.getPortada(), image18);
+                            cargarImagenPortada(libro.getPortada(), image18, idLibro);
+                            image18.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    abrirInfoBookActivity(idLibro);
+                                }
+                            });
                             break;
                     }
                 }
@@ -170,7 +270,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void cargarImagenPortada(String urlPortada, ImageView imageView) {
+    private void cargarImagenPortada(String urlPortada, ImageView imageView, int idLibro) {
         if (urlPortada != null && !urlPortada.isEmpty()) {
             RequestOptions requestOptions = new RequestOptions()
                     .placeholder(R.drawable.logo_blanco)
@@ -213,8 +313,15 @@ public class HomeActivity extends AppCompatActivity {
             });
         }
     }
-}
 
+    // Método para abrir InfoBookActivity con el id del libro como extra
+    private void abrirInfoBookActivity(int idLibro) {
+        Intent intent = new Intent(HomeActivity.this, InfoBookActivity.class);
+        intent.putExtra("idLibro", idLibro);
+        startActivity(intent);
+
+    }
+}
 
 
 
