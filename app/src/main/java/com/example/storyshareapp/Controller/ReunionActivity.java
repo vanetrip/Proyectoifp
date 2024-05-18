@@ -3,14 +3,24 @@ package com.example.storyshareapp.Controller;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.storyshareapp.Persistencia.BasedeDatos;
+import com.example.storyshareapp.Persistencia.Evento;
+import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class ReunionActivity extends AppCompatActivity {
 
@@ -26,6 +36,9 @@ public class ReunionActivity extends AppCompatActivity {
     private TextView textView4;
     private TextView textView5;
     private TextView textView6;
+    private TextView textView7;
+    private TextView textView8;
+    private EditText editText1;
     private int idUsuario;
     private int idLibro;
 
@@ -37,11 +50,11 @@ public class ReunionActivity extends AppCompatActivity {
         // OBTENER IDUSUARIO
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1);
-        System.out.println("idUsuario "+idUsuario);
+        System.out.println("idUsuario " + idUsuario);
 
         //OBTENER IDLIBRO
         idLibro = intent.getIntExtra("idLibro", -1);
-        System.out.println("idLibro "+idLibro);
+        System.out.println("idLibro " + idLibro);
 
         // Botón discord
         boton1 = (Button) findViewById(R.id.button4_reunion);
@@ -59,12 +72,17 @@ public class ReunionActivity extends AppCompatActivity {
         // Imagen Storyshare
         image4 = (ImageView) findViewById(R.id.imageView1_reunion);
         //Texto titulo
-        textView4 = (TextView) findViewById(R.id.textView6_reunion);
+        textView4 = (TextView) findViewById(R.id.textView9_reunion);
         //Texto dia
-        textView5 = (TextView) findViewById(R.id.textView9_reunion);
+        textView5 = (TextView) findViewById(R.id.textView11_reunion);
         //Texto hora
-        textView6 = (TextView) findViewById(R.id.textView11_reunion);
-
+        textView6 = (TextView) findViewById(R.id.textView13_reunion);
+        // Título libro
+        textView7 = (TextView) findViewById(R.id.textView5_reunion);
+        // Autor libro
+        textView8 = (TextView) findViewById(R.id.textView6_reunion);
+        // Buscador
+        editText1 = findViewById(R.id.editText1_reunion);
 
         // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
@@ -133,6 +151,58 @@ public class ReunionActivity extends AppCompatActivity {
                 Intent intent = new Intent(ReunionActivity.this, HomeActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
+            }
+        });
+
+        // OBTENER DATOS LIBRO
+        BasedeDatos db = new BasedeDatos(this);
+        idLibro = 1;
+        Libro libro = db.obtenerLibro(idLibro);
+
+        if (libro != null) {
+            textView7.setText(libro.getTitulo()); // Título del libro
+            textView8.setText(libro.getAutor()); // Autor del libro
+        } else {
+            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
+        }
+
+        // OBTENER DATOS EVENTO LIBRO
+        int idEvento = db.obtenerIdEventoMasProximo(idLibro);
+
+        // Verificar si se encontró un evento
+        if (idEvento != -1) {
+            // Obtener los datos del evento utilizando su ID
+            Evento evento = db.obtenerEvento(idEvento);
+
+            // Mostrar la información del evento en los TextViews
+            if (evento != null) {
+                textView4.setText(evento.getNombreEvento()); // Nombre del evento
+                textView5.setText(evento.getFecha()); // Fecha del evento
+                textView6.setText(evento.getHora()); // Hora del evento
+            }
+
+        } else {
+            Toast.makeText(this, "No hay eventos próximos para este libro", Toast.LENGTH_SHORT).show();
+            textView4.setText("");
+            textView5.setText("");
+            textView6.setText("");
+        }
+
+        // BUSCADOR
+        editText1.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = editText1.getText().toString().trim();
+
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(ReunionActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
 

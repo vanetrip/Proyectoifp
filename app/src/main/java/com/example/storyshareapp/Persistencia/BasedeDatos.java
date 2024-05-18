@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -479,6 +480,49 @@ public class BasedeDatos extends SQLiteOpenHelper {
             cursor.close();
         }
         return idLibros;
+    }
+
+    public int obtenerIdEventoMasProximo(int idLibro) {
+        int idEvento = -1;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT id FROM Eventos WHERE libro_id = ? AND fecha >= DATE('now') ORDER BY fecha ASC LIMIT 1", new String[]{String.valueOf(idLibro)});
+        if (cursor != null && cursor.moveToFirst()) {
+            idEvento = cursor.getInt(0);
+            cursor.close();
+        }
+        return idEvento;
+    }
+
+    public Evento obtenerEvento(int idEvento) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Eventos WHERE id = ?", new String[]{String.valueOf(idEvento)});
+        Evento evento = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            String nombre = cursor.getString(1);
+            String fechaString = cursor.getString(2);
+            String horaString = cursor.getString(3);
+            int moderadorId = cursor.getInt(4);
+            int libroId = cursor.getInt(5);
+
+            // Convertir las cadenas de fecha y hora a objetos Date y Time
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            Date fecha = null;
+            Time hora = null;
+            try {
+                fecha = dateFormat.parse(fechaString);
+                hora = new Time(timeFormat.parse(horaString).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            // Crear el objeto Evento
+            evento = new Evento(idEvento, nombre, fecha, hora, moderadorId, libroId);
+
+            cursor.close();
+        }
+        return evento;
     }
 
     // Resto de los métodos CRUD y otras consultas...
