@@ -61,7 +61,7 @@ public class FavoritosActivity extends AppCompatActivity {
         boton1 = (Button) findViewById(R.id.button9_favoritos);
         boton2 = (Button) findViewById(R.id.button10_favoritos);
         boton3 = (Button) findViewById(R.id.button11_favoritos);
-
+/*
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,5 +172,5 @@ public class FavoritosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-}
+    }*/
+}}

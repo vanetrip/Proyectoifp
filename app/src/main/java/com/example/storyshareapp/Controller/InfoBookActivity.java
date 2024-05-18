@@ -232,6 +232,7 @@ public class InfoBookActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
         // Favorito
         imageButton1.setOnClickListener(v -> {
@@ -255,13 +256,13 @@ public class InfoBookActivity extends AppCompatActivity {
             imageButton1.setImageResource(R.drawable.estrella_blanca);
         }
     }
+
     private void cargarImagenPortada(String urlPortada, ImageView imageView) {
         if (urlPortada != null && !urlPortada.isEmpty()) {
             RequestOptions requestOptions = new RequestOptions()
                     .placeholder(R.drawable.logo_blanco)
                     .error(R.drawable.avatar_blanco)
                     .diskCacheStrategy(DiskCacheStrategy.ALL);
-
             Glide.with(this)
                     .load(urlPortada)
                     .apply(requestOptions)
