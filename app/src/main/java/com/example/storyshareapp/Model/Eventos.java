@@ -6,9 +6,9 @@ public class Eventos {
 
     //declaracion de variables
     Integer id;
-    String nombre_evento;
+    String nombre;
     Date fecha;
-    Date Hora;
+    Date hora;
     Integer moderador_id;
     Integer libro_id;
 
@@ -20,9 +20,9 @@ public class Eventos {
 
     public Eventos(Integer id, String nombre_evento, Date fecha, Date hora, Integer moderador_id, Integer libro_id) {
         this.id = id;
-        this.nombre_evento = nombre_evento;
+        this.nombre = nombre;
         this.fecha = fecha;
-        Hora = hora;
+        this.hora = hora;
         this.moderador_id = moderador_id;
         this.libro_id = libro_id;
     }
@@ -40,11 +40,11 @@ public class Eventos {
     }
 
     public String getNombre_evento() {
-        return nombre_evento;
+        return nombre;
     }
 
     public void setNombre_evento(String nombre_evento) {
-        this.nombre_evento = nombre_evento;
+        this.nombre = nombre_evento;
     }
 
     public Date getFecha() {
@@ -56,11 +56,11 @@ public class Eventos {
     }
 
     public Date getHora() {
-        return Hora;
+        return hora;
     }
 
     public void setHora(Date hora) {
-        Hora = hora;
+        hora = hora;
     }
 
     public Integer getModerador_id() {
