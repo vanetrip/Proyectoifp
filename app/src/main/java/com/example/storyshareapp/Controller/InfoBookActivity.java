@@ -97,8 +97,8 @@ public class InfoBookActivity extends AppCompatActivity {
 
         Evento evento = basedeDatos.obtenerEvento(idEvento);
         if (evento != null) {
-            textView4.setText(libro.getTitulo()); // FECHA EVENTO - DESCRIPCION
-            textView5.setText(libro.getTitulo()); // HORA EVENTO - DESCRIPCION
+            textView4.setText(evento.getFecha()); // FECHA EVENTO - DESCRIPCION
+            textView5.setText(evento.getHora()); // HORA EVENTO - DESCRIPCION
         } else {
             Toast.makeText(this, "No se encontró información del evento", Toast.LENGTH_SHORT).show();
         }
