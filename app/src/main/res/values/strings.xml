@@ -92,11 +92,14 @@
     <string name="button10_info_book">Añadir a eventos</string>
     <string name="button11_info_book">IR</string>
 
-    <string name="textView16_favoritos">Buscar</string>
-    <string name="textView18_favoritos">Favoritos</string>
-    <string name="textView19_favoritos">Eventos</string>
-    <string name="textView20_favoritos">Perfil</string>
-    <string name="textView21_favoritos">Tus libros favoritos</string>
+    <string name="editText1_favoritos">Buscar</string>
+    <string name="textView2_favoritos">Favoritos</string>
+    <string name="textView3_favoritos">Eventos</string>
+    <string name="textView4_favoritos">Perfil</string>
+    <string name="textView0_favoritos">Tus libros favoritos</string>
+    <string name="button9_favoritos">Centro de Ayuda</string>
+    <string name="button10_favoritos">FAQs</string>
+    <string name="button11_favoritos">Solicita tu libro</string>
 
     <string name="editText1_buscador">Buscar</string>
     <string name="textView1_buscador">Favoritos</string>
