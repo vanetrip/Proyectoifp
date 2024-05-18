@@ -44,7 +44,7 @@ public class BasedeDatos extends SQLiteOpenHelper {
         // Crear la tabla PlanPrecios
         db.execSQL("CREATE TABLE PlanPrecios (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "plan TEXT," +
+                "id_plan TEXT," +
                 "precio FLOAT)"
         );
 
@@ -79,7 +79,7 @@ public class BasedeDatos extends SQLiteOpenHelper {
                 "libro_id INTEGER)"
         );
 
-        // Crear la tabla Foros
+        // Crear la tabla Temas
         db.execSQL("CREATE TABLE Foros (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT," +
@@ -429,7 +429,31 @@ public class BasedeDatos extends SQLiteOpenHelper {
         cursor.close();
         return libros;
     }
+    public long insertarEvento(Evento evento) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("NombreEvento", evento.getNombreEvento());
+        values.put("Fecha", String.valueOf(evento.getFecha()));
+        values.put("Hora", String.valueOf(evento.getHora()));
+        values.put("ModeradorId", evento.getModeradorId());
+        values.put("LibroId", evento.getLibroId());
+        long id = db.insert("Eventos", null, values);
+        db.close();
+        return id;
+    }
+    public long insertarTema(Foro foro) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre", foro.getNombre();
+        values.put("creador_id", foro.getCreadorId());
+        values.put("id_libro", foro.getIdLibro());
+        values.put("Fecha", String.valueOf(foro.getFechaCreacion()));
 
+        long id = db.insert("Foros", null, values);
+        db.close();
+        return id;
+    }
+                   
     public List<Integer> obtenerIdeventosMasRecientes() {
         List<Integer> eventosMasRecientes = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -566,5 +590,4 @@ public class BasedeDatos extends SQLiteOpenHelper {
         values.put("favorito", false);
         db.update("LibrosUsuario", values, "usuario_id = ? AND libro_id = ?", new String[]{String.valueOf(idUsuario), String.valueOf(idLibro)});
     }
-
 }
