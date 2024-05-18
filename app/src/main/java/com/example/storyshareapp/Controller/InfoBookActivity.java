@@ -210,7 +210,7 @@ public class InfoBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Crear Eventos
-                Intent intent = new Intent(InfoBookActivity.this, DiscordActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);

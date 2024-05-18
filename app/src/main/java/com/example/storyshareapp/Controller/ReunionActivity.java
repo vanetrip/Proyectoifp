@@ -139,7 +139,7 @@ public class ReunionActivity extends AppCompatActivity {
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReunionActivity.this, DiscordActivity.class);
+                Intent intent = new Intent(ReunionActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
