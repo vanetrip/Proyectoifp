@@ -36,7 +36,7 @@
 
     <string name="textView1_home">Buscar</string>
     <string name="textView2_home">Favoritos</string>
-    <string name="textView3_home">Calendario</string>
+    <string name="textView3_home">Eventos</string>
     <string name="textView4_home">Perfil</string>
     <string name="textView5_home">Foros más activos</string>
     <string name="textView22_home">Próximas reuniones</string>
@@ -48,7 +48,7 @@
 
     <string name="textView1_forum">Buscar</string>
     <string name="textView2_forum">Favoritos</string>
-    <string name="textView3_forum">Calendario</string>
+    <string name="textView3_forum">Eventos</string>
     <string name="textView4_forum">Perfil</string>
     <string name="textView5_forum">Foros</string>
     <string name="button10_forum">Crear nuevo tema</string>
@@ -59,7 +59,7 @@
 
     <string name="editText1_reunion">Buscar</string>
     <string name="textView1_reunion">Favoritos</string>
-    <string name="textView2_reunion">Calendario</string>
+    <string name="textView2_reunion">Eventos</string>
     <string name="textView3_reunion">Perfil</string>
     <string name="textView4_reunion">Reunion</string>
     <string name="textView5_reunion">Titulo:</string>
@@ -77,7 +77,7 @@
 
     <string name="editText1_info_book">Buscar</string>
     <string name="textView2_info_book">Favoritos</string>
-    <string name="textView3_info_book">Calendario</string>
+    <string name="textView3_info_book">Eventos</string>
     <string name="textView4_info_book">Perfil</string>
     <string name="textView5_info_book">Nombre del libro</string>
     <string name="textView9_infoBook">Titulo:</string>
@@ -94,9 +94,44 @@
 
     <string name="textView16_favoritos">Buscar</string>
     <string name="textView18_favoritos">Favoritos</string>
-    <string name="textView19_favoritos">Calendario</string>
+    <string name="textView19_favoritos">Eventos</string>
     <string name="textView20_favoritos">Perfil</string>
     <string name="textView21_favoritos">Tus libros favoritos</string>
 
+    <string name="editText1_buscador">Buscar</string>
+    <string name="textView1_buscador">Favoritos</string>
+    <string name="textView2_buscador">Eventos</string>
+    <string name="textView3_buscador">Perfil</string>
+    <string name="textView5_buscador">Listado de Libros</string>
+    <string name="button1_buscador">Centro de Ayuda</string>
+    <string name="button7_buscador">FAQs</string>
+    <string name="button8_buscador">Solicita tu libro</string>
+
+    <string name="textView16_crearevento">Buscar</string>
+    <string name="textView18_crearevento">Favoritos</string>
+    <string name="textView19_crearevento">Eventos</string>
+    <string name="textView20_crearevento">Perfil</string>
+    <string name="textView0_crearevento">Nuevo evento</string>
+    <string name="textView13a_crearevento">Nombre</string>
+    <string name="textView14_crearevento">Fecha</string>
+    <string name="textView10_crearevento">Hora</string>
+    <string name="textView9_crearevento">Libro</string>
+    <string name="button1_crearvento">Crear Evento</string>
+    <string name="button9_crearvento">Centro de Ayuda</string>
+    <string name="button30_crearvento">FAQs</string>
+    <string name="button10_crearvento">Solicita tu libro</string>
+
+    <string name="textView16_theme">Buscar</string>
+    <string name="textView18_theme">Favoritos</string>
+    <string name="textView19_theme">Eventos</string>
+    <string name="textView20_theme">Perfil</string>
+    <string name="textView21_theme">Nuevo tema</string>
+    <string name="textView1_theme">Nombre</string>
+    <string name="textView2_theme">Fecha</string>
+    <string name="textView3_theme">Libro</string>
+    <string name="button1_theme">Crear Tema</string>
+    <string name="button9_theme">Centro de Ayuda</string>
+    <string name="button10_theme">FAQs</string>
+    <string name="button11_theme">Solicita tu libro</string>
 
 </resources>
