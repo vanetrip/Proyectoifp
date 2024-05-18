@@ -39,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
         BasedeDatos basedeDatos = new BasedeDatos(this);
         // Obtener instancia de SQLiteDatabase
         db = basedeDatos.getWritableDatabase();
-        basedeDatos.eliminarBaseDeDatos();
+        //basedeDatos.eliminarBaseDeDatos();
 
         editText1 = findViewById(R.id.editText1_signIn);
         editText2 = findViewById(R.id.editText2_signIn);
@@ -60,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
                 if (credencialesCorrectas) {
                     int idUsuario = BasedeDatos.obtenerId(db, username);
                     Toast.makeText(SignInActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                    pasarPantalla = new Intent(SignInActivity.this, ReunionActivity.class);
+                    pasarPantalla = new Intent(SignInActivity.this, HomeActivity.class);
                     // AQUI OS PASO EL ID PARA LA PANTALLA DEL HOME
                     pasarPantalla.putExtra("idUsuario", idUsuario); // Pasa el ID del usuario como un extra
                     startActivity(pasarPantalla);

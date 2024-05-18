@@ -59,6 +59,7 @@ public class InfoBookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_book);
+        db = new BasedeDatos(this);
 
         // OBTENER IDUSUARIO
         Intent intent = getIntent();
@@ -94,6 +95,7 @@ public class InfoBookActivity extends AppCompatActivity {
         textView7 = (TextView) findViewById(R.id.textView17_infobook);
         // Boton estrella
         imageButton1 = (ImageButton) findViewById(R.id.imageButton_info_book);
+        actualizarEstadoFavorito();
 
         // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
@@ -162,8 +164,6 @@ public class InfoBookActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        db = new BasedeDatos(this);
 
         // INFORMACIÓN LIBRO
         Libro libro = db.obtenerLibro(idLibro);
