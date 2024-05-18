@@ -40,6 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView image3;
     private ImageView image4;
     private ImageView image5;
+    private ImageView image6;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
@@ -66,6 +67,11 @@ public class ProfileActivity extends AppCompatActivity {
         editText6 = findViewById(R.id.caja_text6_profile);
         button1 = findViewById(R.id.button11a_profile);
         button2 = findViewById(R.id.button10a_profile);
+        image6 = findViewById(R.id.imageView6_profile);
+
+        //cargar imagen
+        // Establecer la imagen en imageView6_profile
+        image6.setImageResource(R.drawable.avatar_blanco);
 
         // Imagenfavs
         image3 = (ImageView) findViewById(R.id.imageView3_profile);

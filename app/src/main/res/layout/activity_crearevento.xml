@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView4_eventos"
             android:layout_width="156dp"
             android:layout_height="80dp"
             android:layout_gravity="center|left"
@@ -172,7 +172,7 @@
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView8_newEvent8"
+                android:id="@+id/imageView3_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

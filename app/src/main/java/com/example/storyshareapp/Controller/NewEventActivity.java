@@ -69,7 +69,7 @@ public class NewEventActivity extends AppCompatActivity {
         boton1= (Button) findViewById(R.id.button1_Crearevento);
         image1 = (ImageView) findViewById(R.id.imageView6_newEvent6);
         image2 = (ImageView) findViewById(R.id.imageView7_newEvent7);
-        image3= (ImageView) findViewById(R.id.imageView8_newEvent8);
+        image3= (ImageView) findViewById(R.id.imageView3_eventos);
         /*
         //Salto de pantalla a Favoritos
         image1.setOnClickListener(openFavoritos);
