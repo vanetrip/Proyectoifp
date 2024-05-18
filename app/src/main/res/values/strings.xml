@@ -1,21 +1,4 @@
 <resources>
-    <string name="app_name">StoryShareAPP</string>
-    <string name="welcome">Un lugar para compartir tus opiniones literarias</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="sign_in">Sign In</string>
-    <string name="TandC">I agree to the terms and condition of the AppCompany</string>
-    <string name="error_view">Error View</string>
-    <string name="password">Password</string>
-    <string name="email_hint">user@domain.com</string>
-    <string name="email">Email</string>
-    <string name="forgot_password">Forgot Password</string>
-    <string name="email_verify_again">Send Verify Email Again</string>
-    <string name="enterEmailId">Enter the registered Email ID</string>
-    <string name="reset_password">Reset Password</string>
-    <string name="user_domain_com">user@domain.com</string>
-    <string name="first_fragment_label">first_fragment_label</string>
-    <string name="second_fragment_label">second_fragment_label</string>
-
     <string name="textView1_signIn">Inicio sesión</string>
     <string name="textView2_signIn">Usuario</string>
     <string name="textView3_signIn">Contraseña</string>
@@ -23,9 +6,12 @@
     <string name="textView5_signIn">Recupérala</string>
     <string name="editText1_signIn">Usuario</string>
     <string name="editText2_signIn">Contraseña</string>
-    <string name="button1_signIn">inicia sesión</string>
+    <string name="button1_signIn">Inicia Sesión</string>
     <string name="button2_signIn">Aquí</string>
     <string name="button3_signIn">¿No tienes cuenta?</string>
+    <string name="button4_signIn">Regístrate</string>
+    <string name="button6_signIn">Centro de Ayuda</string>
+    <string name="button7_signIn">FAQs</string>
 
     <string name="textView1_signUp">Registro</string>
     <string name="textView2_signUp">Usuario</string>
@@ -34,15 +20,18 @@
     <string name="textView5_signUp">Edad</string>
     <string name="textView6_SignUp">Nombre completo</string>
     <string name="textView7_signUp">*La suscripción a StoryShare te permitirá crear nuevos temas, tus propias reuniones y mucho más</string>
-    <string name="textView11_SignUp">Correo</string>
+    <string name="textView11_SignUp">Correo electrónico</string>
     <string name="editText1_SignUp">Usuario</string>
     <string name="editText2_SignUp">Contraseña</string>
     <string name="editText3_SignUp">Repetir contraseña</string>
     <string name="editText4_SignUp">Edad</string>
     <string name="editText5_SignUp">Nombre completo</string>
+    <string name="editText6_SignUp">Correo electrónico</string>
     <string name="radioButton1_signUp">Cuenta Freemium</string>
     <string name="radioButton2_signUp">"Suscripción a StoryShare por 4'99€/ mes"</string>
     <string name="button1_signUp">Regístrate</string>
+    <string name="button2_signUp">Centro de Ayuda</string>
+    <string name="button3_signUp">FAQs</string>
 
 
     <string name="textView1_home">Buscar</string>
@@ -52,6 +41,9 @@
     <string name="textView5_home">Foros más activos</string>
     <string name="textView22_home">Próximas reuniones</string>
     <string name="textView23_home">Foros abiertos recientemente</string>
+    <string name="button1_home">Centro de Ayuda</string>
+    <string name="button30_home">FAQs</string>
+    <string name="button8_home">Solicita tu libro</string>
 
 
     <string name="textView1_forum">Buscar</string>
@@ -60,38 +52,45 @@
     <string name="textView4_forum">Perfil</string>
     <string name="textView5_forum">Foros</string>
     <string name="button10_forum">Crear nuevo tema</string>
+    <string name="button1_forum">Centro de Ayuda</string>
+    <string name="button8_forum">FAQs</string>
+    <string name="button8a_forum">Solicita tu libro</string>
 
-    <string name="textView1_reunion">Buscar</string>
-    <string name="textView2_reunion">Favoritos</string>
-    <string name="textView3_reunion">Calendario</string>
-    <string name="textView4_reunion">Perfil</string>
-    <string name="textView5_reunionn">Videoconferencia</string>
-    <string name="textView9_reunion">Titulo:</string>
-    <string name="textView10_reunion">Título</string>
-    <string name="textView13_reunion">Evento en curso</string>
-    <string name="textView14_reunion">Día</string>
-    <string name="textView11_reunion">día</string>
-    <string name="textView8_reunion">Hora</string>
+
+    <string name="editText1_reunion">Buscar</string>
+    <string name="textView1_reunion">Favoritos</string>
+    <string name="textView2_reunion">Calendario</string>
+    <string name="textView3_reunion">Perfil</string>
+    <string name="textView4_reunion">Reunion</string>
+    <string name="textView5_reunion">Titulo:</string>
+    <string name="textView6_reunion">Autor:</string>
+    <string name="textView7_reunion">Datos del evento</string>
+    <string name="textView8_reunion">Nombre</string>
+    <string name="textView10_reunion">Fecha</string>
     <string name="textView12_reunion">Hora</string>
+    <string name="textView13_reunion">Evento en curso</string>
+    <string name="button1_reunion">Centro de Ayuda</string>
+    <string name="button2_reunion">FAQs</string>
+    <string name="button3_reunion">Solicita tu libro</string>
     <string name="button4_reunion">Unirse a la reunión en Discord</string>
     <string name="button5_reunion">Programar una nueva reunión</string>
 
-    <string name="textView1_info_book">Buscar</string>
+    <string name="editText1_info_book">Buscar</string>
     <string name="textView2_info_book">Favoritos</string>
     <string name="textView3_info_book">Calendario</string>
     <string name="textView4_info_book">Perfil</string>
     <string name="textView5_info_book">Nombre del libro</string>
-    <string name="textView9_infoBook">Titulo</string>
-    <string name="textView10_infoBook">Descripción</string>
+    <string name="textView9_infoBook">Titulo:</string>
     <string name="textView11_infoBook">Autor:</string>
-    <string name="textView12_infoBook">Autor</string>
     <string name="textView13_infoBook">Próximo evento</string>
-    <string name="textView14_infoBook">día</string>
-    <string name="textView15_infoBook">día</string>
-    <string name="textView16_info_book">Hora</string>
-    <string name="textView17_info_book">Hora</string>
+    <string name="textView14_infoBook">Día:</string>
+    <string name="textView16_info_book">Hora:</string>
+    <string name="button1_info_book">Centro de Ayuda</string>
+    <string name="button2_info_book">FAQs</string>
+    <string name="button3_info_book">Solicita tu libro</string>
     <string name="button9_info_book">Acceder al foro</string>
     <string name="button10_info_book">Añadir a eventos</string>
+    <string name="button11_info_book">IR</string>
 
     <string name="textView16_favoritos">Buscar</string>
     <string name="textView18_favoritos">Favoritos</string>
