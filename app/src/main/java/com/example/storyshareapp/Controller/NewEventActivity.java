@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.Persistencia.BasedeDatos;
@@ -61,7 +60,6 @@ public class NewEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_crearevento);
 
         nombre= (TextView) findViewById(R.id.editTextText1_creareventos);
