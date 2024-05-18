@@ -9,9 +9,6 @@ import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.storyshareapp.R;
 
@@ -77,7 +74,7 @@ public class BuscadorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Perfil
-                Intent intent = new Intent(BuscadorActivity.this, Profile.class);
+                Intent intent = new Intent(BuscadorActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });

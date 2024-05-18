@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -71,7 +70,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Perfil
-                Intent intent = new Intent(FavoritosActivity.this, Profile.class);
+                Intent intent = new Intent(FavoritosActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });

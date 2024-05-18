@@ -320,7 +320,6 @@ public class BasedeDatos extends SQLiteOpenHelper {
         int idLibro = -1; // Valor por defecto si no se encuentra
         if (cursor.moveToFirst()) {
             idLibro = cursor.getInt(0);
-            System.out.println("idLibroSQL: " + idLibro);
         }
         cursor.close();
         return idLibro;
@@ -428,6 +427,44 @@ public class BasedeDatos extends SQLiteOpenHelper {
         }
         cursor.close();
         return libros;
+    }
+
+    public List<Integer> obtenerIdeventosMasRecientes() {
+        List<Integer> eventosMasRecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id, COUNT(id) AS COUNT FROM Eventos GROUP BY id ORDER BY fecha DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                eventosMasRecientes.add(cursor.getInt(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return eventosMasRecientes;
+    }
+
+    public int obtenerIdLibroPorIdevento(int idEvento) {
+        int idLibro = -1; // Default value if no ID is found
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT libro_id FROM Eventos WHERE id = ?", new String[]{String.valueOf(idEvento)});
+        if (cursor != null && cursor.moveToFirst()) {
+            idLibro = cursor.getInt(0);
+            cursor.close();
+        }
+        return idLibro;
+    }
+
+    public List<Integer> obtenerIdForosrecientes() {
+        List<Integer> idForosrecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id, COUNT(id) AS COUNT FROM Foros GROUP BY id ORDER BY fecha_creacion DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int idForo = cursor.getInt(0);
+                idForosrecientes.add(idForo);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return idForosrecientes;
     }
 
     // Resto de los métodos CRUD y otras consultas...

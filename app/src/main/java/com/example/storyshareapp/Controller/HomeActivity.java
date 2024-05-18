@@ -30,6 +30,12 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView image10;
     private ImageView image11;
     private ImageView image12;
+    private ImageView image13;
+    private ImageView image14;
+    private ImageView image15;
+    private ImageView image16;
+    private ImageView image17;
+    private ImageView image18;
 
     private BasedeDatos basedeDatos;
     private int idUsuario; // Variable para almacenar el idUsuario
@@ -44,18 +50,24 @@ public class HomeActivity extends AppCompatActivity {
         image10 = findViewById(R.id.imageView10_Home);
         image11 = findViewById(R.id.imageView11_home);
         image12 = findViewById(R.id.imageView12_home);
+        image13 = findViewById(R.id.imageView13_home);
+        image14 = findViewById(R.id.imageView14_home);
+        image15 = findViewById(R.id.imageView15_home);
+        image16= findViewById(R.id.imageView16_home);
+        image17 = findViewById(R.id.imageView17_home);
+        image18 = findViewById(R.id.imageView18_home);
 
         basedeDatos = new BasedeDatos(this);
 
         // Obtener el idUsuario del Intent que inició esta actividad
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
-        System.out.println("idUsuario "+idUsuario);
+        System.out.println("idUsuario " + idUsuario);
         image5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Ir a la pantalla de perfil
-                Intent intent = new Intent(HomeActivity.this, Profile.class);
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -94,6 +106,63 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                         case 2:
                             cargarImagenPortada(libro.getPortada(), image12);
+                            break;
+                    }
+                }
+            }
+        }
+        // Obtener los IDs de los próximos eventos
+        List<Integer> idEventosMasRecientes = (List<Integer>) basedeDatos.obtenerIdeventosMasRecientes();
+
+        // Obtener los tres eventos más recientes y mostrar la portada de sus libros asociados
+        for (int i = 0; i < idEventosMasRecientes.size() && i < 3; i++) {
+            int idEvento = idEventosMasRecientes.get(i);
+            Log.d("HomeActivity", "idEvento: " + idEvento);
+            int idLibro = basedeDatos.obtenerIdLibroPorIdevento(idEvento);
+            Log.d("HomeActivity", "idLibro: " + idLibro);
+            if (idLibro != -1) {
+                Libro libro = basedeDatos.obtenerLibro(idLibro);
+                if (libro != null) {
+                    Log.d("HomeActivity", "Portada del libro " + libro.getTitulo() + ": " + libro.getPortada());
+                    // Cargar la portada del libro en la imagen correspondiente
+                    switch (i) {
+                        case 0:
+                            cargarImagenPortada(libro.getPortada(), image13);
+                            break;
+                        case 1:
+                            cargarImagenPortada(libro.getPortada(), image14);
+                            break;
+                        case 2:
+                            cargarImagenPortada(libro.getPortada(), image15);
+                            break;
+                    }
+                }
+            }
+        }
+
+        // Obtener los IDs de los foros abiertos recientemente
+        List<Integer> IdForosrecientes = basedeDatos.obtenerIdForosrecientes();
+
+        // Obtener los tres eventos más recientes y mostrar la portada de sus libros asociados
+        for (int i = 0; i < IdForosrecientes.size() && i < 3; i++) {
+            int idEvento = IdForosrecientes.get(i);
+            Log.d("HomeActivity", "idEvento: " + idEvento);
+            int idLibro = basedeDatos.obtenerIdLibroPorIdevento(idEvento);
+            Log.d("HomeActivity", "idLibro: " + idLibro);
+            if (idLibro != -1) {
+                Libro libro = basedeDatos.obtenerLibro(idLibro);
+                if (libro != null) {
+                    Log.d("HomeActivity", "Portada del libro " + libro.getTitulo() + ": " + libro.getPortada());
+                    // Cargar la portada del libro en la imagen correspondiente
+                    switch (i) {
+                        case 0:
+                            cargarImagenPortada(libro.getPortada(), image16);
+                            break;
+                        case 1:
+                            cargarImagenPortada(libro.getPortada(), image17);
+                            break;
+                        case 2:
+                            cargarImagenPortada(libro.getPortada(), image18);
                             break;
                     }
                 }

@@ -46,7 +46,7 @@
             android:name=".Controller.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".Controller.Profile"
+            android:name=".Controller.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Controller.EventosActivity"
