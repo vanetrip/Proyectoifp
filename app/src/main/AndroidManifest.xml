@@ -59,7 +59,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".Controller.StartActivity"
+            android:name=".Controller.ReunionActivity"
             android:exported="false" />
 
         <meta-data

@@ -22,8 +22,8 @@
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
-        <TextView
-            android:id="@+id/textView111_reunion"
+        <EditText
+            android:id="@+id/editText1_reunion"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -37,7 +37,8 @@
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
-            android:textColor="#A5A4A4" />
+            android:textColor="#A5A4A4"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView2_reunion"
@@ -170,6 +171,19 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="414dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:background="#F3EDE0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6_reunion">
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
         android:layout_height="32dp"
@@ -196,7 +210,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView12_reunion"
+                android:id="@+id/textView14_reunion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,7 +232,7 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/textView13_reunion"
+                android:id="@+id/textView15_reunion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -281,82 +295,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/quicksand_medium"
         android:text="DATOS DEL EVENTO:"
-        android:textColor="#FAF6F6"
+        android:textColor="#6D8A88"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5_reunion" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6_reunion" />
 
     <TextView
         android:id="@+id/textView8_reunion"
-        android:layout_width="40dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Día:"
+        android:layout_marginTop="16dp"
+        android:text="Nombre:"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/textView9_reunion"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7_reunion" />
-
-    <TextView
-        android:id="@+id/textView10_reunion"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Hora:"
-        android:textColor="#F3F3F3"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView11_reunion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8_reunion" />
-
-    <TextView
-        android:id="@+id/textView5_reunion"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Título: "
-        android:textColor="#F6F4F4"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView6_reunion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
-
-    <TextView
-        android:id="@+id/textView6_reunion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="Título"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5_reunion"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
-
-    <TextView
-        android:id="@+id/textView9_reunion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="dia"
-        android:textColor="#F4F1F1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8_reunion"
         app:layout_constraintTop_toBottomOf="@+id/textView7_reunion" />
 
     <TextView
@@ -367,11 +327,98 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="hora"
+        android:text="Fecha"
         android:textColor="#F6F6F6"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView10_reunion"
-        app:layout_constraintTop_toBottomOf="@+id/textView9_reunion" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8_reunion" />
+
+    <TextView
+        android:id="@+id/textView9_reunion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="Nombre"
+        android:textColor="#F4F1F1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8_reunion"
+        app:layout_constraintTop_toBottomOf="@+id/textView7_reunion" />
+
+    <TextView
+        android:id="@+id/textView10_reunion"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Fecha:"
+        android:textColor="#F3F3F3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView11_reunion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8_reunion" />
+
+    <TextView
+        android:id="@+id/textView5_reunion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="24dp"
+        android:text="Título"
+        android:textColor="#F6F4F4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+    <TextView
+        android:id="@+id/textView6_reunion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Autor"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7_reunion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5_reunion" />
+
+    <TextView
+        android:id="@+id/textView12_reunion"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Hora:"
+        android:textColor="#F3F3F3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView13_reunion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10_reunion" />
+
+    <TextView
+        android:id="@+id/textView13_reunion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Hora"
+        android:textColor="#F3F3F3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView12_reunion"
+        app:layout_constraintTop_toBottomOf="@+id/textView10_reunion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
