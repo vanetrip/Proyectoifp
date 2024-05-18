@@ -165,6 +165,7 @@ public class BuscadorActivity extends AppCompatActivity {
                 String tituloSeleccionado = (String) parent.getItemAtPosition(position);
                 // Realizar la búsqueda en la base de datos por el título
                 idLibro = basedeDatos.buscarIdLibroPorTitulo(tituloSeleccionado);
+                System.out.println("idLibro desde list " + idLibro);
                 if (idLibro != -1) {
                     // Pasar a InfoBookActivity
                     Intent intent = new Intent(BuscadorActivity.this, InfoBookActivity.class);

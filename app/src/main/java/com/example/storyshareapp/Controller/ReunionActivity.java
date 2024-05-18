@@ -42,6 +42,7 @@ public class ReunionActivity extends AppCompatActivity {
     private EditText editText1;
     private int idUsuario;
     private int idLibro;
+    private int idEvento;
 
     @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,10 @@ public class ReunionActivity extends AppCompatActivity {
         // OBTENER IDUSUARIO
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1);
-        System.out.println("idUsuario " + idUsuario);
-
         //OBTENER IDLIBRO
         idLibro = intent.getIntExtra("idLibro", -1);
-        System.out.println("idLibro " + idLibro);
+        //OBTENER IDEVENTO
+        idEvento = intent.getIntExtra("idEvento", -1);
 
         // Botón discord
         boton1 = (Button) findViewById(R.id.button4_reunion);
@@ -157,18 +157,15 @@ public class ReunionActivity extends AppCompatActivity {
 
         // OBTENER DATOS LIBRO
         BasedeDatos db = new BasedeDatos(this);
-        idLibro = 1;
         Libro libro = db.obtenerLibro(idLibro);
 
         if (libro != null) {
             textView7.setText(libro.getTitulo()); // Título del libro
             textView8.setText(libro.getAutor()); // Autor del libro
-        } else {
-            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
         }
 
         // OBTENER DATOS EVENTO LIBRO
-        int idEvento = db.obtenerIdEventoMasProximo(idLibro);
+        idEvento = db.obtenerIdEventoMasProximo(idLibro);
 
         // Verificar si se encontró un evento
         if (idEvento != -1) {
