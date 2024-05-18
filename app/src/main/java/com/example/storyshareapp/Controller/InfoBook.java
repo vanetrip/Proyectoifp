@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.Model.Eventos;
 import com.example.storyshareapp.Persistencia.BasedeDatos;
+import com.example.storyshareapp.Persistencia.Evento;
+import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
 
 public class InfoBook extends AppCompatActivity {
@@ -35,6 +38,9 @@ public class InfoBook extends AppCompatActivity {
     private BasedeDatos basedeDatos;
     private int idUsuario;
     private int idLibro;
+    private int idEvento;
+    private String paquete1="";
+    private Bundle extras;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -65,7 +71,25 @@ public class InfoBook extends AppCompatActivity {
         idLibro = intent.getIntExtra("idLibro", -1);
         System.out.println("idLibro "+idLibro);
 
+        Libro libro = basedeDatos.obtenerLibro(idLibro);
 
+        if (libro != null) {
+            textView1.setText(libro.getTitulo()); // Título del libro - TITULO
+            textView2.setText(libro.getTitulo()); // Título del libro - DESCRIPCION
+            textView3.setText(libro.getAutor()); // Autor del libro - DESCRIPCION
+            //textView4.setText(libro.getTitulo()); // FECHA EVENTO - DESCRIPCION
+            //textView5.setText(libro.getTitulo()); // HORA EVENTO - DESCRIPCION
+        } else {
+            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
+        }
+
+        Evento evento =basedeDatos.obtenerEvento(idEvento);
+        if (evento != null) {
+            textView4.setText(libro.getTitulo()); // FECHA EVENTO - DESCRIPCION
+            textView5.setText(libro.getTitulo()); // HORA EVENTO - DESCRIPCION
+        } else {
+            Toast.makeText(this, "No se encontró información del evento", Toast.LENGTH_SHORT).show();
+        }
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +146,8 @@ public class InfoBook extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
