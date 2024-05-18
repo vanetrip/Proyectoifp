@@ -232,8 +232,6 @@ public class InfoBookActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
         // Favorito
         imageButton1.setOnClickListener(v -> {
             boolean esFavorito = db.libroFavorito(idUsuario, idLibro);
