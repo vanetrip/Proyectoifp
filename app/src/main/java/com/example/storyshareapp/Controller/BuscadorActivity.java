@@ -43,7 +43,6 @@ public class BuscadorActivity extends AppCompatActivity {
     private String textoBusqueda;
     private List<Libro> listadoLibros= new ArrayList<>();
     private ArrayAdapter<String> adaptador;
-    private String contenidoItem="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
