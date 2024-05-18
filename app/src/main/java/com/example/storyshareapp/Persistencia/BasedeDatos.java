@@ -467,5 +467,19 @@ public class BasedeDatos extends SQLiteOpenHelper {
         return idForosrecientes;
     }
 
+    public List<Integer> buscarIdLibrosPorTitulo(String texto) {
+        List<Integer> idLibros = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id FROM Libros WHERE titulo LIKE ? ORDER BY fecha_publicacion DESC", new String[]{"%" + texto + "%"});
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int idLibro = cursor.getInt(0);
+                idLibros.add(idLibro);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return idLibros;
+    }
+
     // Resto de los métodos CRUD y otras consultas...
 }
