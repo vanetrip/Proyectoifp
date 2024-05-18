@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,9 +18,6 @@ import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.Persistencia.Evento;
 import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 public class ReunionActivity extends AppCompatActivity {
 
@@ -83,7 +79,7 @@ public class ReunionActivity extends AppCompatActivity {
         // Autor libro
         textView8 = (TextView) findViewById(R.id.textView6_reunion);
         // Buscador
-        editText1 = findViewById(R.id.editText1_reunion);
+        editText1 = findViewById(R.id.editText1_favoritos);
 
         // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
@@ -139,8 +135,9 @@ public class ReunionActivity extends AppCompatActivity {
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReunionActivity.this, DiscordActivity.class);
+                Intent intent = new Intent(ReunionActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
+                intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
             }
         });

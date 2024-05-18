@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView4_eventos"
             android:layout_width="156dp"
             android:layout_height="80dp"
             android:layout_gravity="center|left"
@@ -172,7 +172,7 @@
                 app:srcCompat="@drawable/calendario_blanco" />
 
             <ImageView
-                android:id="@+id/imageView8_newEvent8"
+                android:id="@+id/imageView3_eventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -252,13 +252,11 @@
     <FrameLayout
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="450dp"
+        android:layout_height="29dp"
         android:background="#A5C3A7"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -327,12 +325,11 @@
     <FrameLayout
         android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:layout_height="29dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
 
@@ -372,14 +369,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13a_crearevento" />
 
-    <EditText
-        android:id="@+id/editTextText3_crearevento"
+    <TextView
+        android:id="@+id/textView22_crearevento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
+        android:hint="Titulo libro"
         android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="#2E2E2E"
+        android:textColorHint="#2E2E2E"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9_Crearevento" />
@@ -398,6 +400,6 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3_crearevento"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView22_crearevento"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

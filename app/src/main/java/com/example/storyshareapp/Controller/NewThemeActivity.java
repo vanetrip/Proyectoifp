@@ -38,7 +38,7 @@ public class NewThemeActivity extends AppCompatActivity {
     View.OnClickListener openPerfil = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(NewThemeActivity.this, Profile.class);
+            Intent intent = new Intent(NewThemeActivity.this, ProfileActivity.class);
             startActivity(intent);
         }
     };

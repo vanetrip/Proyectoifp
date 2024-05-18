@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.Persistencia.Evento;
+import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
 
 import java.text.ParseException;
@@ -40,18 +40,19 @@ public class NewEventActivity extends AppCompatActivity {
     View.OnClickListener openPerfil = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(NewEventActivity.this, Profile.class);
+            Intent intent = new Intent(NewEventActivity.this, ProfileActivity.class);
             startActivity(intent);
         }
     };
     protected TextView nombre;
     protected TextView fecha;
     protected TextView hora;
-    protected TextView libro;
+    protected TextView libroTextView;
     protected Button boton1;
     private SQLiteDatabase db;
     private BasedeDatos basedeDatos;
     private int idUsuario;
+    private int idLibro;
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -61,17 +62,16 @@ public class NewEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_crearevento);
 
         nombre= (TextView) findViewById(R.id.editTextText1_creareventos);
         fecha = (TextView) findViewById(R.id.editTextText_crearevento);
         hora = (TextView) findViewById(R.id.editTextText2_creareventos);
-        libro = (TextView) findViewById(R.id.editTextText3_crearevento);
+        libroTextView = (TextView) findViewById(R.id.textView22_crearevento);
         boton1= (Button) findViewById(R.id.button1_Crearevento);
         image1 = (ImageView) findViewById(R.id.imageView6_newEvent6);
         image2 = (ImageView) findViewById(R.id.imageView7_newEvent7);
-        image3= (ImageView) findViewById(R.id.imageView8_newEvent8);
+        image3= (ImageView) findViewById(R.id.imageView3_eventos);
         /*
         //Salto de pantalla a Favoritos
         image1.setOnClickListener(openFavoritos);
@@ -86,6 +86,19 @@ public class NewEventActivity extends AppCompatActivity {
         BasedeDatos basedeDatos = new BasedeDatos(this);
 
         idUsuario = getIntent().getIntExtra("idUsuario", -1);
+        idLibro = getIntent().getIntExtra("idLibro", -1);
+
+        Libro libro = basedeDatos.obtenerLibro(idLibro);
+        if (libro != null) {
+            String tituloLibro = libro.getTitulo();
+            if (tituloLibro != null) {
+                libroTextView.setText(tituloLibro);
+            } else {
+                Toast.makeText(NewEventActivity.this, "El título del libro es nulo", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(NewEventActivity.this, "No se encontró el libro con el ID especificado", Toast.LENGTH_SHORT).show();
+        }
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,11 +107,8 @@ public class NewEventActivity extends AppCompatActivity {
                 String nombreEvento = nombre.getText().toString();
                 String fechaEventoStr = fecha.getText().toString();
                 String horaEventoStr = hora.getText().toString();
-                String libroIdStr = libro.getText().toString();
 
-
-
-                if (nombreEvento.isEmpty() || fechaEventoStr.isEmpty() || horaEventoStr.isEmpty() || libroIdStr.isEmpty()) {
+                if (nombreEvento.isEmpty() || fechaEventoStr.isEmpty() || horaEventoStr.isEmpty() || idLibro == -1) {
                     Toast.makeText(NewEventActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -111,7 +121,7 @@ public class NewEventActivity extends AppCompatActivity {
                 try {
                     fechaEvento = dateFormat.parse(fechaEventoStr);
                     horaEvento = new java.sql.Time(timeFormat.parse(horaEventoStr).getTime());
-                    libroId = Integer.parseInt(libroIdStr);
+                    libroId = idLibro;
                 } catch (ParseException e) {
                     Toast.makeText(NewEventActivity.this, "Formato de fecha u hora incorrecto", Toast.LENGTH_SHORT).show();
                     return;

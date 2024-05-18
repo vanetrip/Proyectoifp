@@ -57,6 +57,12 @@
             android:name=".Controller.EventosActivity"
             android:exported="false" />
         <activity
+            android:name=".Controller.NewEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controller.NewThemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".Controller.FavoritosActivity"
             android:exported="false" />
         <activity

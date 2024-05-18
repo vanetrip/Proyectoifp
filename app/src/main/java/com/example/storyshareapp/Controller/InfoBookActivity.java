@@ -59,6 +59,7 @@ public class InfoBookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_book);
+
         db = new BasedeDatos(this);
 
         // OBTENER IDUSUARIO
@@ -128,12 +129,12 @@ public class InfoBookActivity extends AppCompatActivity {
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("idUsuario desde infobook"+ idUsuario);
                 Intent intent = new Intent(InfoBookActivity.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         };
-
         image3.setOnClickListener(openPerfil);
         textView3.setOnClickListener(openPerfil);
 
@@ -209,7 +210,7 @@ public class InfoBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Crear Eventos
-                Intent intent = new Intent(InfoBookActivity.this, DiscordActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
