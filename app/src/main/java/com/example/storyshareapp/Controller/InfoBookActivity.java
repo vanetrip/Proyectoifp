@@ -2,7 +2,6 @@ package com.example.storyshareapp.Controller;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +10,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.storyshareapp.Model.Eventos;
 import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
-public class InfoBook extends AppCompatActivity {
+public class InfoBookActivity extends AppCompatActivity {
 
     private Button boton1;
     private Button boton2;
@@ -39,6 +37,7 @@ public class InfoBook extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_book);
 
@@ -69,7 +68,7 @@ public class InfoBook extends AppCompatActivity {
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, FavoritosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -81,7 +80,7 @@ public class InfoBook extends AppCompatActivity {
         View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, EventosActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, EventosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -93,7 +92,7 @@ public class InfoBook extends AppCompatActivity {
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, ProfileActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -104,7 +103,7 @@ public class InfoBook extends AppCompatActivity {
         View.OnClickListener openHome = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, HomeActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, HomeActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -116,7 +115,7 @@ public class InfoBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Foro
-                Intent intent = new Intent(InfoBook.this, Forum.class);
+                Intent intent = new Intent(InfoBookActivity.this, Forum.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
@@ -126,7 +125,7 @@ public class InfoBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Crear Eventos
-                Intent intent = new Intent(InfoBook.this, NewEventActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, NewEventActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -135,13 +134,13 @@ public class InfoBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Ir a Reunion
-                Intent intent = new Intent(InfoBook.this, ReunionActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, ReunionActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
             }
         });
-
+*/
 
     }
 

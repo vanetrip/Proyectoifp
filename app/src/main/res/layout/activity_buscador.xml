@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Controller.BuscadorActivity">
 
     <FrameLayout
@@ -40,6 +41,24 @@
             android:paddingBottom="10dp"
             android:textColor="#A5A4A4" />
 
+        <EditText
+            android:id="@+id/editText4_buscador"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="30dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/quicksand_medium"
+            android:hint="Buscar"
+            android:outlineProvider="none"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="#A5A4A4"
+            android:textSize="14sp" />
+
         <ImageView
             android:id="@+id/imageView2_buscador"
             android:layout_width="24dp"
@@ -47,25 +66,6 @@
             android:layout_gravity="center|right"
             android:layout_marginRight="40dp"
             app:srcCompat="@drawable/buscar" />
-
-        <EditText
-            android:id="@+id/editText4_busacdor"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|right"
-            android:layout_marginRight="30dp"
-            android:background="@null"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:fontFamily="@font/quicksand_medium"
-            android:hint="Buscar"
-            android:inputType="text"
-            android:outlineProvider="none"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp"
-            android:textSize="14sp" />
 
     </FrameLayout>
 
@@ -178,8 +178,8 @@
     <ListView
         android:id="@+id/listView_buscador"
         android:layout_width="407dp"
-        android:layout_height="427dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
