@@ -536,5 +536,35 @@ public class BasedeDatos extends SQLiteOpenHelper {
         return evento;
     }
 
-    // Resto de los métodos CRUD y otras consultas...
+    public boolean libroFavorito(int usuarioId, int libroId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean favorito = false;
+        Cursor cursor = db.rawQuery("SELECT favorito FROM LibrosUsuario WHERE usuario_id = ? AND libro_id = ?", new String[]{String.valueOf(usuarioId), String.valueOf(libroId)});
+        if (cursor.moveToFirst()) {
+            favorito = cursor.getInt(0) > 0;
+        }
+        cursor.close();
+        db.close();
+        return favorito;
+    }
+
+    public void agregarFavorito(int idUsuario, int idLibro) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("favorito", true);
+        int rowsUpdated = db.update("LibrosUsuario", values, "usuario_id = ? AND libro_id = ?", new String[]{String.valueOf(idUsuario), String.valueOf(idLibro)});
+        if (rowsUpdated == 0) {
+            values.put("usuario_id", idUsuario);
+            values.put("libro_id", idLibro);
+            db.insert("LibrosUsuario", null, values);
+        }
+    }
+
+    public void eliminarFavorito(int idUsuario, int idLibro) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("favorito", false);
+        db.update("LibrosUsuario", values, "usuario_id = ? AND libro_id = ?", new String[]{String.valueOf(idUsuario), String.valueOf(idLibro)});
+    }
+
 }

@@ -6,8 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,75 +36,66 @@ public class InfoBookActivity extends AppCompatActivity {
     private Button boton1;
     private Button boton2;
     private Button boton3;
-
-
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
     private ImageView image4;
     private ImageView image5;
-
-
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
     private TextView textView5;
-    private BasedeDatos basedeDatos;
+    private TextView textView6;
+    private TextView textView7;
+    private EditText editText1;
+    private ImageButton imageButton1;
+    private BasedeDatos db;
     private int idUsuario;
     private int idLibro;
     private int idEvento;
 
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_book);
 
-        boton1 = (Button) findViewById(R.id.button9_info_book);
-        boton2 = (Button) findViewById(R.id.button10_info_book);
-        boton3 = (Button) findViewById(R.id.button11_info_book);
-        image1 = (ImageView) findViewById(R.id.imageView3_info_book);
-        image2 = (ImageView) findViewById(R.id.imageView4_info_book);
-        image3 = (ImageView) findViewById(R.id.imageView5_info_book);
-        image4 = (ImageView) findViewById(R.id.imageView1_info_book);
-        image5 = (ImageView) findViewById(R.id.imageView6_infoBook);
-        textView1 = (TextView) findViewById(R.id.textView5_info_book);
-        textView2 = (TextView) findViewById(R.id.textView10_infoBook);
-        textView3 = (TextView) findViewById(R.id.textView12_infoBook);
-        textView4 = (TextView) findViewById(R.id.textView15_info_book);
-        textView5 = (TextView) findViewById(R.id.textView17_infobook);
-
-        basedeDatos = new BasedeDatos(this);
-
-        // Obtener el idUsuario del Intent que inició esta actividad
+        // OBTENER IDUSUARIO
         Intent intent = getIntent();
-        idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
-        System.out.println("idUsuario " + idUsuario);
-        //Obtner el idLibro
+        idUsuario = intent.getIntExtra("idUsuario", -1);
+        //OBTENER IDLIBRO
         idLibro = intent.getIntExtra("idLibro", -1);
-        System.out.println("idLibro " + idLibro);
 
-        Libro libro = basedeDatos.obtenerLibro(idLibro);
+        // Boton acceder foro
+        boton1 = (Button) findViewById(R.id.button9_info_book);
+        // Boton ir a crear evento
+        boton2 = (Button) findViewById(R.id.button10_info_book);
+        // Boton ir
+        boton3 = (Button) findViewById(R.id.button11_info_book);
+        // Boton favs
+        image1 = (ImageView) findViewById(R.id.imageView3_info_book);
+        textView1 = (TextView) findViewById(R.id.textView2_info_book);
+        // Boton eventos
+        image2 = (ImageView) findViewById(R.id.imageView4_info_book);
+        textView2 = (TextView) findViewById(R.id.textView3_info_book);
+        // Boton perfil
+        image3 = (ImageView) findViewById(R.id.imageView5_info_book);
+        textView3 = (TextView) findViewById(R.id.textView4_info_book);
+        // img logo
+        image4 = (ImageView) findViewById(R.id.imageView1_info_book);
+        // Buscador
+        editText1 = findViewById(R.id.editText1_info_book);
+        // Título, autor, portada
+        textView4 = (TextView) findViewById(R.id.textView10_infoBook);
+        textView5 = (TextView) findViewById(R.id.textView12_infoBook);
+        image5 = (ImageView) findViewById(R.id.imageView6_infoBook);
+        // Datos evento
+        textView6 = (TextView) findViewById(R.id.textView15_info_book);
+        textView7 = (TextView) findViewById(R.id.textView17_infobook);
+        // Boton estrella
+        imageButton1 = (ImageButton) findViewById(R.id.imageButton_info_book);
 
-        if (libro != null) {
-            cargarImagenPortada(libro.getPortada(), image5);
-            textView1.setText(libro.getTitulo()); // Título del libro - TITULO
-            textView2.setText(libro.getTitulo()); // Título del libro - DESCRIPCION
-            textView3.setText(libro.getAutor()); // Autor del libro - DESCRIPCION
-
-        } else {
-            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
-        }
-
-        Evento evento = basedeDatos.obtenerEvento(idEvento);
-        if (evento != null) {
-            textView4.setText(libro.getTitulo()); // FECHA EVENTO - DESCRIPCION
-            textView5.setText(libro.getTitulo()); // HORA EVENTO - DESCRIPCION
-        } else {
-            Toast.makeText(this, "No se encontró información del evento", Toast.LENGTH_SHORT).show();
-        }
+        // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +106,10 @@ public class InfoBookActivity extends AppCompatActivity {
         };
 
         image1.setOnClickListener(openFavoritos);
-        textView2.setOnClickListener(openFavoritos);
+        textView1.setOnClickListener(openFavoritos);
 
+
+        // MÉTODO ABRIR EVENTOS
         View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,8 +120,9 @@ public class InfoBookActivity extends AppCompatActivity {
         };
 
         image2.setOnClickListener(openEventos);
-        textView3.setOnClickListener(openEventos);
+        textView2.setOnClickListener(openEventos);
 
+        // MÉTODO ABRIR PERFIL
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,18 +133,66 @@ public class InfoBookActivity extends AppCompatActivity {
         };
 
         image3.setOnClickListener(openPerfil);
-        textView4.setOnClickListener(openPerfil);
-        View.OnClickListener openHome = new View.OnClickListener() {
+        textView3.setOnClickListener(openPerfil);
+
+        // IR A HOME
+        image4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InfoBookActivity.this, HomeActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        };
+        });
 
-        image4.setOnClickListener(openHome);
+        // BUSCADOR
+        editText1.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = editText1.getText().toString().trim();
 
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(InfoBookActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        db = new BasedeDatos(this);
+
+        // INFORMACIÓN LIBRO
+        Libro libro = db.obtenerLibro(idLibro);
+        if (libro != null) {
+            cargarImagenPortada(libro.getPortada(), image5);
+            textView4.setText(libro.getTitulo()); // Título
+            textView5.setText(libro.getAutor()); // Autor
+
+        } else {
+            Toast.makeText(this, "No se encontró información del libro", Toast.LENGTH_SHORT).show();
+        }
+
+        // INFORMACIÓN EVENTO
+        idEvento = db.obtenerIdEventoMasProximo(idLibro);
+        // Verificar si se encontró un evento
+        if (idEvento != -1) {
+            // Obtener los datos del evento utilizando su ID
+            Evento evento = db.obtenerEvento(idEvento);
+            if (evento != null) {
+                textView6.setText(evento.getFecha()); // Fecha
+                textView7.setText(evento.getHora()); // Hora
+            }
+        } else {
+            Toast.makeText(this, "No se encontró información del evento", Toast.LENGTH_SHORT).show();
+            textView6.setText("--"); // Fecha
+            textView7.setText("--"); // Hora
+        }
+
+        // BOTON ACCEDER AL FORO
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,28 +204,57 @@ public class InfoBookActivity extends AppCompatActivity {
             }
         });
 
-
+        // BOTON CREAR EVENTO
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Crear Eventos
                 Intent intent = new Intent(InfoBookActivity.this, DiscordActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
-                startActivity(intent);
-            }
-        });
-        boton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Lógica para abrir la actividad Ir a Reunion
-                Intent intent = new Intent(InfoBookActivity.this, ReunionActivity.class);
-                intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
             }
         });
+
+        // BOTON IR AL EVENTO
+        boton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (idEvento != -1) {
+                    // abrir la actividad Ir a Reunion
+                    Intent intent = new Intent(InfoBookActivity.this, ReunionActivity.class);
+                    intent.putExtra("idUsuario", idUsuario);
+                    intent.putExtra("idEvento", idEvento);
+                    intent.putExtra("idLibro", idLibro);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(InfoBookActivity.this, "No hay evento próximo", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Favorito
+        imageButton1.setOnClickListener(v -> {
+            boolean esFavorito = db.libroFavorito(idUsuario, idLibro);
+            if (esFavorito) {
+                db.eliminarFavorito(idUsuario, idLibro);
+                Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+            } else {
+                db.agregarFavorito(idUsuario, idLibro);
+                Toast.makeText(this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
+            }
+            actualizarEstadoFavorito();
+        });
     }
 
+    private void actualizarEstadoFavorito() {
+        boolean esFavorito = db.libroFavorito(idUsuario, idLibro);
+        if (esFavorito) {
+            imageButton1.setImageResource(R.drawable.estrella_amarilla);
+        } else {
+            imageButton1.setImageResource(R.drawable.estrella_blanca);
+        }
+    }
     private void cargarImagenPortada(String urlPortada, ImageView imageView) {
         if (urlPortada != null && !urlPortada.isEmpty()) {
             RequestOptions requestOptions = new RequestOptions()
@@ -224,5 +298,4 @@ public class InfoBookActivity extends AppCompatActivity {
             });
         }
     }
-
 }
