@@ -224,6 +224,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Obtener los IDs de los foros abiertos recientemente
         List<Integer> IdForosrecientes = basedeDatos.obtenerIdForosrecientes();
+        System.out.println("IdForosrecientes "+IdForosrecientes);
 
         // Obtener los tres eventos más recientes y mostrar la portada de sus libros asociados
         for (int i = 0; i < IdForosrecientes.size() && i < 3; i++) {

@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/logo_transparente" />
 
         <EditText
-            android:id="@+id/editText1_reunion"
+            android:id="@+id/editText1_favoritos"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
