@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.storyshareapp.R;
 
 public class FavoritosActivity extends AppCompatActivity {
-    /*
+
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -159,5 +159,5 @@ public class FavoritosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }*/
+    }
 }
