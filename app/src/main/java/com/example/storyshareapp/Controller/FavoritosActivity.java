@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
+//import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
 public class FavoritosActivity extends AppCompatActivity {
-
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -33,11 +34,13 @@ public class FavoritosActivity extends AppCompatActivity {
     private Button boton1;
     private Button boton2;
     private Button boton3;
+    private BasedeDatos basedeDatos;
+    private int idUsuario;
+    private int idLibro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_favoritos);
         image1 = (ImageView) findViewById(R.id.imageView18_favoritos);
         image2 = (ImageView) findViewById(R.id.imageView7_favoritos);
@@ -53,8 +56,8 @@ public class FavoritosActivity extends AppCompatActivity {
         image12 = (ImageView) findViewById(R.id.imageView17_favoritos);
         image13 = (ImageView) findViewById(R.id.imageView4_favoritos);
         textView1 = (TextView) findViewById(R.id.textView9_favoritos);
-        textView2 = (TextView) findViewById(R.id.textView10_infoBook);
-        textView3 = (TextView) findViewById(R.id.textView12_infoBook);
+        //textView2 = (TextView) findViewById(R.id.textView10_infoBook);
+        //textView3 = (TextView) findViewById(R.id.textView12_infoBook);
         boton1 = (Button) findViewById(R.id.button9_favoritos);
         boton2 = (Button) findViewById(R.id.button10_favoritos);
         boton3 = (Button) findViewById(R.id.button11_favoritos);
@@ -62,7 +65,7 @@ public class FavoritosActivity extends AppCompatActivity {
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBookActivity.this, FavoritosActivity.class);
+                Intent intent = new Intent(FavoritosActivity.this, FavoritosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -86,6 +89,16 @@ public class FavoritosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        View.OnClickListener openHome = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FavoritosActivity.this, HomeActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image4.setOnClickListener(openHome);
 
         image4.setOnClickListener(new View.OnClickListener() {
             @Override
