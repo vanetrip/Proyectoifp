@@ -60,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
                 if (credencialesCorrectas) {
                     int idUsuario = BasedeDatos.obtenerId(db, username);
                     Toast.makeText(SignInActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                    pasarPantalla = new Intent(SignInActivity.this, ReunionActivity.class);
+                    pasarPantalla = new Intent(SignInActivity.this, HomeActivity.class);
                     // AQUI OS PASO EL ID PARA LA PANTALLA DEL HOME
                     pasarPantalla.putExtra("idUsuario", idUsuario); // Pasa el ID del usuario como un extra
                     startActivity(pasarPantalla);
