@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
 public class FavoritosActivity extends AppCompatActivity {
@@ -33,6 +34,9 @@ public class FavoritosActivity extends AppCompatActivity {
     private Button boton1;
     private Button boton2;
     private Button boton3;
+    private BasedeDatos basedeDatos;
+    private int idUsuario;
+    private int idLibro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +66,7 @@ public class FavoritosActivity extends AppCompatActivity {
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
+                Intent intent = new Intent(FavoritosActivity.this, FavoritosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -86,6 +90,16 @@ public class FavoritosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        View.OnClickListener openHome = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FavoritosActivity.this, HomeActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image4.setOnClickListener(openHome);
 
         image4.setOnClickListener(new View.OnClickListener() {
             @Override

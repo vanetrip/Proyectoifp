@@ -51,8 +51,7 @@ public class InfoBook extends AppCompatActivity {
     private int idUsuario;
     private int idLibro;
     private int idEvento;
-    private String paquete1 = "";
-    private Bundle extras;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
