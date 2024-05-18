@@ -28,7 +28,7 @@ import com.example.storyshareapp.Persistencia.Evento;
 import com.example.storyshareapp.Persistencia.Libro;
 import com.example.storyshareapp.R;
 
-public class InfoBook extends AppCompatActivity {
+public class InfoBookActivity extends AppCompatActivity {
 
     private Button boton1;
     private Button boton2;
