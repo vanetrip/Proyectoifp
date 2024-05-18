@@ -271,7 +271,7 @@
                 android:textSize="8sp" />
 
             <Button
-                android:id="@+id/button10_theme"
+                android:id="@+id/button11_theme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
