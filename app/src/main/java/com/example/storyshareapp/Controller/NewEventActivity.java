@@ -40,7 +40,7 @@ public class NewEventActivity extends AppCompatActivity {
     View.OnClickListener openPerfil = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(NewEventActivity.this, Profile.class);
+            Intent intent = new Intent(NewEventActivity.this, ProfileActivity.class);
             startActivity(intent);
         }
     };
