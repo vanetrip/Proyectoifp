@@ -82,7 +82,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Perfil
-                Intent intent = new Intent(FavoritosActivity.this, Profile.class);
+                Intent intent = new Intent(FavoritosActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });

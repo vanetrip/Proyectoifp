@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -320,7 +321,6 @@ public class BasedeDatos extends SQLiteOpenHelper {
         int idLibro = -1; // Valor por defecto si no se encuentra
         if (cursor.moveToFirst()) {
             idLibro = cursor.getInt(0);
-            System.out.println("idLibroSQL: " + idLibro);
         }
         cursor.close();
         return idLibro;
@@ -428,6 +428,101 @@ public class BasedeDatos extends SQLiteOpenHelper {
         }
         cursor.close();
         return libros;
+    }
+
+    public List<Integer> obtenerIdeventosMasRecientes() {
+        List<Integer> eventosMasRecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id, COUNT(id) AS COUNT FROM Eventos GROUP BY id ORDER BY fecha DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                eventosMasRecientes.add(cursor.getInt(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return eventosMasRecientes;
+    }
+
+    public int obtenerIdLibroPorIdevento(int idEvento) {
+        int idLibro = -1; // Default value if no ID is found
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT libro_id FROM Eventos WHERE id = ?", new String[]{String.valueOf(idEvento)});
+        if (cursor != null && cursor.moveToFirst()) {
+            idLibro = cursor.getInt(0);
+            cursor.close();
+        }
+        return idLibro;
+    }
+
+    public List<Integer> obtenerIdForosrecientes() {
+        List<Integer> idForosrecientes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id, COUNT(id) AS COUNT FROM Foros GROUP BY id ORDER BY fecha_creacion DESC LIMIT 3", null);
+        if (cursor.moveToFirst()) {
+            do {
+                int idForo = cursor.getInt(0);
+                idForosrecientes.add(idForo);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return idForosrecientes;
+    }
+
+    public List<Integer> buscarIdLibrosPorTitulo(String texto) {
+        List<Integer> idLibros = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id FROM Libros WHERE titulo LIKE ? ORDER BY fecha_publicacion DESC", new String[]{"%" + texto + "%"});
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int idLibro = cursor.getInt(0);
+                idLibros.add(idLibro);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return idLibros;
+    }
+
+    public int obtenerIdEventoMasProximo(int idLibro) {
+        int idEvento = -1;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT id FROM Eventos WHERE libro_id = ? AND fecha >= DATE('now') ORDER BY fecha ASC LIMIT 1", new String[]{String.valueOf(idLibro)});
+        if (cursor != null && cursor.moveToFirst()) {
+            idEvento = cursor.getInt(0);
+            cursor.close();
+        }
+        return idEvento;
+    }
+
+    public Evento obtenerEvento(int idEvento) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Eventos WHERE id = ?", new String[]{String.valueOf(idEvento)});
+        Evento evento = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            String nombre = cursor.getString(1);
+            String fechaString = cursor.getString(2);
+            String horaString = cursor.getString(3);
+            int moderadorId = cursor.getInt(4);
+            int libroId = cursor.getInt(5);
+
+            // Convertir las cadenas de fecha y hora a objetos Date y Time
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            Date fecha = null;
+            Time hora = null;
+            try {
+                fecha = dateFormat.parse(fechaString);
+                hora = new Time(timeFormat.parse(horaString).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            // Crear el objeto Evento
+            evento = new Evento(idEvento, nombre, fecha, hora, moderadorId, libroId);
+
+            cursor.close();
+        }
+        return evento;
     }
 
     // Resto de los métodos CRUD y otras consultas...
