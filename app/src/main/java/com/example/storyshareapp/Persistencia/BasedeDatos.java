@@ -432,11 +432,11 @@ public class BasedeDatos extends SQLiteOpenHelper {
     public long insertarEvento(Evento evento) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("NombreEvento", evento.getNombreEvento());
-        values.put("Fecha", String.valueOf(evento.getFecha()));
-        values.put("Hora", String.valueOf(evento.getHora()));
-        values.put("ModeradorId", evento.getModeradorId());
-        values.put("LibroId", evento.getLibroId());
+        values.put("nombre", evento.getNombreEvento());
+        values.put("fecha", String.valueOf(evento.getFecha()));
+        values.put("hora", String.valueOf(evento.getHora()));
+        values.put("moderador_id", evento.getModeradorId());
+        values.put("libro_id", evento.getLibroId());
         long id = db.insert("Eventos", null, values);
         db.close();
         return id;

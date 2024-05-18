@@ -369,14 +369,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13a_crearevento" />
 
-    <EditText
-        android:id="@+id/editTextText3_crearevento"
+    <TextView
+        android:id="@+id/textView22_crearevento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
+        android:hint="Titulo libro"
         android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="#2E2E2E"
+        android:textColorHint="#2E2E2E"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9_Crearevento" />
@@ -395,6 +400,6 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3_crearevento"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView22_crearevento"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
