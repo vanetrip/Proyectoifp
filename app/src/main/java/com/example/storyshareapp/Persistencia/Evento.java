@@ -1,7 +1,10 @@
 package com.example.storyshareapp.Persistencia;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.sql.Time;
-import java.sql.Date;
+import java.util.Locale;
 
 public class Evento {
     private int id;
@@ -42,16 +45,22 @@ public class Evento {
         this.nombreEvento = nombreEvento;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getFecha() {
+        if (fecha != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+            return dateFormat.format(this.fecha);
+        } else {
+            return "Fecha no disponible";
+        }
     }
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
-        return hora;
+    public String getHora() {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        return timeFormat.format(this.hora);
     }
 
     public void setHora(Time hora) {

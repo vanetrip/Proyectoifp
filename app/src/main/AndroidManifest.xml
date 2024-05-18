@@ -18,15 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".Controller.NewThemeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Controller.NewEventActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Controller.BuscadorActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Controller.InicioActivity"
             android:exported="true"
@@ -34,23 +26,32 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Controller.SignUpActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".Controller.InfoBookActivity"
+            android:exported="false" />
+
+        <activity android:name=".Controller.BuscadorActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/app_name">
+        </activity>
+
         <activity
             android:name=".Controller.HomeActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.StoryShareAPP" />
+            android:exported="false" />
+
         <activity
             android:name=".Controller.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".Controller.Profile"
+            android:name=".Controller.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Controller.EventosActivity"
@@ -61,8 +62,9 @@
         <activity
             android:name=".Controller.Forum"
             android:exported="false" />
+
         <activity
-            android:name=".Controller.StartActivity"
+            android:name=".Controller.ReunionActivity"
             android:exported="false" />
 
         <meta-data

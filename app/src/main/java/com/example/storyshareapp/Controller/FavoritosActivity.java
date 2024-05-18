@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
+//import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
 public class FavoritosActivity extends AppCompatActivity {
@@ -25,15 +27,20 @@ public class FavoritosActivity extends AppCompatActivity {
     private ImageView image10;
     private ImageView image11;
     private ImageView image12;
-
+    private ImageView image13;
+    private TextView textView1;
+    private TextView textView2;
+    private TextView textView3;
     private Button boton1;
     private Button boton2;
     private Button boton3;
+    private BasedeDatos basedeDatos;
+    private int idUsuario;
+    private int idLibro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_favoritos);
         image1 = (ImageView) findViewById(R.id.imageView18_favoritos);
         image2 = (ImageView) findViewById(R.id.imageView7_favoritos);
@@ -47,18 +54,25 @@ public class FavoritosActivity extends AppCompatActivity {
         image10 = (ImageView) findViewById(R.id.imageView15_favoritos);
         image11 = (ImageView) findViewById(R.id.imageView16_favoritos);
         image12 = (ImageView) findViewById(R.id.imageView17_favoritos);
+        image13 = (ImageView) findViewById(R.id.imageView4_favoritos);
+        textView1 = (TextView) findViewById(R.id.textView9_favoritos);
+        //textView2 = (TextView) findViewById(R.id.textView10_infoBook);
+        //textView3 = (TextView) findViewById(R.id.textView12_infoBook);
         boton1 = (Button) findViewById(R.id.button9_favoritos);
         boton2 = (Button) findViewById(R.id.button10_favoritos);
         boton3 = (Button) findViewById(R.id.button11_favoritos);
-
-        image1.setOnClickListener(new View.OnClickListener() {
+/*
+        View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Favoritos
                 Intent intent = new Intent(FavoritosActivity.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        });
+        };
+
+        image1.setOnClickListener(openFavoritos);
+        textView2.setOnClickListener(openFavoritos);
         image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,16 +85,26 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Perfil
-                Intent intent = new Intent(FavoritosActivity.this, Profile.class);
+                Intent intent = new Intent(FavoritosActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
+        View.OnClickListener openHome = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FavoritosActivity.this, HomeActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+        image4.setOnClickListener(openHome);
 
         image4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +112,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +120,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -104,7 +128,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -112,7 +136,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -120,7 +144,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -128,7 +152,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -136,7 +160,7 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -144,10 +168,9 @@ public class FavoritosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para ir a la info del libro
-                Intent intent = new Intent(FavoritosActivity.this, InfoBook.class);
+                Intent intent = new Intent(FavoritosActivity.this, InfoBookActivity.class);
                 startActivity(intent);
             }
         });
-    }
-}
-
+    }*/
+}}
