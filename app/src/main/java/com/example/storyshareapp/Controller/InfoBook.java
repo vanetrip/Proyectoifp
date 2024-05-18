@@ -2,6 +2,7 @@ package com.example.storyshareapp.Controller;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.Model.Eventos;
+import com.example.storyshareapp.Persistencia.BasedeDatos;
 import com.example.storyshareapp.R;
 
 public class InfoBook extends AppCompatActivity {
@@ -29,6 +31,9 @@ public class InfoBook extends AppCompatActivity {
     private TextView textView3;
     private TextView textView4;
     private TextView textView5;
+    private BasedeDatos basedeDatos;
+    private int idUsuario;
+    private int idLibro;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,53 +46,74 @@ public class InfoBook extends AppCompatActivity {
         image1 = (ImageView) findViewById(R.id.imageView3_info_book);
         image2 = (ImageView) findViewById(R.id.imageView4_info_book);
         image3 = (ImageView) findViewById(R.id.imageView5_info_book);
-        //image4 = (ImageView) findViewById(R.id.imageView6_info_book);
-        //textView1 = (TextView) findViewById(R.id.textView5_infoBook);
         textView2 = (TextView) findViewById(R.id.textView10_infoBook);
         textView3 = (TextView) findViewById(R.id.textView12_infoBook);
         textView4 = (TextView) findViewById(R.id.textView15_info_book);
         textView5 = (TextView) findViewById(R.id.textView17_infobook);
 
+        basedeDatos = new BasedeDatos(this);
+
+        // Obtener el idUsuario del Intent que inició esta actividad
+        Intent intent = getIntent();
+        idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
+        System.out.println("idUsuario "+idUsuario);
+        //Obtner el idLibro
+        idLibro = intent.getIntExtra("idLibro", -1);
+        System.out.println("idLibro "+idLibro);
 
 
-        image1.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Favoritos
                 Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        });
+        };
 
-        image2.setOnClickListener(new View.OnClickListener() {
+        image1.setOnClickListener(openFavoritos);
+        textView2.setOnClickListener(openFavoritos);
+
+        View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
-                Intent intent = new Intent(InfoBook.this, Eventos.class);
+                Intent intent = new Intent(InfoBook.this, EventosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        });
-        image3.setOnClickListener(new View.OnClickListener() {
+        };
+
+        image2.setOnClickListener(openEventos);
+        textView3.setOnClickListener(openEventos);
+
+        View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
                 Intent intent = new Intent(InfoBook.this, Profile.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
-        });
+        };
+
+        image3.setOnClickListener(openPerfil);
+        textView4.setOnClickListener(openPerfil);
+
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Calendario
+                // Lógica para abrir la actividad Foro
                 Intent intent = new Intent(InfoBook.this, Forum.class);
+                intent.putExtra("idUsuario", idUsuario);
+                intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
             }
         });
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para abrir la actividad Eventos
-                Intent intent = new Intent(InfoBook.this, Eventos.class);
+                // Lógica para abrir la actividad Crear Eventos
+                Intent intent = new Intent(InfoBook.this, NewEventActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         });
