@@ -39,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
         BasedeDatos basedeDatos = new BasedeDatos(this);
         // Obtener instancia de SQLiteDatabase
         db = basedeDatos.getWritableDatabase();
-        basedeDatos.eliminarBaseDeDatos();
+        //basedeDatos.eliminarBaseDeDatos();
 
         editText1 = findViewById(R.id.editText1_signIn);
         editText2 = findViewById(R.id.editText2_signIn);

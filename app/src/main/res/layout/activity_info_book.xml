@@ -22,8 +22,8 @@
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
-        <TextView
-            android:id="@+id/textView1_info_book"
+        <EditText
+            android:id="@+id/editText1_info_book"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -37,7 +37,8 @@
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
-            android:textColor="#A5A4A4" />
+            android:textColor="#A5A4A4"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView2_info_book"
@@ -117,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Calendario"
+                android:text="Eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -159,13 +160,11 @@
     <FrameLayout
         android:id="@+id/frameLayout6"
         android:layout_width="414dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="14dp"
+        android:layout_height="29dp"
         android:background="#A5C3A7"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4_inicio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10_info_book">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -234,19 +233,18 @@
     <FrameLayout
         android:id="@+id/frameLayout4_inicio"
         android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:layout_height="29dp"
         android:background="#6D8A88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
 
     <ImageView
         android:id="@+id/imageView6_infoBook"
-        android:layout_width="92dp"
-        android:layout_height="163dp"
+        android:layout_width="106dp"
+        android:layout_height="149dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -258,8 +256,7 @@
         android:id="@+id/button9_info_book"
         android:layout_width="160dp"
         android:layout_height="46dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="133dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
         android:text="Acceder al foro"
@@ -273,23 +270,22 @@
         android:id="@+id/button10_info_book"
         android:layout_width="160dp"
         android:layout_height="46dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
         android:text="Crear evento"
         android:textColor="#F8F8F8"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button9_info_book" />
 
     <TextView
         android:id="@+id/textView9_infoBook"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/quicksand_medium"
         android:text="Título: "
         android:textSize="16sp"
@@ -300,36 +296,38 @@
 
     <TextView
         android:id="@+id/textView10_infoBook"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/quicksand_medium"
         android:hint="Descripcion"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9_infoBook"
         app:layout_constraintTop_toBottomOf="@+id/imageView6_infoBook" />
 
     <TextView
         android:id="@+id/textView11_infoBook"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="6dp"
         android:text="Autor:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView13_infoBook"
         app:layout_constraintEnd_toStartOf="@+id/textView12_infoBook"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9_infoBook" />
 
     <TextView
         android:id="@+id/textView12_infoBook"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="206dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:hint="Autor"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -340,55 +338,52 @@
         android:id="@+id/textView13_infoBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/quicksand_medium"
         android:text="Próximo Evento"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView14_infoBook"
-        app:layout_constraintTop_toBottomOf="@+id/textView11_infoBook"
-        tools:layout_editor_absoluteX="104dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button11_info_book"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12_infoBook" />
 
     <TextView
         android:id="@+id/textView14_infoBook"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/quicksand_medium"
         android:text="Día: "
         android:textColor="#6B6B6B"
-        app:layout_constraintBottom_toTopOf="@+id/textView16_info_book"
+        app:layout_constraintEnd_toStartOf="@+id/textView15_info_book"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13_infoBook" />
+        app:layout_constraintTop_toBottomOf="@+id/button11_info_book" />
 
     <TextView
         android:id="@+id/textView15_info_book"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:hint="día"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView14_infoBook"
-        app:layout_constraintTop_toBottomOf="@+id/textView13_infoBook" />
+        app:layout_constraintTop_toBottomOf="@+id/button11_info_book" />
 
     <TextView
         android:id="@+id/textView16_info_book"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="106dp"
-        android:layout_marginEnd="269dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="16dp"
         android:text="Hora:"
         android:textColor="#6B6B6B"
-        app:layout_constraintBottom_toTopOf="@+id/button9_info_book"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/textView17_infobook"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14_infoBook" />
 
@@ -407,18 +402,22 @@
 
     <TextView
         android:id="@+id/textView17_infobook"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="hora"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="525dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView16_info_book"
+        app:layout_constraintTop_toBottomOf="@+id/textView15_info_book" />
 
     <Button
         android:id="@+id/button11_info_book"
-        android:layout_width="33dp"
+        android:layout_width="0dp"
         android:layout_height="34dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="130dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="108dp"
         android:background="#A5C3A7"
         android:text="IR"
         android:textColor="#FFFFFF"
