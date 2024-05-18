@@ -105,7 +105,7 @@ public class InfoBookActivity extends AppCompatActivity {
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, FavoritosActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, FavoritosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -117,7 +117,7 @@ public class InfoBookActivity extends AppCompatActivity {
         View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, EventosActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, EventosActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -129,7 +129,7 @@ public class InfoBookActivity extends AppCompatActivity {
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, ProfileActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -140,7 +140,7 @@ public class InfoBookActivity extends AppCompatActivity {
         View.OnClickListener openHome = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, HomeActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, HomeActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -152,7 +152,7 @@ public class InfoBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Foro
-                Intent intent = new Intent(InfoBook.this, Forum.class);
+                Intent intent = new Intent(InfoBookActivity.this, Forum.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
@@ -164,7 +164,7 @@ public class InfoBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Crear Eventos
-                Intent intent = new Intent(InfoBook.this, NewEventActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, DiscordActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
@@ -173,7 +173,7 @@ public class InfoBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir la actividad Ir a Reunion
-                Intent intent = new Intent(InfoBook.this, ReunionActivity.class);
+                Intent intent = new Intent(InfoBookActivity.this, ReunionActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 intent.putExtra("idLibro", idLibro);
                 startActivity(intent);
@@ -181,48 +181,48 @@ public class InfoBookActivity extends AppCompatActivity {
         });
     }
 
-        private void cargarImagenPortada(String urlPortada, ImageView imageView) {
-            if (urlPortada != null && !urlPortada.isEmpty()) {
-                RequestOptions requestOptions = new RequestOptions()
-                        .placeholder(R.drawable.logo_blanco)
-                        .error(R.drawable.avatar_blanco)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL);
+    private void cargarImagenPortada(String urlPortada, ImageView imageView) {
+        if (urlPortada != null && !urlPortada.isEmpty()) {
+            RequestOptions requestOptions = new RequestOptions()
+                    .placeholder(R.drawable.logo_blanco)
+                    .error(R.drawable.avatar_blanco)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
 
-                Glide.with(this)
-                        .load(urlPortada)
-                        .apply(requestOptions)
-                        .listener(new RequestListener<Drawable>() {
-                            @Override
-                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                                // Manejo de errores al cargar la imagen
-                                Log.e("TAG", "Error al cargar la imagen: " + e.getMessage(), e);
-                                // Puedes mostrar un mensaje de error al usuario si lo deseas
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(InfoBook.this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                return false; // Retornar 'true' si deseas que Glide maneje el error y cargue la imagen de error definida
-                            }
-
-                            @Override
-                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                                // La imagen se cargó exitosamente
-                                Log.d("TAG", "Imagen cargada con éxito");
-                                return false;
-                            }
-                        })
-                        .into(imageView);
-            } else {
-                // La URL de la imagen es inválida
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(InfoBook.this, "URL de portada no válida", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+            Glide.with(this)
+                    .load(urlPortada)
+                    .apply(requestOptions)
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            // Manejo de errores al cargar la imagen
+                            Log.e("TAG", "Error al cargar la imagen: " + e.getMessage(), e);
+                            // Puedes mostrar un mensaje de error al usuario si lo deseas
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(InfoBookActivity.this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            return false; // Retornar 'true' si deseas que Glide maneje el error y cargue la imagen de error definida
                         }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            // La imagen se cargó exitosamente
+                            Log.d("TAG", "Imagen cargada con éxito");
+                            return false;
+                        }
+                    })
+                    .into(imageView);
+        } else {
+            // La URL de la imagen es inválida
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(InfoBookActivity.this, "URL de portada no válida", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 
 }

@@ -482,6 +482,17 @@ public class BasedeDatos extends SQLiteOpenHelper {
         return idLibros;
     }
 
+    public int buscarIdLibroPorTitulo(String texto) {
+        int idLibro = -1; // Valor predeterminado en caso de que no se encuentre ningún resultado
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id FROM Libros WHERE titulo LIKE ? ORDER BY fecha_publicacion DESC LIMIT 1", new String[]{"%" + texto + "%"});
+        if (cursor != null && cursor.moveToFirst()) {
+            idLibro = cursor.getInt(0);
+            cursor.close();
+        }
+        return idLibro;
+    }
+
     public int obtenerIdEventoMasProximo(int idLibro) {
         int idEvento = -1;
         SQLiteDatabase db = this.getReadableDatabase();

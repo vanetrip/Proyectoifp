@@ -2,15 +2,18 @@ package com.example.storyshareapp.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+//import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storyshareapp.Persistencia.BasedeDatos;
@@ -33,47 +36,74 @@ public class BuscadorActivity extends AppCompatActivity {
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
-    private TextView textView4;
+    private EditText editText1;
     private BasedeDatos basedeDatos;
     private int idUsuario;
-    private int textoBusqueda;
-    private List<Libro> listadoLibros= new ArrayList<String>();
+    private int idLibro;
+    private String textoBusqueda;
+    private List<Libro> listadoLibros= new ArrayList<>();
     private ArrayAdapter<String> adaptador;
-    private String contenidoItem="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_buscador);
+        // Imagen favs
         image1 = (ImageView) findViewById(R.id.imageView3_buscador);
+        textView1 = (TextView) findViewById(R.id.textView2_buscador);
+        // Imagen eventos
         image2 = (ImageView) findViewById(R.id.imageView4_buscador);
+        textView2 = (TextView) findViewById(R.id.textView3_buscador);
+        // Imagen perfil
         image3 = (ImageView) findViewById(R.id.imageView5_buscador);
+        textView3 = (TextView) findViewById(R.id.textView4_buscador);
+        // Imagen logo
         image4 = (ImageView) findViewById(R.id.imageView1_buscador);
+        // Botones menú inferior
         boton1 = (Button) findViewById(R.id.button1_buscador);
         boton2 = (Button) findViewById(R.id.button7_buscador);
         boton3 = (Button) findViewById(R.id.button8_buscador);
-        textView2 = (TextView) findViewById(R.id.textView10_infoBook);
-        textView3 = (TextView) findViewById(R.id.textView12_infoBook);
-        textView4 = (TextView) findViewById(R.id.textView15_info_book);
+        // Buscador
+        editText1 = findViewById(R.id.editText4_buscador);
+        // Text
         list1 = (ListView) findViewById(R.id.listView_buscador);
 
         basedeDatos = new BasedeDatos(this);
-        // Obtener el idUsuario del Intent que inició esta actividad
+        // Obtener el idUsuario
         Intent intent = getIntent();
-        idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
-        System.out.println("idUsuario "+idUsuario);
-        //Obtner el idLibro
-        textoBusqueda = intent.getIntExtra("textoBusqueda", -1);
-        System.out.println("textoBusqueda "+textoBusqueda);
+        idUsuario = intent.getIntExtra("idUsuario", -1);
+        //Obtener el texto de la búsqueda
+        textoBusqueda = intent.getStringExtra("textoBusqueda");
 
+        // LISTA DE LIBROS
         listadoLibros= basedeDatos.obtenerLibrosEnOrdenAlfabetico();
+        List<String> titulosLibros = new ArrayList<>();
 
-        adaptador= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listadoLibros);
+        if (textoBusqueda != null && !textoBusqueda.isEmpty()) {
+            List<Integer> idLibros = basedeDatos.buscarIdLibrosPorTitulo(textoBusqueda);
+            if (!idLibros.isEmpty()) {
+                // Si se encontraron resultados
+                for (int idLibro : idLibros) {
+                    Libro libro = basedeDatos.obtenerLibro(idLibro);
+                    if (libro != null) {
+                        titulosLibros.add(libro.getTitulo());
+                    }
+                }
+            } else {
+                // Si no se encontraron resultados
+                titulosLibros.add("No se encontraron resultados");
+            }
+        } else {
+            // Si no hay texto de búsqueda, obtener todos los libros ordenados alfabéticamente
+            List<Libro> listadoLibros = basedeDatos.obtenerLibrosEnOrdenAlfabetico();
+            for (Libro libro : listadoLibros) {
+                titulosLibros.add(libro.getTitulo());
+            }
+        }
+
+        adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titulosLibros);
         list1.setAdapter(adaptador);
 
-
-
-
+        // MENU SUPERIOR
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +114,7 @@ public class BuscadorActivity extends AppCompatActivity {
         };
 
         image1.setOnClickListener(openFavoritos);
-        textView2.setOnClickListener(openFavoritos);
+        textView1.setOnClickListener(openFavoritos);
         View.OnClickListener openEventos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +125,7 @@ public class BuscadorActivity extends AppCompatActivity {
         };
 
         image2.setOnClickListener(openEventos);
-        textView3.setOnClickListener(openEventos);
+        textView2.setOnClickListener(openEventos);
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +136,7 @@ public class BuscadorActivity extends AppCompatActivity {
         };
 
         image3.setOnClickListener(openPerfil);
-        textView4.setOnClickListener(openPerfil);
+        textView3.setOnClickListener(openPerfil);
         View.OnClickListener openHome = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +148,8 @@ public class BuscadorActivity extends AppCompatActivity {
 
         image4.setOnClickListener(openHome);
 
+
+        // MENU INFERIOR
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,15 +158,41 @@ public class BuscadorActivity extends AppCompatActivity {
             }
         });
 
+        // LISTA DE LIBROS
         list1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                contenidoItem = parent.getItemAtPosition(position).toString();
-                Intent intent = new Intent(BuscadorActivity.this, InfoBook.class);
-                intent.putExtra("idUsuario", idUsuario);
-                intent.putExtra("idLibro", idLibro);
-                startActivity(intent);
+                String tituloSeleccionado = (String) parent.getItemAtPosition(position);
+                // Realizar la búsqueda en la base de datos por el título
+                idLibro = basedeDatos.buscarIdLibroPorTitulo(tituloSeleccionado);
+                if (idLibro != -1) {
+                    // Pasar a InfoBookActivity
+                    Intent intent = new Intent(BuscadorActivity.this, InfoBookActivity.class);
+                    intent.putExtra("idUsuario", idUsuario);
+                    intent.putExtra("idLibro", idLibro);
+                    startActivity(intent);
+                } else {
+                    // Si no se encontraron resultados
+                    Toast.makeText(BuscadorActivity.this, "No se encontraron resultados", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+        // BUSCADOR
+        editText1.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = editText1.getText().toString().trim();
+
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(BuscadorActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
     }
