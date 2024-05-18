@@ -88,7 +88,7 @@ public class ProfileActivity extends AppCompatActivity {
         textView3 = (TextView) findViewById(R.id.textView3_profile);
         //Imagenperfil
         image5 = (ImageView) findViewById(R.id.imageView5_profile);
-        textView4 = (TextView) findViewById(R.id.textView3_profile);
+        textView4 = (TextView) findViewById(R.id.textView4_profile);
         // Imagen Storyshare
         image1 = (ImageView) findViewById(R.id.imageView1_profile);
 

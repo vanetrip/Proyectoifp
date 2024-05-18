@@ -318,6 +318,7 @@ public class HomeActivity extends AppCompatActivity {
     private void abrirInfoBookActivity(int idLibro) {
         Intent intent = new Intent(HomeActivity.this, InfoBookActivity.class);
         intent.putExtra("idLibro", idLibro);
+        intent.putExtra("idUsuario", idUsuario);
         startActivity(intent);
 
     }
