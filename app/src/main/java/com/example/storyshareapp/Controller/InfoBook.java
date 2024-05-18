@@ -93,7 +93,7 @@ public class InfoBook extends AppCompatActivity {
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBook.this, Profile.class);
+                Intent intent = new Intent(InfoBook.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }

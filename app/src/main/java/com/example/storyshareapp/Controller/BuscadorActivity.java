@@ -36,7 +36,7 @@ public class BuscadorActivity extends AppCompatActivity {
     private TextView textView4;
     private BasedeDatos basedeDatos;
     private int idUsuario;
-    private int idLibro;
+    private int textoBusqueda;
     private List<Libro> listadoLibros= new ArrayList<String>();
     private ArrayAdapter<String> adaptador;
     private String contenidoItem="";
@@ -63,8 +63,8 @@ public class BuscadorActivity extends AppCompatActivity {
         idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
         System.out.println("idUsuario "+idUsuario);
         //Obtner el idLibro
-        idLibro = intent.getIntExtra("idLibro", -1);
-        System.out.println("idLibro "+idLibro);
+        textoBusqueda = intent.getIntExtra("textoBusqueda", -1);
+        System.out.println("textoBusqueda "+textoBusqueda);
 
         listadoLibros= basedeDatos.obtenerLibrosEnOrdenAlfabetico();
 
@@ -99,7 +99,7 @@ public class BuscadorActivity extends AppCompatActivity {
         View.OnClickListener openPerfil = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BuscadorActivity.this, Profile.class);
+                Intent intent = new Intent(BuscadorActivity.this, ProfileActivity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
