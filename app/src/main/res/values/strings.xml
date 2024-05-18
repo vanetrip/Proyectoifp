@@ -134,4 +134,30 @@
     <string name="button10_theme">FAQs</string>
     <string name="button11_theme">Solicita tu libro</string>
 
+    <string name="editText0_profile">Buscar</string>
+    <string name="textView2_profile">Favoritos</string>
+    <string name="textView3_profile">Eventos</string>
+    <string name="textView4_profile">Perfil</string>
+    <string name="textView5b_profile">Modificar los datos del perfil</string>
+    <string name="textView5c_profile">Eliminar Cuenta</string>
+    <string name="textView8_profile">Usuario</string>
+    <string name="textView9_profile">Edad</string>
+    <string name="textView10_profile">Nombre Completo</string>
+    <string name="textView11_profile">Cambiar Contraseña</string>
+    <string name="textView12_profile">Repetir Contraseña</string>
+    <string name="button10a_profile">Cancelar</string>
+    <string name="button11a_profile">Guardar</string>
+    <string name="button10_profile">Centro de Ayuda</string>
+    <string name="button11_profile">FAQs</string>
+    <string name="button3_profile">Solicita tu libro</string>
+
+    <string name="textView16_evento">Buscar</string>
+    <string name="textView9_eventos">Favoritos</string>
+    <string name="textView10_eventos">Eventos</string>
+    <string name="textView20_eventos">Perfil</string>
+    <string name="textView0_eventos">Próximos eventos en tu lista</string>
+    <string name="button9">Centro de Ayuda</string>
+    <string name="button30">FAQs</string>
+    <string name="button10">Solicita tu libro</string>
+
 </resources>
