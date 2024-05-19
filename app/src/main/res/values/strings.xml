@@ -1,4 +1,7 @@
 <resources>
+    <string name="app_name">StoryShareAPP</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
     <string name="textView1_signIn">Inicio sesión</string>
     <string name="textView2_signIn">Usuario</string>
     <string name="textView3_signIn">Contraseña</string>
@@ -66,9 +69,11 @@
     <string name="textView6_reunion">Autor:</string>
     <string name="textView7_reunion">Datos del evento</string>
     <string name="textView8_reunion">Nombre</string>
+    <string name="textView9_reunion">Nombre</string>
     <string name="textView10_reunion">Fecha</string>
+    <string name="textView11_reunion">Fecha</string>
     <string name="textView12_reunion">Hora</string>
-    <string name="textView13_reunion">Evento en curso</string>
+    <string name="textView13_reunion">Hora</string>
     <string name="button1_reunion">Centro de Ayuda</string>
     <string name="button2_reunion">FAQs</string>
     <string name="button3_reunion">Solicita tu libro</string>
@@ -80,16 +85,20 @@
     <string name="textView3_info_book">Eventos</string>
     <string name="textView4_info_book">Perfil</string>
     <string name="textView5_info_book">Nombre del libro</string>
-    <string name="textView9_infoBook">Titulo:</string>
+    <string name="textView9_infoBook">Título:</string>
+    <string name="textView10_infoBook">Descripción</string>
     <string name="textView11_infoBook">Autor:</string>
+    <string name="textView12_infoBook">Autor</string>
     <string name="textView13_infoBook">Próximo evento</string>
     <string name="textView14_infoBook">Día:</string>
+    <string name="textView15_infoBook">Día</string>
     <string name="textView16_info_book">Hora:</string>
+    <string name="textView17_info_book">Hora</string>
     <string name="button1_info_book">Centro de Ayuda</string>
     <string name="button2_info_book">FAQs</string>
     <string name="button3_info_book">Solicita tu libro</string>
     <string name="button9_info_book">Acceder al foro</string>
-    <string name="button10_info_book">Añadir a eventos</string>
+    <string name="button10_info_book">Crear Evento</string>
     <string name="button11_info_book">IR</string>
 
     <string name="editText1_favoritos">Buscar</string>
@@ -101,10 +110,10 @@
     <string name="button10_favoritos">FAQs</string>
     <string name="button11_favoritos">Solicita tu libro</string>
 
-    <string name="editText1_buscador">Buscar</string>
-    <string name="textView1_buscador">Favoritos</string>
-    <string name="textView2_buscador">Eventos</string>
-    <string name="textView3_buscador">Perfil</string>
+    <<string name="editText4_buscador">Buscar</string>
+    <string name="textView2_buscador">Favoritos</string>
+    <string name="textView3_buscador">Eventos</string>
+    <string name="textView4_buscador">Perfil</string>
     <string name="textView5_buscador">Listado de Libros</string>
     <string name="button1_buscador">Centro de Ayuda</string>
     <string name="button7_buscador">FAQs</string>
@@ -119,7 +128,8 @@
     <string name="textView14_crearevento">Fecha</string>
     <string name="textView10_crearevento">Hora</string>
     <string name="textView9_crearevento">Libro</string>
-    <string name="button1_crearvento">Crear Evento</string>
+    <string name="textView22_crearevento">Título del Libro</string>
+    <string name="button1_Crearvento">Crear Evento</string>
     <string name="button9_crearvento">Centro de Ayuda</string>
     <string name="button30_crearvento">FAQs</string>
     <string name="button10_crearvento">Solicita tu libro</string>
@@ -144,10 +154,15 @@
     <string name="textView5b_profile">Modificar los datos del perfil</string>
     <string name="textView5c_profile">Eliminar Cuenta</string>
     <string name="textView8_profile">Usuario</string>
+    <string name="caja_text2_profile">Usuario</string>
     <string name="textView9_profile">Edad</string>
+    <string name="caja_text3_profile">Edad</string>
+    <string name="caja_text4_profile">Nombre Completo</string>
     <string name="textView10_profile">Nombre Completo</string>
     <string name="textView11_profile">Cambiar Contraseña</string>
+    <string name="caja_text5_profile">Introducir contraseña</string>
     <string name="textView12_profile">Repetir Contraseña</string>
+    <string name="caja_text6_profile">Repetir Contraseña</string>
     <string name="button10a_profile">Cancelar</string>
     <string name="button11a_profile">Guardar</string>
     <string name="button10_profile">Centro de Ayuda</string>
