@@ -34,7 +34,7 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/quicksand_medium"
-            android:hint="Buscar"
+            android:hint="@string/textView16_evento"
             android:outlineProvider="none"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Favoritos"
+                android:text="@string/textView9_eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Eventos"
+                android:text="@string/textView10_eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Perfil"
+                android:text="@string/textView20_eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
         </LinearLayout>
@@ -170,7 +170,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Próximos eventos en tu lista"
+            android:text="@string/textView0_eventos"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Centro de ayuda"
+                android:text="@string/button9"
                 android:textAlignment="textEnd"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="FAQs"
+                android:text="@string/button30"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -246,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Solicita tu libro"
+                android:text="@string/button10"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"

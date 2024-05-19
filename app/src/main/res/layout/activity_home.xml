@@ -21,11 +21,22 @@
         android:layout_width="80dp"
         android:layout_height="117dp"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView17_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageView
+        android:id="@+id/imageView18_home"
+        android:layout_width="80dp"
+        android:layout_height="117dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toEndOf="@+id/imageView16_home"
+        tools:layout_editor_absoluteY="547dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -105,7 +116,7 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/quicksand_medium"
-            android:hint="Buscar"
+            android:hint="@string/textView1_home"
             android:outlineProvider="none"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -182,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Favoritos"
+                android:text="@string/textView2_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -192,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Eventos"
+                android:text="@string/textView3_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -202,7 +213,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Perfil"
+                android:text="@string/textView4_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
         </LinearLayout>
@@ -226,7 +237,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Foros más activos"
+            android:text="@string/textView5_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -235,7 +246,7 @@
         android:id="@+id/frameLayout4"
         android:layout_width="414dp"
         android:layout_height="32dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="130dp"
         android:background="#A5C3A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -248,7 +259,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Próximas reuniones"
+            android:text="@string/textView22_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -257,7 +268,7 @@
         android:id="@+id/frameLayout5"
         android:layout_width="414dp"
         android:layout_height="32dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="130dp"
         android:background="#A5C3A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +281,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Foros abiertos recientemente"
+            android:text="@string/textView23_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -295,7 +306,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Centro de ayuda"
+                android:text="@string/button1_home"
                 android:textAlignment="textEnd"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -317,7 +328,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="FAQs"
+                android:text="@string/button30_home"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -339,7 +350,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Solicita tu libro"
+                android:text="@string/button8_home"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -361,20 +372,12 @@
 
     <ImageView
         android:id="@+id/imageView17_home"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="36dp"
+        android:layout_width="83dp"
+        android:layout_height="116dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18_home"
-        tools:layout_editor_absoluteY="595dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView16_home"
+        tools:layout_editor_absoluteY="547dp"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageView18_home"
-        android:layout_width="80dp"
-        android:layout_height="117dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="595dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

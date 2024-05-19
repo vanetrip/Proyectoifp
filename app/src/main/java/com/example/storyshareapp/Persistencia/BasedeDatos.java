@@ -144,25 +144,25 @@ public class BasedeDatos extends SQLiteOpenHelper {
                 "('Foro de Drácula 1', 5, 14, '2024-07-10'), " +
                 "('Foro de Sherlock Holmes 1', 1, 15, '2024-07-15'), " +
                 "('Foro de Dune 2', 2, 7, '2024-06-25'), " +
-                "('Foro de Romeo y Julieta 2', 3, 10, '2024-07-01'), " +
-                "('Foro de Crepúsculo 2', 4, 12, '2024-07-05'), " +
-                "('Foro de Drácula 2', 5, 14, '2024-07-10'), " +
-                "('Foro de Sherlock Holmes 2', 1, 15, '2024-07-15'), " +
+                "('Foro de Romeo y Julieta 2', 3, 10, '2024-07-02'), " +
+                "('Foro de Crepúsculo 2', 4, 12, '2024-07-06'), " +
+                "('Foro de Drácula 2', 5, 14, '2024-07-11'), " +
+                "('Foro de Sherlock Holmes 2', 1, 15, '2024-07-17'), " +
                 "('Foro de El Señor de los Anillos', 2, 1, '2024-06-25'), " +
                 "('Foro de 1984', 3, 2, '2024-07-01'), " +
-                "('Foro de Orgullo y Prejuicio', 4, 4, '2024-07-05'), " +
-                "('Foro de La Isla del Tesoro', 5, 5, '2024-07-10'), " +
-                "('Foro de Harry Potter y la Piedra Filosofal', 1, 8, '2024-07-15'), " +
-                "('Foro de El Hobbit', 2, 18, '2024-06-25'), " +
-                "('Foro de Anna Karenina', 3, 19, '2024-07-01'), " +
-                "('Foro de Fundación', 4, 20, '2024-07-05'), " +
-                "('Foro de La vuelta al mundo en 80 días', 5, 21, '2024-07-10'), " +
-                "('Foro de El Señor de los Anillos 2', 2, 1, '2024-06-25'), " +
-                "('Foro de Dune 3', 2, 7, '2024-06-25'), " +
-                "('Foro de Romeo y Julieta 3', 3, 10, '2024-07-01'), " +
-                "('Foro de Crepúsculo 3', 4, 12, '2024-07-05'), " +
-                "('Foro de Drácula 3', 5, 14, '2024-07-10'), " +
-                "('Foro de Sherlock Holmes 3', 1, 15, '2024-07-15')");
+                "('Foro de Orgullo y Prejuicio', 4, 4, '2024-07-08'), " +
+                "('Foro de La Isla del Tesoro', 5, 5, '2024-07-13'), " +
+                "('Foro de Harry Potter y la Piedra Filosofal', 1, 8, '2024-07-18'), " +
+                "('Foro de El Hobbit', 2, 18, '2024-06-27'), " +
+                "('Foro de Anna Karenina', 3, 19, '2024-07-03'), " +
+                "('Foro de Fundación', 4, 20, '2024-07-02'), " +
+                "('Foro de La vuelta al mundo en 80 días', 5, 21, '2024-07-04'), " +
+                "('Foro de El Señor de los Anillos 2', 2, 1, '2024-06-27'), " +
+                "('Foro de Dune 3', 2, 7, '2024-06-28'), " +
+                "('Foro de Romeo y Julieta 3', 3, 10, '2024-07-02'), " +
+                "('Foro de Crepúsculo 3', 4, 12, '2024-07-07'), " +
+                "('Foro de Drácula 3', 5, 14, '2024-07-17'), " +
+                "('Foro de Sherlock Holmes 3', 1, 15, '2024-07-16')");
 
         db.execSQL("INSERT INTO ComentariosForo (id_foro, id_usuario, comentario, fecha, hora) VALUES " +
                 "(1, 1, '¡Qué interesante discusión!', '2024-05-01', '09:30'), " +
