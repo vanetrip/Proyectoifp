@@ -5,7 +5,7 @@
     <string name="textView1_signIn">Inicio sesión</string>
     <string name="textView2_signIn">Usuario</string>
     <string name="textView3_signIn">Contraseña</string>
-    <string name="textView4_signIn">¿Has olvidado tu contraseña o nombre de usuario?</string>
+    <string name="textView4_signIn">¿olvidaste tu contraseña o nombre de usuario?</string>
     <string name="textView5_signIn">Recupérala</string>
     <string name="editText1_signIn">Usuario</string>
     <string name="editText2_signIn">Contraseña</string>

@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name">StoryShareAPP</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="textView1_signIn">Sign In</string>
+    <string name="textView2_signIn">User</string>
+    <string name="textView3_signIn">Password</string>
+    <string name="textView4_signIn">Forgot your password or username?</string>
+    <string name="textView5_signIn">Get it back</string>
+    <string name="editText1_signIn">User</string>
+    <string name="editText2_signIn">Password</string>
+    <string name="button1_signIn">Sign In</string>
+    <string name="button2_signIn">Here</string>
+    <string name="button3_signIn">Do not have an account?</string>
+    <string name="button4_signIn">Sign Up</string>
+    <string name="button6_signIn">Help Center</string>
+    <string name="button7_signIn">FAQs</string>
+
+    <string name="textView1_signUp">Sign Up</string>
+    <string name="textView2_signUp">User</string>
+    <string name="textView3_signUp">Password</string>
+    <string name="textView4_signUp">Repeat password</string>
+    <string name="textView5_signUp">Age</string>
+    <string name="textView6_SignUp">Full Name</string>
+    <string name="textView7_signUp">*Subscribing to StoryShare will allow you to create new topics, your own meetings, and much more.</string>
+    <string name="textView11_SignUp">E-mail</string>
+    <string name="editText1_SignUp">User</string>
+    <string name="editText2_SignUp">Password</string>
+    <string name="editText3_SignUp">Repeat password</string>
+    <string name="editText4_SignUp">Age</string>
+    <string name="editText5_SignUp">Full name</string>
+    <string name="editText6_SignUp">E-mail</string>
+    <string name="radioButton1_signUp">Freemium account</string>
+    <string name="radioButton2_signUp">"StoryShare subscription for €4.99/month"</string>
+    <string name="button1_signUp">Sign Up</string>
+    <string name="button2_signUp">Help Center</string>
+    <string name="button3_signUp">FAQs</string>
+
+
+    <string name="textView1_home">Search</string>
+    <string name="textView2_home">Favorites</string>
+    <string name="textView3_home">Events</string>
+    <string name="textView4_home">Profile</string>
+    <string name="textView5_home">Most active forums</string>
+    <string name="textView22_home">Upcoming meetings</string>
+    <string name="textView23_home">Recently opened forums</string>
+    <string name="button1_home">Help Center</string>
+    <string name="button30_home">FAQs</string>
+    <string name="button8_home">Request your book</string>
+
+
+    <string name="textView1_forum">Search</string>
+    <string name="textView2_forum">Favorites</string>
+    <string name="textView3_forum">Events</string>
+    <string name="textView4_forum">Profile</string>
+    <string name="textView5_forum">Forums</string>
+    <string name="button10_forum">Create new theme</string>
+    <string name="button1_forum">Help Center</string>
+    <string name="button8_forum">FAQs</string>
+    <string name="button8a_forum">Request your book</string>
+
+
+    <string name="editText1_reunion">Search</string>
+    <string name="textView1_reunion">Favorites</string>
+    <string name="textView2_reunion">Events</string>
+    <string name="textView3_reunion">Profile</string>
+    <string name="textView4_reunion">Meeting</string>
+    <string name="textView5_reunion">Title:</string>
+    <string name="textView6_reunion">Author:</string>
+    <string name="textView7_reunion">Event details</string>
+    <string name="textView8_reunion">Name</string>
+    <string name="textView9_reunion">Name</string>
+    <string name="textView10_reunion">Date</string>
+    <string name="textView11_reunion">Date</string>
+    <string name="textView12_reunion">Hour</string>
+    <string name="textView13_reunion">Hour</string>
+    <string name="button1_reunion">Help Center</string>
+    <string name="button2_reunion">FAQs</string>
+    <string name="button3_reunion">Request your book</string>
+    <string name="button4_reunion">Join the meeting on Discord</string>
+    <string name="button5_reunion">Schedule a new meeting</string>
+
+    <string name="editText1_info_book">Search</string>
+    <string name="textView2_info_book">Favorites</string>
+    <string name="textView3_info_book">Events</string>
+    <string name="textView4_info_book">Profile</string>
+    <string name="textView5_info_book">Book title</string>
+    <string name="textView9_infoBook">Title:</string>
+    <string name="textView10_infoBook">Description</string>
+    <string name="textView11_infoBook">Author:</string>
+    <string name="textView12_infoBook">Author</string>
+    <string name="textView13_infoBook">Upcoming event</string>
+    <string name="textView14_infoBook">Date:</string>
+    <string name="textView15_infoBook">Date</string>
+    <string name="textView16_info_book">Hour:</string>
+    <string name="textView17_info_book">Hour</string>
+    <string name="button1_info_book">Help Center</string>
+    <string name="button2_info_book">FAQs</string>
+    <string name="button3_info_book">Request your book</string>
+    <string name="button9_info_book">Acces the forum</string>
+    <string name="button10_info_book">Create new event</string>
+    <string name="button11_info_book">GO</string>
+
+    <string name="editText1_favoritos">Search</string>
+    <string name="textView2_favoritos">Favorites</string>
+    <string name="textView3_favoritos">Events</string>
+    <string name="textView4_favoritos">Profile</string>
+    <string name="textView0_favoritos">Your favorites books</string>
+    <string name="button9_favoritos">Help Center</string>
+    <string name="button10_favoritos">FAQs</string>
+    <string name="button11_favoritos">Request your book</string>
+
+    <<string name="editText4_buscador">Search</string>
+    <string name="textView2_buscador">Favorites</string>
+    <string name="textView3_buscador">Events</string>
+    <string name="textView4_buscador">Profile</string>
+    <string name="textView5_buscador">Book List</string>
+    <string name="button1_buscador">Help Center</string>
+    <string name="button7_buscador">FAQs</string>
+    <string name="button8_buscador">Request your book</string>
+
+    <string name="textView16_crearevento">Search</string>
+    <string name="textView18_crearevento">Favorites</string>
+    <string name="textView19_crearevento">Events</string>
+    <string name="textView20_crearevento">Profile</string>
+    <string name="textView0_crearevento">New Event</string>
+    <string name="textView13a_crearevento">Name</string>
+    <string name="textView14_crearevento">Date</string>
+    <string name="textView10_crearevento">Hour</string>
+    <string name="textView9_crearevento">Book</string>
+    <string name="textView22_crearevento">Book title</string>
+    <string name="button1_Crearvento">Create new event</string>
+    <string name="button9_crearvento">Help Center</string>
+    <string name="button30_crearvento">FAQs</string>
+    <string name="button10_crearvento">Request your book</string>
+
+    <string name="textView16_theme">Search</string>
+    <string name="textView18_theme">Favorites</string>
+    <string name="textView19_theme">Events</string>
+    <string name="textView20_theme">Profile</string>
+    <string name="textView21_theme">New theme</string>
+    <string name="textView1_theme">Name</string>
+    <string name="textView2_theme">Date</string>
+    <string name="textView3_theme">Book</string>
+    <string name="button1_theme">Create new Theme</string>
+    <string name="button9_theme">Help Center</string>
+    <string name="button10_theme">FAQs</string>
+    <string name="button11_theme">Request your book</string>
+
+    <string name="editText0_profile">Search</string>
+    <string name="textView2_profile">Favorites</string>
+    <string name="textView3_profile">Events</string>
+    <string name="textView4_profile">Profile</string>
+    <string name="textView5b_profile">Edit profile information</string>
+    <string name="textView5c_profile">Delete Account</string>
+    <string name="textView8_profile">User</string>
+    <string name="caja_text2_profile">User</string>
+    <string name="textView9_profile">Age</string>
+    <string name="caja_text3_profile">Age</string>
+    <string name="caja_text4_profile">Full name</string>
+    <string name="textView10_profile">Full name</string>
+    <string name="textView11_profile">Change password</string>
+    <string name="caja_text5_profile">Introduce password</string>
+    <string name="textView12_profile">Repeat password</string>
+    <string name="caja_text6_profile">Repeat password</string>
+    <string name="button10a_profile">Cancel</string>
+    <string name="button11a_profile">Save</string>
+    <string name="button10_profile">Help Center</string>
+    <string name="button11_profile">FAQs</string>
+    <string name="button3_profile">Request your book</string>
+
+    <string name="textView16_evento">Search</string>
+    <string name="textView9_eventos">Favorites</string>
+    <string name="textView10_eventos">Events</string>
+    <string name="textView20_eventos">Profile</string>
+    <string name="textView0_eventos">Upcoming events in your list</string>
+    <string name="button9">Help center</string>
+    <string name="button30">FAQs</string>
+    <string name="button10">Request your book</string>
+
+</resources>
