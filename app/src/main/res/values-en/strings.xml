@@ -110,7 +110,7 @@
     <string name="button10_favoritos">FAQs</string>
     <string name="button11_favoritos">Request your book</string>
 
-    <<string name="editText4_buscador">Search</string>
+    <string name="editText4_buscador">Search</string>
     <string name="textView2_buscador">Favorites</string>
     <string name="textView3_buscador">Events</string>
     <string name="textView4_buscador">Profile</string>
