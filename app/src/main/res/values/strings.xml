@@ -2,7 +2,7 @@
     <string name="app_name">StoryShareAPP</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="textView1_signIn">Inicio sesión</string>
+    <string name="textView1_signIn">Inicio de Sesión</string>
     <string name="textView2_signIn">Usuario</string>
     <string name="textView3_signIn">Contraseña</string>
     <string name="textView4_signIn">¿Has olvidado tu contraseña o nombre de usuario?</string>
@@ -169,10 +169,10 @@
     <string name="button11_profile">FAQs</string>
     <string name="button3_profile">Solicita tu libro</string>
 
-    <string name="textView16_evento">Buscar</string>
-    <string name="textView9_eventos">Favoritos</string>
-    <string name="textView10_eventos">Eventos</string>
-    <string name="textView20_eventos">Perfil</string>
+    <string name="editText1_eventos">Buscar</string>
+    <string name="textView1_eventos">Favoritos</string>
+    <string name="textView2_eventos">Eventos</string>
+    <string name="textView3_eventos">Perfil</string>
     <string name="textView0_eventos">Próximos eventos en tu lista</string>
     <string name="button9">Centro de Ayuda</string>
     <string name="button30">FAQs</string>

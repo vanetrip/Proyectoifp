@@ -169,10 +169,10 @@
     <string name="button11_profile">FAQs</string>
     <string name="button3_profile">Solicita el teu llibre</string>
 
-    <string name="textView16_evento">Buscar</string>
-    <string name="textView9_eventos">Preferits</string>
-    <string name="textView10_eventos">Esdevaniments</string>
-    <string name="textView20_eventos">Perfil</string>
+    <string name="editText1_eventos">Buscar</string>
+    <string name="textView1_eventos">Preferits</string>
+    <string name="textView2_eventos">Esdevaniments</string>
+    <string name="textView3_eventos">Perfil</string>
     <string name="textView0_eventos">Próxims esdeveniments a la teva llista</string>
     <string name="button9">Centre de Ajuda</string>
     <string name="button30">FAQs</string>

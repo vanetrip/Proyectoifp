@@ -105,7 +105,7 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/quicksand_medium"
-            android:hint="Buscar"
+            android:hint="@string/textView1_home"
             android:outlineProvider="none"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Favoritos"
+                android:text="@string/textView2_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -192,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Eventos"
+                android:text="@string/textView3_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -202,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Perfil"
+                android:text="@string/textView4_home"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
         </LinearLayout>
@@ -226,7 +226,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Foros más activos"
+            android:text="@string/textView5_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -248,7 +248,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Próximas reuniones"
+            android:text="@string/textView22_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -270,7 +270,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Foros abiertos recientemente"
+            android:text="@string/textView23_home"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </FrameLayout>
@@ -295,7 +295,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Centro de ayuda"
+                android:text="@string/button1_home"
                 android:textAlignment="textEnd"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -317,7 +317,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="FAQs"
+                android:text="@string/button30_home"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -339,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:text="Solicita tu libro"
+                android:text="@string/button8_home"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"

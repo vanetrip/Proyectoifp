@@ -169,10 +169,10 @@
     <string name="button11_profile">FAQs</string>
     <string name="button3_profile">Request your book</string>
 
-    <string name="textView16_evento">Search</string>
-    <string name="textView9_eventos">Favorites</string>
-    <string name="textView10_eventos">Events</string>
-    <string name="textView20_eventos">Profile</string>
+    <string name="editText1_eventos">Search</string>
+    <string name="textView1_eventos">Favorites</string>
+    <string name="textView2_eventos">Events</string>
+    <string name="textView3_eventos">Profile</string>
     <string name="textView0_eventos">Upcoming events in your list</string>
     <string name="button9">Help center</string>
     <string name="button30">FAQs</string>
