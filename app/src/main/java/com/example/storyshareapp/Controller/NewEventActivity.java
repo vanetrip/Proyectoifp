@@ -3,8 +3,10 @@ package com.example.storyshareapp.Controller;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,32 +25,13 @@ import java.util.Date;
 
 public class NewEventActivity extends AppCompatActivity {
 
-    View.OnClickListener openFavoritos = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(NewEventActivity.this, FavoritosActivity.class);
-            startActivity(intent);
-        }
-    };
-    View.OnClickListener openEventos = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(NewEventActivity.this, EventosActivity.class);
-            startActivity(intent);
-        }
-    };
-    View.OnClickListener openPerfil = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(NewEventActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        }
-    };
-    protected TextView nombre;
-    protected TextView fecha;
-    protected TextView hora;
-    protected TextView libroTextView;
-    protected Button boton1;
+
+    private TextView nombre;
+    private TextView fecha;
+    private TextView hora;
+    private EditText buscador;
+    private TextView libroTextView;
+    private Button boton1;
     private SQLiteDatabase db;
     private BasedeDatos basedeDatos;
     private int idUsuario;
@@ -56,13 +39,14 @@ public class NewEventActivity extends AppCompatActivity {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
-    protected TextView text1;
-    protected TextView text2;
-    protected TextView text3;
+    private ImageView image4;
+    private TextView text1;
+    private TextView text2;
+    private TextView text3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crearevento);
+        setContentView(R.layout.activity_newevent);
 
         nombre= (TextView) findViewById(R.id.editTextText1_creareventos);
         fecha = (TextView) findViewById(R.id.editTextText_crearevento);
@@ -71,18 +55,78 @@ public class NewEventActivity extends AppCompatActivity {
         boton1= (Button) findViewById(R.id.button1_Crearevento);
         image1 = (ImageView) findViewById(R.id.imageView6_newEvent6);
         image2 = (ImageView) findViewById(R.id.imageView7_newEvent7);
-        image3= (ImageView) findViewById(R.id.imageView3_eventos);
-        /*
-        //Salto de pantalla a Favoritos
+        image3= (ImageView) findViewById(R.id.imageView3_newEvent8);
+        image4 = (ImageView) findViewById(R.id.imageView4_Creareventos);
+        text1 = (TextView) findViewById(R.id.textView18_crearevento);
+        text2 = (TextView) findViewById(R.id.textView19_crearevento);
+        text3 = (TextView) findViewById(R.id.textView20_crearevento);
+        buscador = (EditText) findViewById(R.id.editText1_crearEvento);
+
+        // MÉTODO ABRIR FAVS
+        View.OnClickListener openFavoritos = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewEventActivity.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
         image1.setOnClickListener(openFavoritos);
         text1.setOnClickListener(openFavoritos);
-        //Salto de pantalla a Eventos
+        // IR A HOME
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewEventActivity.this, HomeActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        });
+        // MÉTODO ABRIR EVENTOS
+        View.OnClickListener openEventos = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewEventActivity.this, EventosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
         image2.setOnClickListener(openEventos);
         text2.setOnClickListener(openEventos);
-        //Salto de pantalla a Perfil
+        // MÉTODO ABRIR PERFIL
+        View.OnClickListener openPerfil = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewEventActivity.this, ProfileActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
+                startActivity(intent);
+            }
+        };
+
+
         image3.setOnClickListener(openPerfil);
         text3.setOnClickListener(openPerfil);
-    */
+
+        //Buscador
+        buscador.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String textoBusqueda = buscador.getText().toString().trim();
+
+                    // Crear el Intent y pasar a la BuscadorActivity
+                    Intent intent = new Intent(NewEventActivity.this, BuscadorActivity.class);
+                    intent.putExtra("textoBusqueda", textoBusqueda);
+                    intent.putExtra("idUsuario", idUsuario);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         BasedeDatos basedeDatos = new BasedeDatos(this);
 
         idUsuario = getIntent().getIntExtra("idUsuario", -1);
@@ -147,7 +191,6 @@ public class NewEventActivity extends AppCompatActivity {
             }
 
         });
-
 
         }
 }
