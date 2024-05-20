@@ -2,6 +2,7 @@ package com.example.storyshareapp.Controller;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -329,6 +330,22 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
         }
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://magali-martinez.gitbook.io/storyshare";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://magali-martinez.gitbook.io/storyshare/group-1/faqs-preguntas-frecuentes";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
 
     // Método para abrir InfoBookActivity con el id del libro como extra
