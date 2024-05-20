@@ -62,12 +62,13 @@ public class ForumActivity extends AppCompatActivity {
 
         //OBTENER IDLIBRO
         idLibro = intent.getIntExtra("idLibro", -1);
-        idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
+        idUsuario = intent.getIntExtra("idUsuario", -1);
 
         View.OnClickListener openFavoritos = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForumActivity.this, FavoritosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         };
@@ -75,6 +76,7 @@ public class ForumActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForumActivity.this, EventosActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         };
@@ -82,6 +84,7 @@ public class ForumActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForumActivity.this, ProfileActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
             }
         };

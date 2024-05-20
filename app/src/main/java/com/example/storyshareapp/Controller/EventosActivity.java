@@ -141,7 +141,7 @@ public class EventosActivity extends AppCompatActivity {
         List<String> detallesEventos = new ArrayList<>();
 
         for (Evento evento : eventos) {
-            String detalle = evento.getNombreEvento() + " (" + evento.getFecha() + ") ";
+            String detalle = evento.getNombreEvento();
             detallesEventos.add(detalle);
         }
 
@@ -157,8 +157,7 @@ public class EventosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String detalleSeleccionado = (String) parent.getItemAtPosition(position);
-                String nombreEventoSeleccionado = detalleSeleccionado.split("\\s*\\(\\s*")[0];
-                Evento eventoSeleccionado = basedeDatos.buscarEventoPorNombre(nombreEventoSeleccionado);
+                Evento eventoSeleccionado = basedeDatos.buscarEventoPorNombre(detalleSeleccionado);
                 if (eventoSeleccionado != null) {
                     Intent intent = new Intent(EventosActivity.this, ReunionActivity.class);
                     intent.putExtra("idUsuario", idUsuario);
@@ -170,6 +169,7 @@ public class EventosActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 }

@@ -161,11 +161,10 @@
         android:id="@+id/frameLayout6"
         android:layout_width="407dp"
         android:layout_height="30dp"
-        android:layout_marginTop="16dp"
         android:background="#A5C3A7"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10_forum">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <LinearLayout
@@ -240,8 +239,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
 
@@ -252,10 +250,12 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
         android:text="Crear nuevo foro"
         android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
@@ -264,10 +264,12 @@
     <ListView
         android:id="@+id/listView_forum"
         android:layout_width="403dp"
-        android:layout_height="364dp"
+        android:layout_height="0dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/button10_forum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

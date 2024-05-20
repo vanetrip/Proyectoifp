@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,9 @@ public class HomeActivity extends AppCompatActivity {
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
+    private TextView textView5;
+    private Button button1;
+    private Button button2;
     private BasedeDatos basedeDatos;
     private int idUsuario; // Variable para almacenar el idUsuario
 
@@ -63,6 +67,10 @@ public class HomeActivity extends AppCompatActivity {
         image5 = (ImageView) findViewById(R.id.imageView5_home);
         textView4 = (TextView) findViewById(R.id.textView4_home);
 
+        textView5 = (TextView) findViewById(R.id.textView_cerrarsesion);
+        button1 = (Button) findViewById(R.id.button1_home);
+        button2 = (Button) findViewById(R.id.button30_home);
+
         image10 = findViewById(R.id.imageView10_Home);
         image11 = findViewById(R.id.imageView11_home);
         image12 = findViewById(R.id.imageView12_home);
@@ -75,11 +83,19 @@ public class HomeActivity extends AppCompatActivity {
 
         basedeDatos = new BasedeDatos(this);
 
-
         // Obtener el idUsuario del Intent que inició esta actividad
         Intent intent = getIntent();
         idUsuario = intent.getIntExtra("idUsuario", -1); // -1 es un valor predeterminado en caso de que no se encuentre el extra
         System.out.println("idUsuario " + idUsuario);
+
+        textView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, SignInActivity.class);
+                intent.putExtra("idUsuario", -1);
+                startActivity(intent);
+            }
+        });
 
         // MÉTODO ABRIR FAVS
         View.OnClickListener openFavoritos = new View.OnClickListener() {
