@@ -22,8 +22,8 @@
             android:layout_gravity="center|left"
             app:srcCompat="@drawable/logo_transparente" />
 
-        <TextView
-            android:id="@+id/textView1_forum"
+        <EditText
+            android:id="@+id/editText1_forum_buscador"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
@@ -37,7 +37,8 @@
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
-            android:textColor="#A5A4A4" />
+            android:textColor="#A5A4A4"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView2_forum"
@@ -117,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/quicksand_medium"
-                android:text="Calendario"
+                android:text="Eventos"
                 android:textAlignment="center"
                 android:textColor="#F3EDE0" />
 
@@ -253,7 +254,7 @@
         android:layout_marginEnd="100dp"
         android:backgroundTint="#6D8B89"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Crear nuevo tema"
+        android:text="Crear nuevo foro"
         android:textColor="#F8F8F8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

@@ -60,13 +60,13 @@
             android:name=".Controller.NewEventActivity"
             android:exported="false" />
         <activity
-            android:name=".Controller.NewThemeActivity"
+            android:name=".Controller.NewForumActivity"
             android:exported="false" />
         <activity
             android:name=".Controller.FavoritosActivity"
             android:exported="false" />
         <activity
-            android:name=".Controller.Forum"
+            android:name=".Controller.ForumActivity"
             android:exported="false" />
 
         <activity

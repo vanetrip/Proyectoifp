@@ -1,5 +1,6 @@
 package com.example.storyshareapp.Persistencia;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -667,5 +668,32 @@ public class BasedeDatos extends SQLiteOpenHelper {
         }
         cursor.close();
         return evento;
+    }
+    public List<Foro> obtenerForos() {
+        List<Foro> foros = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Foros", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                @SuppressLint("Range") int creadorId = cursor.getInt(cursor.getColumnIndex("creador_id"));
+                @SuppressLint("Range") int idLibro = cursor.getInt(cursor.getColumnIndex("id_libro"));
+                @SuppressLint("Range") String fechaStr = cursor.getString(cursor.getColumnIndex("fecha_creacion"));
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date fechaCreacion = null;
+                try {
+                    fechaCreacion = dateFormat.parse(fechaStr);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Foro foro = new Foro(id, nombre, creadorId, idLibro, fechaCreacion);
+                foros.add(foro);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return foros;
     }
 }
